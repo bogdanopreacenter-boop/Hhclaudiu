@@ -235,6 +235,20 @@ export default async function handler(req, res) {
       return res.status(200).json({ ok: true });
     }
 
+
+    // partenerul isi sterge un eveniment
+    if (req.method === 'POST' && req.query && req.query.delevent) {
+      const b = await bookRead();
+      const p = (b.partners || []).filter(function (x) { return x.id === String(req.query.id || ''); })[0];
+      if (!p) return res.status(404).json({ error: 'inexistent' });
+      if (p.off) return res.status(403).json({ error: 'dezactivat' });
+      if (String(req.query.pw || '') !== p.pw) return res.status(401).json({ error: 'parola gresita' });
+      const evId = String(req.query.ev || '');
+      b.events = (b.events || []).filter(function (e) { return !(e.id === evId && e.pid === p.id); });
+      await bookWrite(b);
+      return res.status(200).json({ ok: true });
+    }
+
     // registrul complet: cere cheia proprietarului
     if (req.query && req.query.book) {
       if (String(req.query.k || '') !== OWNER) return res.status(401).json({ error: 'cheie gresita' });
@@ -280,4 +294,4 @@ export default async function handler(req, res) {
   } catch (e) {
     return res.status(500).json({ error: String((e && e.message) || e) });
   }
-}
+        }
