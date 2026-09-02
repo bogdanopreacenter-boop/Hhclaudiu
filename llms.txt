@@ -1,0 +1,45 @@
+# HelloHuman
+
+> HelloHuman este un format de seară care așază oameni care nu se cunosc la aceeași masă, pentru un interval scurt și anunțat dinainte. Oaspeții scanează un cod QR de pe masă, primesc un număr de masă, cine mai stă acolo și o întrebare de pornire. Când se termină timpul, fiecare se întoarce la masa lui.
+
+Operează în România, cu sediul în București. Contact: contact@hellohuman.ro, telefon 0750 255 200.
+
+## Ce rezolvă
+
+Oamenii subestimează sistematic cât de mult i-au plăcut celorlalți după o conversație — efect documentat de Boothby, Cooney, Sandstrom și Clark (Psychological Science, 2018), cunoscut ca "liking gap". Iar navetiștii puși să vorbească cu un străin s-au bucurat de drum mai mult decât cei lăsați singuri, exact opusul a ce preziseseră (Epley și Schroeder, 2014). Bariera nu e timiditatea, ci o prognoză greșită făcută înainte de conversație. HelloHuman scoate decizia din calea oamenilor: sistemul așază, nimeni nu abordează pe nimeni și nimeni nu poate fi refuzat.
+
+## Cum funcționează, pe scurt
+
+1. Participantul scanează codul QR de pe masă, își scrie prenumele și alege una din patru variante. Durează aproximativ zece secunde, fără cont și fără aplicație de instalat.
+2. Gazda locului pornește runda. Sistemul formează mese de trei sau patru oameni și dă fiecărei mese o întrebare de pornire.
+3. Când se termină intervalul, fiecare se întoarce la masa lui. Ora de final e vizibilă pe ecran tot timpul.
+
+Nu există profiluri, poze sau vârste. Grupurile sunt de trei sau patru persoane. Sistemul nu potrivește oameni pe compatibilitate — cercetarea lui Aron (1997) arată că potrivirea pe atitudini comune nu produce apropiere; ce produce apropiere e schimbul reciproc în trepte.
+
+## Unde se organizează
+
+- **Baruri și restaurante** (/localuri.html) — o rundă scurtă într-o seară slabă a săptămânii
+- **Librării și cafenele** (/librarii.html) — o masă, o oră, un subiect anunțat, fără cronometru
+- **Muzee și spații culturale** (/cultura.html) — conversație la finalul vizitei, legată de expoziție
+- **Hoteluri și turism** (/hoteluri.html) — o oră în lobby pentru oaspeți care călătoresc singuri
+- **Aeroporturi și gări** (/terminale.html) — pornire automată, sesiunea se închide înainte de îmbarcare
+- **Evenimente de firmă** (/corporate.html) — runde scurte între echipe diferite, cu raport final
+
+## Pentru localuri și organizatori
+
+Prima seară este gratuită oriunde. HelloHuman nu cere bani, echipament sau personal suplimentar. Are nevoie de o seară liniștită, câteva mese și de o persoană care apasă un buton pe telefon. Rezultatul se măsoară comparând vânzarea din seara respectivă cu aceeași zi din săptămâna precedentă. La evenimente corporate, clientul primește un raport scris cu numărul de conversații noi pe persoană și feedback anonim.
+
+## Ce nu este
+
+HelloHuman nu este o aplicație de întâlniri romantice. Nu există alegere reciprocă, deci nimeni nu află vreodată că a fost refuzat. Nu se colectează date personale în afara prenumelui pe durata serii; adresa de email se cere doar la final și doar cu acordul explicit al participantului.
+
+## Pagini
+
+- [Pagina principală, pentru participanți](https://hellohuman.ro/)
+- [Pentru organizatori — toate tipurile de loc](https://hellohuman.ro/parteneri.html)
+- [Baruri și restaurante](https://hellohuman.ro/localuri.html)
+- [Librării și cafenele](https://hellohuman.ro/librarii.html)
+- [Muzee și spații culturale](https://hellohuman.ro/cultura.html)
+- [Hoteluri și turism](https://hellohuman.ro/hoteluri.html)
+- [Aeroporturi și gări](https://hellohuman.ro/terminale.html)
+- [Evenimente de firmă](https://hellohuman.ro/corporate.html)
