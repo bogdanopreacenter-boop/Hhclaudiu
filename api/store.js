@@ -172,13 +172,13 @@ async function diag() {
 // Adaugarea unui email nu o cere — dar nici nu intoarce nimic din registru.
 
 async function bookRead() {
-  if (!useUpstash) throw new Error('registrul are nevoie de Upstash; adauga-l in Vercel');
+  if (!upstash.ready()) throw new Error('registrul are nevoie de Upstash; adauga-l in Vercel');
   const v = await upstash.cmd(['GET', BOOK_KEY]);
   if (v === null || v === undefined) return { partners: [], events: [], leads: [] };
   return JSON.parse(v);
 }
 async function bookWrite(data) {
-  if (!useUpstash) throw new Error('registrul are nevoie de Upstash; adauga-l in Vercel');
+  if (!upstash.ready()) throw new Error('registrul are nevoie de Upstash; adauga-l in Vercel');
   await upstash.cmd(['SET', BOOK_KEY, JSON.stringify(data)]);
   return true;
 }
@@ -280,4 +280,4 @@ export default async function handler(req, res) {
   } catch (e) {
     return res.status(500).json({ error: String((e && e.message) || e) });
   }
-}
+    }
