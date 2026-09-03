@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Conversații pentru aeroporturi și gări — HelloHuman</title>
-<meta name="description" content="Pasagerii spun când se îmbarcă. Sistemul îi așază doar cu oameni ale căror așteptări se suprapun și închide sesiunea cu douăzeci de minute înainte de prima plecare. Fără personal și fără echipament.">
+<meta name="description" content="Pasagerii spun când se îmbarcă, iar sistemul îi așază doar cu oameni ale căror așteptări se suprapun. Sesiunea se închide cu douăzeci de minute înainte de prima plecare. Fără personal și fără echipament.">
 <link rel="canonical" href="https://hellohuman.ro/terminale.html">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#16302B">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="HelloHuman">
 <meta property="og:url" content="https://hellohuman.ro/terminale.html">
 <meta property="og:title" content="Conversații pentru aeroporturi și gări — HelloHuman">
-<meta property="og:description" content="Pasagerii spun când se îmbarcă. Sistemul îi așază doar cu oameni ale căror așteptări se suprapun și închide sesiunea cu douăzeci de minute înainte de prima plecare. Fără personal și fără echipament.">
+<meta property="og:description" content="Pasagerii spun când se îmbarcă, iar sistemul îi așază doar cu oameni ale căror așteptări se suprapun. Sesiunea se închide cu douăzeci de minute înainte de prima plecare. Fără personal și fără echipament.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,16 +30,16 @@
    "url": "https://hellohuman.ro/",
    "email": "contact@hellohuman.ro",
    "telephone": "+40750255200",
+   "description": "HelloHuman organizează seri în care oameni care nu se cunosc stau câteva minute la aceeași masă, într-un local unde sunt deja prezenți.",
    "areaServed": {
     "@type": "Country",
     "name": "România"
-   },
-   "sameAs": []
+   }
   },
   {
    "@type": "Service",
    "name": "Conversații pentru terminale de călători",
-   "description": "Pasagerii spun când se îmbarcă. Sistemul îi așază doar cu oameni ale căror așteptări se suprapun și închide sesiunea cu douăzeci de minute înainte de prima plecare. Fără personal și fără echipament.",
+   "description": "Pasagerii spun când se îmbarcă, iar sistemul îi așază doar cu oameni ale căror așteptări se suprapun. Sesiunea se închide cu douăzeci de minute înainte de prima plecare. Fără personal și fără echipament.",
    "provider": {
     "@id": "https://hellohuman.ro/#org"
    },
@@ -55,7 +55,7 @@
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "RON",
-    "description": "Prima seară este gratuită."
+    "description": "Prima seară este gratuită pentru local."
    }
   },
   {
@@ -86,23 +86,23 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "Cine se ocupă?",
+     "name": "Cine se ocupă din partea terminalului?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Nimeni. Nu există gazdă și nici anunțuri. Sistemul pornește singur când sunt destui oameni cu așteptări care se suprapun."
+      "text": "Nimeni. Nu există gazdă și nu se fac anunțuri. Sistemul pornește singur când sunt destui oameni cu așteptări care se suprapun."
      }
     },
     {
      "@type": "Question",
-     "name": "Ce se întâmplă dacă cineva are zbor peste douăzeci de minute?",
+     "name": "Ce se întâmplă dacă cineva are zborul peste douăzeci de minute?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Nu e inclus. Sistemul îi așază doar pe cei care au minimum treizeci de minute comune și oprește sesiunea cu douăzeci de minute înainte de prima îmbarcare."
+      "text": "Nu e inclus. Sistemul așază doar oameni care au minimum treizeci de minute comune și oprește sesiunea cu douăzeci de minute înainte de prima îmbarcare."
      }
     },
     {
      "@type": "Question",
-     "name": "Unde se pune, concret?",
+     "name": "Unde se pune concret?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "În cafenele, lounge-uri și zone de așteptare. Funcționează la fel în gări, terminale de autocar și holuri de hotel."
@@ -113,7 +113,7 @@
      "name": "Ce echipament trebuie montat?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Niciunul. Un cod QR printat pe mese, atât."
+      "text": "Niciunul. Un cod QR printat pe mese, atât. Pasagerii folosesc telefoanele lor."
      }
     }
    ]
@@ -135,14 +135,21 @@
   </div>
 </header>
 
+<div style="background:var(--pine2);border-bottom:1px solid var(--line);padding:11px 0;font-size:14px">
+  <div class="wrap" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+    <span style="color:var(--mist)">Pagina asta e pentru cine organizează. Cauți o seară la care să participi?</span>
+    <a href="/" style="color:var(--gold);font-weight:700;text-decoration:none;border-bottom:1px solid var(--gold)">Mergi la pagina pentru participanți</a>
+  </div>
+</div>
+
 <main>
   <section class="hero">
     <div class="wrap">
       <div>
-        <a class="back" href="/parteneri.html">← Toate locurile</a>
+        <a class="back" href="/parteneri.html">← Toate tipurile de loc</a>
         <p class="eyebrow">Aeroporturi și gări</p>
         <h1>Patruzeci de minute<br>care oricum<br>se pierdeau.</h1>
-        <p class="lead">Pasagerii ne spun când se îmbarcă. Așezăm doar oameni ale căror așteptări se suprapun, iar sesiunea se închide înainte de prima plecare. Nimeni nu pierde nimic și nimeni nu trebuie să inventeze o scuză ca să plece.</p>
+        <p class="lead">HelloHuman pentru terminale pornește singur, fără gazdă și fără anunțuri. Pasagerii spun când se îmbarcă, iar sistemul îi așază doar cu oameni ale căror așteptări se suprapun. Sesiunea se închide cu douăzeci de minute înainte de prima plecare, deci nimeni nu riscă nimic și nimeni nu trebuie să inventeze o scuză.</p>
         <div class="cta">
           <a class="btn" href="mailto:contact@hellohuman.ro?subject=HelloHuman%20—%20terminale">Vorbește despre terminalul tău</a>
           <a class="btn ghost" href="tel:+40750255200">0750 255 200</a>
@@ -167,12 +174,12 @@
       <div>
         <p class="eyebrow">Ce e diferit aici</p>
         <h2>Merge singur,<br>fără personal.</h2>
-        <p class="lead" style="margin-top:16px">Fără gazdă și fără anunțuri. Pornește de la sine când sunt trei oameni care așteaptă în același interval. Sub trei, nu se întâmplă nimic și nimeni nu află nimic — o masă goală e mai rea decât nicio masă.</p>
+        <p class="lead" style="margin-top:16px">Nu există gazdă și nu se fac anunțuri. Sistemul pornește de la sine când sunt trei oameni care așteaptă în același interval. Sub trei nu se întâmplă nimic și nimeni nu află nimic — o masă goală e mai rea decât nicio masă.</p>
       </div>
       <div>
-        <div class="note" style="margin-top:0"><b>Ieșirea e garantată</b>Sesiunea se închide cu douăzeci de minute înainte de îmbarcarea celui mai grăbit. Nimeni nu rămâne blocat într-o conversație.</div>
-        <div class="note"><b>Fără echipament</b>Un cod pe masă. Nimic de instalat, de alimentat sau de întreținut.</div>
-        <div class="note"><b>Plătesc pasagerii</b>Oamenii plătesc deja pentru o așteptare mai bună. Asta e același lucru, mai ieftin, și cu oameni în el.</div>
+        <div class="note" style="margin-top:0"><b>Ieșirea e garantată</b>Sesiunea se închide cu douăzeci de minute înainte de îmbarcarea celui mai grăbit. Ora e cunoscută de toți înainte să se așeze.</div>
+        <div class="note"><b>Fără echipament</b>Un cod QR printat pe masă. Nimic de instalat, de alimentat sau de întreținut.</div>
+        <div class="note"><b>Plătesc pasagerii</b>Oamenii plătesc deja pentru o așteptare mai bună, prin lounge-uri. Aici e același lucru, mai ieftin, și cu oameni în el.</div>
       </div>
     </div>
   </section>
@@ -181,26 +188,26 @@
     <div class="wrap">
       <p class="eyebrow">De ce funcționează într-un terminal</p>
       <h2>Frica pasagerului nu e<br>că nu-i place omul.<br>E că nu poate pleca.</h2>
-      <p class="lead" style="margin-top:18px">Într-un bar, clientul se întoarce la masa lui. Într-un terminal rămâne în aceeași sală, uneori o oră după ce conversația s-a încheiat. De-aia singurul lucru pe care sistemul îl garantează aici e ieșirea, iar ora ei e cunoscută de toți înainte să se așeze.</p>
+      <p class="lead" style="margin-top:18px">Într-un bar, clientul se întoarce la masa lui. Într-un terminal rămâne în aceeași sală, uneori o oră după ce conversația s-a încheiat. De aceea singurul lucru pe care sistemul îl garantează aici e ieșirea. Studiul lui Epley și Schroeder din 2014 arată că navetiștii puși să vorbească cu un străin s-au bucurat de drum mai mult decât cei lăsați singuri — deși preziseseră contrariul. Bariera nu e dorința, e prognoza.</p>
     </div>
   </section>
   <section id="intrebari">
     <div class="wrap">
-      <p class="eyebrow">Ce ne întrebi</p>
-      <h2>Întrebările care vin<br>de fiecare dată.</h2>
+      <p class="eyebrow">Ce ne întreabă operatorii</p>
+      <h2>Patru întrebări,<br>de fiecare dată.</h2>
       <div class="ctx">
-        <div class="ctxrow"><h3>Cine se ocupă?</h3><p>Nimeni. Nu există gazdă și nici anunțuri. Sistemul pornește singur când sunt destui oameni cu așteptări care se suprapun.</p></div>
-        <div class="ctxrow"><h3>Ce se întâmplă dacă cineva are zbor peste douăzeci de minute?</h3><p>Nu e inclus. Sistemul îi așază doar pe cei care au minimum treizeci de minute comune și oprește sesiunea cu douăzeci de minute înainte de prima îmbarcare.</p></div>
-        <div class="ctxrow"><h3>Unde se pune, concret?</h3><p>În cafenele, lounge-uri și zone de așteptare. Funcționează la fel în gări, terminale de autocar și holuri de hotel.</p></div>
-        <div class="ctxrow"><h3>Ce echipament trebuie montat?</h3><p>Niciunul. Un cod QR printat pe mese, atât.</p></div>
+        <div class="ctxrow"><h3>Cine se ocupă din partea terminalului?</h3><p>Nimeni. Nu există gazdă și nu se fac anunțuri. Sistemul pornește singur când sunt destui oameni cu așteptări care se suprapun.</p></div>
+        <div class="ctxrow"><h3>Ce se întâmplă dacă cineva are zborul peste douăzeci de minute?</h3><p>Nu e inclus. Sistemul așază doar oameni care au minimum treizeci de minute comune și oprește sesiunea cu douăzeci de minute înainte de prima îmbarcare.</p></div>
+        <div class="ctxrow"><h3>Unde se pune concret?</h3><p>În cafenele, lounge-uri și zone de așteptare. Funcționează la fel în gări, terminale de autocar și holuri de hotel.</p></div>
+        <div class="ctxrow"><h3>Ce echipament trebuie montat?</h3><p>Niciunul. Un cod QR printat pe mese, atât. Pasagerii folosesc telefoanele lor.</p></div>
       </div>
     </div>
   </section>
   <section class="paper">
     <div class="wrap" style="text-align:center">
-      <p class="eyebrow">O seară e de ajuns ca să afli</p>
-      <h2>Dă-ne cea mai liniștită<br>seară pe care o ai.</h2>
-      <p class="lead" style="margin:18px auto 30px">Fără cost, fără echipament, fără angajament. Dacă nu merge, ne oprim și nu mai auzi de noi.</p>
+      <p class="eyebrow">Prima seară e gratuită</p>
+      <h2>Un cod pe masă,<br>nimic altceva.</h2>
+      <p class="lead" style="margin:18px auto 30px">Fără instalare, fără întreținere, fără personal. Discutăm de la o singură zonă de așteptare.</p>
       <div class="cta" style="justify-content:center">
         <a class="btn" href="mailto:contact@hellohuman.ro?subject=HelloHuman%20—%20terminale">contact@hellohuman.ro</a>
         <a class="btn ghost" href="tel:+40750255200">0750 255 200</a>
@@ -214,8 +221,7 @@
   <div class="wrap">
     <div>
       <p class="logo" style="font-size:24px">Hello<span>Human</span></p>
-      <p class="sm" style="margin-top:10px;max-width:34ch">Un format de seară pentru localuri, librării, spații culturale, hoteluri, terminale și evenimente de firmă.</p>
-      <p class="sm" style="margin-top:12px">București și restul țării</p>
+      <p class="sm" style="margin-top:10px;max-width:36ch">HelloHuman organizează seri în care oameni care nu se cunosc stau câteva minute la aceeași masă. Funcționează în baruri, librării, muzee, hoteluri, terminale de călători și la evenimente de firmă, în București și în restul României.</p>
     </div>
     <div class="col">
       <h4>Locuri</h4>

@@ -38,6 +38,7 @@ Totul trece prin `index.html`. Ce apare depinde de ce e scris după diez în adr
 | `hellohuman.ro/#p=ID` | Partenerul | Doar evenimentele lui. Nu vede alți parteneri și nici emailurile. |
 | `hellohuman.ro/#m=ID` | Gazda serii | Panoul de moderator al unui singur eveniment |
 | `hellohuman.ro/#e=ID` | Participantul | Înscrierea. Aici duce codul QR. |
+| `hellohuman.ro/#c` | Clientul agenției | Chestionarul de șapte pași, doar pentru evenimente de firmă |
 
 Adresa `#org` nu apare nicăieri pe site. O știi doar tu.
 
@@ -94,6 +95,16 @@ Adresele canonice și datele structurate conțin `hellohuman.ro`. Dacă foloseș
 
 ---
 
+## De ce nu se pierd înscrierile
+
+Fiecare participant are propriul lui câmp în baza de date. Când se înscrie, atinge doar câmpul lui — nu poate suprascrie pe nimeni, oricâți ar fi simultan. Același lucru pentru ieșirea din coadă, voturi și emailuri.
+
+Runda o scrie doar gazda, deci acolo nu există concurență. Cine se înscrie chiar în secunda în care ea apasă butonul rămâne în coadă pentru runda următoare.
+
+Verificat prin simulare: o sută de înscrieri simultane, zero pierderi.
+
+---
+
 ## Cum funcționează formarea meselor
 
 Sistemul **nu potrivește oameni pe compatibilitate**. Studiul lui Aron (1997) a testat exact asta și nu a găsit niciun efect asupra apropierii.
@@ -108,7 +119,8 @@ Cine alege *rămânem aici* între runde își păstrează masa intactă la rund
 
 ## Ce nu e făcut încă
 
-- Chestionarul pentru clienții agențiilor, ca pagină separată
+- Vibrația și sunetul pe telefon când începe și se termină runda
+- Dezvăluirea reciprocă la finalul serii, când doi oameni vor amândoi să continue
 - Registrul e vizibil doar cu parola, nu are conturi separate pe echipă
 - Codul QR depinde de o bibliotecă externă, deci are nevoie de internet
 
