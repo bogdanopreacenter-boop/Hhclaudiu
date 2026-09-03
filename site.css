@@ -250,3 +250,8 @@ input.big:focus{border-bottom-color:var(--gold)}
 
 .sig .msg2{font-size:16px;line-height:1.6;max-width:44ch;margin:14px auto 0}
 .sig .msg2.ok{color:#2E6B3E;font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em}
+
+.prow.tap{cursor:pointer;transition:background .12s}
+.prow.tap:hover{background:rgba(240,235,224,.05)}
+.li.tap{cursor:pointer}
+.li.tap:hover{color:var(--gold)}

@@ -472,12 +472,73 @@
   </div>
 </section>
 
+<section class="sc" id="sPSheet">
+  <a class="back" href="#" id="bPS0">← <span data-t="ownTabPt">Parteneri</span></a>
+  <p class="eyebrow" id="psKind">—</p>
+  <h2 id="psName">—</h2>
+  <p class="sub2" id="psWhere" style="margin-top:6px"></p>
+
+  <div class="stats" style="margin-top:18px">
+    <div class="st"><div class="n" id="psEv">0</div><div class="t" data-t="prEvents">seri</div></div>
+    <div class="st"><div class="n" id="psPe">0</div><div class="t" data-t="prPeople">oameni</div></div>
+    <div class="st"><div class="n" id="psMa">0</div><div class="t" data-t="prMails">contacte</div></div>
+  </div>
+
+  <label class="lb" data-t="psAccess">Accesul lui</label>
+  <div class="link" id="psLink"></div>
+  <div class="link" id="psPw" style="font-family:var(--disp);font-size:20px;font-weight:700"></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+    <button class="btn ghost small" id="bPsSend" data-t="apSend">Trimite</button>
+    <button class="btn ghost small" id="bPsCopy" data-t="apCopy">Copiază</button>
+  </div>
+
+  <label class="lb" for="psNote" data-t="psNotes">Notițele tale</label>
+  <textarea id="psNote" rows="4" placeholder="cu cine ai vorbit, ce ați stabilit, când reveniți" data-tp="psNotePh"></textarea>
+  <button class="btn ghost small" id="bPsSave" style="margin-top:9px" data-t="psSave">Salvează notițele</button>
+
+  <label class="lb" data-t="psEvents">Serile lui</label>
+  <div class="list" id="psList" style="max-height:none"></div>
+  <p class="msg2" id="mPs"></p>
+
+  <div class="push">
+    <button class="btn ghost wide" id="bPsOff" data-t="ownOff">Dezactivează</button>
+    <button class="btn ghost wide" id="bPsDel" style="border-color:rgba(196,85,47,.5);color:#E89078" data-t="psDelete">Șterge partenerul</button>
+  </div>
+</section>
+
+<section class="sc" id="sESheet">
+  <a class="back" href="#" id="bES0">← <span data-t="ownTabEv">Evenimente</span></a>
+  <p class="eyebrow" id="esWho">—</p>
+  <h2 id="esName">—</h2>
+  <p class="sub2" id="esWhen" style="margin-top:6px"></p>
+  <div class="note" id="esState" style="margin-top:14px"></div>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+    <button class="btn ghost small" id="bEsQr" data-t="prCode">Codul pentru oameni</button>
+    <button class="btn ghost small" id="bEsHost" data-t="prHostLink">Link de gazdă</button>
+    <button class="btn ghost small" id="bEsStop" data-t="evStop">Oprește runda</button>
+  </div>
+
+  <label class="lb" data-t="esWho2">Cine a fost în sală</label>
+  <div class="list" id="esPeople" style="max-height:none"></div>
+
+  <label class="lb" data-t="esMails">Emailuri lăsate aici</label>
+  <div class="list" id="esMails" style="max-height:none"></div>
+  <p class="msg2" id="mEs"></p>
+
+  <div class="push">
+    <button class="btn ghost wide" id="bEsDel" style="border-color:rgba(196,85,47,.5);color:#E89078" data-t="esDelete">Șterge evenimentul</button>
+  </div>
+</section>
+
 <section class="sc" id="sNewP">
   <p class="eyebrow" data-t="ownEye">Proprietar</p>
   <h2 data-t="npH">Un partener nou</h2>
   <p class="sub2" style="margin-top:8px" data-t="npP">Primește panoul lui și poate face oricâte seri vrea — dar numai în formatul pe care îl alegi tu aici.</p>
   <label class="lb" for="npName" data-t="npName">Cine e</label>
   <input type="text" id="npName" maxlength="46" placeholder="Barul Vechi">
+  <label class="lb" for="npCity" data-t="npCity">În ce oraș</label>
+  <input type="text" id="npCity" maxlength="30" placeholder="București">
   <label class="lb" data-t="npProf">Ce fel de loc</label>
   <div class="opts" id="npProf"></div>
   <p class="note" id="npNote"></p>
@@ -768,7 +829,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 /* =============== translations =============== */
-var T={en:{loEmpty:'No contacts yet. They appear here when someone leaves their email on the front page.',loNone:'Nothing matches.',loSearchPh:'search by email or city',loP:'People who asked to be told. The cities tell you where it is worth opening next.',ownTabLo:'Contacts',ownTabPt:'Partners',ownTabEv:'Events',prWay2p:'If you already know what the client wants, go straight to preparing the evening.',prWay2:'2. Or set it up yourself',prWay1p:'Seven short questions about their teams and what they want out of it. They send you back a code, you paste it, and the event builds itself. Recommended.',prWay1:'1. Send your client the questionnaire',prFixed:'set by the organiser',prHow:'How to set up an evening',gdpr:'We use your address only to tell you about evenings in your city. We never share or sell it. You can unsubscribe in one click from any message, and on request we delete everything we hold about you. Write to contact@hellohuman.ro. Data controller: HelloHuman, Bucharest, Romania.',apReady:'Everything else is already set',apLess:'Hide the details',apMore:'Adjust the details',evNoLive:'No round is running right now.',evLoading:'checking…',evHAgo:'{n} h ago',evMinAgo:'{n} min ago',evNow:'just now',evStop:'Stop the round',evRounds:'{n} rounds',evWaiting:'{n} waiting',evRunning:'Round running',ownLive:'running right now',ownOnlyLive:'Only what is running',ownRefresh:'Refresh',cSendMail:'Send by email',cSendWa:'Send the code on WhatsApp',ownEventsL:'Events',ownPartnersL:'Partners',evMine:'mine',evSure:'Sure?',evDel:'Delete',apTeamPh:'Operations',apFirstPh:'Andrew',c1ph2:'Company X',c1ph:'Kickoff 2026',qbSend:'Send to your client',apExit:'Sign out',qbLoad:'Create the event from the code',qbCode:'Code from your client',qbCopy:'Copy the link',qbNote:'<b>Questionnaire for your client</b>Send them the link below. They answer seven short questions and send you back a code, which you paste here.',cDoneN:'<b>What happens next</b>You get back a QR code for the guests. Print it and put it on the tables, or show it on screen.',cAgain:'Start again',cCopy:'Copy the code',cDoneP:'Send it to the organiser on WhatsApp or by email. It is not a link — it is a code they type in.',cDoneH:'Send this code.',cDoneEye:'Done',cGen:'Done, generate the code',c7a:'Or write your own, one per line',c7p:'The question appears on everyone’s phone at the table. Pick a set or write your own.',c7h:'What should they talk about?',c6p:'One tap when they join. This is what the tables are built from.',c6h:'What does each person pick?',c5chk:'Managers will be in the room with their own teams. Keep them off the same table.',c5o2:'I want people in similar roles to exchange experience',c5o1:'I want people from different teams to get to know each other',c5p:'This decides who sits with whom.',c5h:'What do you want out of it?',c4o4:'20 minutes — fewer rounds',c4o3:'15 minutes — deeper conversations',c4o2:'10 minutes — recommended',c4o1:'5 minutes — very brisk',c3a:'Number of tables',c2o4:'Over 100',c2o3:'Between 60 and 100',c2o2:'Between 30 and 60',c2o1:'Under 30 people',cNext:'Continue',c1b:'Company',c1a:'Event name',cStep7:'Step 7 of 7',cStep6:'Step 6 of 7',cStep5:'Step 5 of 7',cStep4:'Step 4 of 7',cStep3:'Step 3 of 7',cStep2:'Step 2 of 7',cStep:'Step 1 of 7',pFootWhere:'In short',pFootWhere:'Where it happens',sigInt:'What kind of evenings would interest you? Pick as many as you like.',sigMail:'you@email.com',pNav0:'How it works',pNav2:'Questions',pNav1:'Where',pFootPart:'Do you run a venue or organise events?',pFootTag:'HelloHuman runs evenings where people who do not know each other spend a few minutes at the same table, in places where they already are.',pf5a:'Nothing to install. It opens in your phone browser when you scan the code. We use only your first name, for the length of the evening. Email is left at the end, and only if you want to hear about the next one.',pf5q:'What do I install, and what happens to my data?',pf4a:'Yes. One of you makes a three-digit code, the other types it in, and you sit at the same table. You go through it together, with new people around. And the round takes minutes, not your evening.',pf4q:'Can I come with friends?',pf3a:'The format was built for exactly that. One of the four options says you would rather listen, and the system never seats three listeners at one table. And the question everyone gets on their phone removes the opening silence, which is the hardest part.',pf3q:'What if I am introverted and do not know what to say?',pf2a:'No. Tables are three or four people, there are no photos, profiles or ages, and there is no swiping. Nobody chooses anybody — which is why nobody can be turned down and nobody ever learns they were.',pf2q:'Is HelloHuman a dating app?',pf1a:'An evening format that runs in places where people already are: bars, restaurants, bookshops, cafés, museums, hotels. You scan a code on the table and spend a few announced minutes with two or three people you do not know. It is not an app and it does not work online.',pf1q:'What is HelloHuman?',pFaqH:'Questions and answers.',pFaqEye:'What you should know',pNextP:'You cannot join from here. You join by scanning the code on the table, in the place where the evening is held. Tell us which city you are in and we will write when one happens near you.',pNextH:'In bars, bookshops,<br>museums and hotels.',pNextEye:'Where it happens',ps3p:'You never get stuck. The end time stays on your screen. When it rings, you say thanks and go back to your own table.',ps3h:'You are always in control',ps2p:'Nobody chooses anybody, so there is no rejection. The system seats you with people who came with the same openness, and everyone gets the same opening question on their phone.',ps2h:'You get the context, not the task',ps1p:'Type your first name and tell us what you feel like today — maybe just listening, which is an equally good answer. Under ten seconds, no account, nothing to install.',ps1h:'You scan and relax',pStepsP:'The hard part is not the conversation. It is deciding to get up and approach someone. We take that risk, through a setup where nobody asks anybody for anything.',pStepsH:'We take the first step<br>for you.',pStepsEye:'Three steps, no social anxiety',pCardCap:'This is what lands on your phone',pB2:'Common questions',pB1:'Where we meet',pP:'HelloHuman is an evening that runs inside the bar, bookshop or hotel you are already in. You scan the code on your table, get a table with two or three people you do not know and a subject to start from. When the announced time is up, you go back to your own.',pH:'Meet a few people.<br>No pressure, right<br>where you are.',pEye:'It happens where you already are',nav4:'Questions',f4a:'Your sales on the night against the same weekday before. For company events, a written report with new conversations per person and anonymous feedback.',f4q:'How do I know it worked?',f3a:'No. Groups of three or four, no profiles, no photos, no ages. Nobody chooses anybody, so nobody is ever turned down.',f3q:'Is this a dating thing?',f2a:'Three tables, one short round, once in the evening. Guests keep their own table and go straight back to it. Nobody is approached and nobody is announced by name.',f2q:'Will it disturb my other guests?',f1a:'Nothing. No equipment, no installation, no fee. We need a slow evening, a few tables and one person who presses a button. The first evening is always free.',f1q:'What does it cost me?',faqH:'The four questions<br>we always get.',faqEye:'What venues ask us',cardCap:'What your guests see on their phone',footWhere:'Bucharest and the rest of Romania. First evening always free.',prHostLink:'Host link',prCode:'Guest code',ownNever:'never',ownLast:'last',prNoE:'No evenings yet.',ownNoP:'No partners yet.',ownOn:'Turn back on',ownOff:'Turn off',sigC:'I agree to receive emails about HelloHuman evenings in my city.',sigB:'Keep me posted',sigCity:'Your city',sigP:'We\'ll write when there\'s an evening near you. Nothing else.',sigH:'Or just tell us where you are.',mlCopy:'Copy all addresses',mlP:'Everyone who asked to be told about the next one.',prNew:'Set up an evening',prMails:'emails',prPeople:'people',prEvents:'evenings',prEye:'Your panel',npSend:'Send them this',npCreate:'Create the access',npPw:'Their password',npProf:'What kind of place',npName:'Who are they',npP:'They get their own panel and can run as many evenings as they like — but only in the format you choose here.',npH:'A new partner',ownSeeMails:'See the emails',ownNew:'Add a partner',ownMails:'contacts',ownEvents:'events',ownPartners:'partners',ownP:'Everything created under your account. Nobody else sees this.',ownH:'Your partners',ownEye:'Owner',apAtTable:'At the table',apTheme:'Tonight\'s subject',apEdition:'Edition',apOpen:'Open the table',apFlightN:'We only seat you with people whose wait overlaps yours, and we finish before your gate closes.',apFlight:'When do you board?',ctaB:'contact@hellohuman.ro',ctaP:'No cost, no equipment, no commitment. If it does not work, you never hear from us again.',ctaH:'Give us the quietest<br>night you have.',ctaEye:'One evening is enough to find out',whyEnd:'So why do we hesitate? Because of what we might call forecast anxiety: the fear forms before the conversation, and the correction only arrives once it is over. The gap between the two is exactly where HelloHuman works.',wn3p:'Participants, rounds, new conversations per person, and anonymous feedback. Something to show, not a feeling.',wn3t:'A report you can forward',wn2p:'You tell us what the company needs and we write the questions around it. It stays your event.',wn2t:'Written for the client',wn1p:'The system seats people, so no junior has to walk up to a director and no director has to make the first move.',wn1t:'Nobody had to dare',wkB:'Request a demonstration',wkP:'Everyone talks to people from other teams, in short rounds, without repeating anyone. At the end the client gets a report with how many new conversations happened and how many people found them useful.',wkH:'One hour.<br>Eight conversations<br>each.',wkEye:'Company events and agencies',tn3p:'People already pay for a better wait. This is the same thing, cheaper, and it involves other people.',tn3t:'Passengers pay',tn2p:'Below three people nothing happens and nobody is told anything. An empty table is worse than no table.',tn2t:'Nobody sits alone',tn1p:'No host, no announcements. It starts on its own when enough people are waiting.',tn1t:'Runs without staff',trB:'Talk about your terminal',trP:'Passengers tell us when they board. We only seat people whose waiting overlaps, and the session closes before the earliest departure. Nobody misses anything, and nobody has to invent an excuse to leave.',trH:'Forty minutes<br>that were going<br>to be wasted.',trEye:'Airports and stations',kn3p:'Forty people discussing a book for an hour beats a launch where thirty listen and leave.',kn3t:'Publishers pay for this',kn2p:'Week one is light on purpose. By the fourth edition the room can hold a conversation the first one could not.',kn2t:'The subject gets deeper',kn1p:'Nobody is moved anywhere. It is a table with a subject and someone who keeps it going.',kn1t:'No timers, no rounds',bkB:'Start a series',bkP:'One table, one hour, one subject announced in advance. Your staff hosts it. People come for the subject, stay for the room, and by the fourth week they are yours.',bkH:'The same faces,<br>every week.',bkEye:'Bookshops and cafés',bn3p:'Your sales on the night against the same day last week. If it does not go up, we stop.',bn3t:'You keep the numbers',bn2p:'Guests keep their table. They move for one short round and go straight back to their friends.',bn2t:'Ten minutes, not your evening',bn1p:'No equipment, no installation, no fee. We do not ask for money and we do not ask for staff.',bn1t:'Costs you nothing',barB:'Book a first night',barP:'People who move to another table order again and stay an hour longer. You give us a slow evening, three tables, and someone who presses one button. We bring the people.',barH:'A full room<br>on a Tuesday.',barEye:'Bars and restaurants',d4p:'An hour where nobody sits with their own department.',d4h:'Company events',d3p:'Turn dead waiting time into something people remember.',d3h:'Airports and stations',d2p:'Turn readers who come alone into a group that comes back.',d2h:'Bookshops and cafés',d1p:'Fill the night of the week you would rather not talk about.',d1h:'Bars and restaurants',dMore:'See how',whoH:'Where are your people<br>sitting right now?',whoEye:'Four kinds of place, four different reasons',
+var T={en:{loFromEv:'from',loFromSite:'from the site',evIdle:'No round running',esNoMail:'No email left here.',esNobody:'Nobody has joined yet.',esMet:'met',esDelete:'Delete this event',esMails:'Emails left here',esWho2:'Who was in the room',psNotePh:'who you spoke to, what you agreed, when you follow up',psSince:'since',psNoCity:'no city given',psOff:'(off)',psOpen:'open',psDelete:'Delete this partner',psEvents:'Their evenings',psSave:'Save the notes',psNotes:'Your notes',psAccess:'Their access',npCity:'Which city',loEmpty:'No contacts yet. They appear here when someone leaves their email on the front page.',loNone:'Nothing matches.',loSearchPh:'search by email or city',loP:'People who asked to be told. The cities tell you where it is worth opening next.',ownTabLo:'Contacts',ownTabPt:'Partners',ownTabEv:'Events',prWay2p:'If you already know what the client wants, go straight to preparing the evening.',prWay2:'2. Or set it up yourself',prWay1p:'Seven short questions about their teams and what they want out of it. They send you back a code, you paste it, and the event builds itself. Recommended.',prWay1:'1. Send your client the questionnaire',prFixed:'set by the organiser',prHow:'How to set up an evening',gdpr:'We use your address only to tell you about evenings in your city. We never share or sell it. You can unsubscribe in one click from any message, and on request we delete everything we hold about you. Write to contact@hellohuman.ro. Data controller: HelloHuman, Bucharest, Romania.',apReady:'Everything else is already set',apLess:'Hide the details',apMore:'Adjust the details',evNoLive:'No round is running right now.',evLoading:'checking…',evHAgo:'{n} h ago',evMinAgo:'{n} min ago',evNow:'just now',evStop:'Stop the round',evRounds:'{n} rounds',evWaiting:'{n} waiting',evRunning:'Round running',ownLive:'running right now',ownOnlyLive:'Only what is running',ownRefresh:'Refresh',cSendMail:'Send by email',cSendWa:'Send the code on WhatsApp',ownEventsL:'Events',ownPartnersL:'Partners',evMine:'mine',evSure:'Sure?',evDel:'Delete',apTeamPh:'Operations',apFirstPh:'Andrew',c1ph2:'Company X',c1ph:'Kickoff 2026',qbSend:'Send to your client',apExit:'Sign out',qbLoad:'Create the event from the code',qbCode:'Code from your client',qbCopy:'Copy the link',qbNote:'<b>Questionnaire for your client</b>Send them the link below. They answer seven short questions and send you back a code, which you paste here.',cDoneN:'<b>What happens next</b>You get back a QR code for the guests. Print it and put it on the tables, or show it on screen.',cAgain:'Start again',cCopy:'Copy the code',cDoneP:'Send it to the organiser on WhatsApp or by email. It is not a link — it is a code they type in.',cDoneH:'Send this code.',cDoneEye:'Done',cGen:'Done, generate the code',c7a:'Or write your own, one per line',c7p:'The question appears on everyone’s phone at the table. Pick a set or write your own.',c7h:'What should they talk about?',c6p:'One tap when they join. This is what the tables are built from.',c6h:'What does each person pick?',c5chk:'Managers will be in the room with their own teams. Keep them off the same table.',c5o2:'I want people in similar roles to exchange experience',c5o1:'I want people from different teams to get to know each other',c5p:'This decides who sits with whom.',c5h:'What do you want out of it?',c4o4:'20 minutes — fewer rounds',c4o3:'15 minutes — deeper conversations',c4o2:'10 minutes — recommended',c4o1:'5 minutes — very brisk',c3a:'Number of tables',c2o4:'Over 100',c2o3:'Between 60 and 100',c2o2:'Between 30 and 60',c2o1:'Under 30 people',cNext:'Continue',c1b:'Company',c1a:'Event name',cStep7:'Step 7 of 7',cStep6:'Step 6 of 7',cStep5:'Step 5 of 7',cStep4:'Step 4 of 7',cStep3:'Step 3 of 7',cStep2:'Step 2 of 7',cStep:'Step 1 of 7',pFootWhere:'In short',pFootWhere:'Where it happens',sigInt:'What kind of evenings would interest you? Pick as many as you like.',sigMail:'you@email.com',pNav0:'How it works',pNav2:'Questions',pNav1:'Where',pFootPart:'Do you run a venue or organise events?',pFootTag:'HelloHuman runs evenings where people who do not know each other spend a few minutes at the same table, in places where they already are.',pf5a:'Nothing to install. It opens in your phone browser when you scan the code. We use only your first name, for the length of the evening. Email is left at the end, and only if you want to hear about the next one.',pf5q:'What do I install, and what happens to my data?',pf4a:'Yes. One of you makes a three-digit code, the other types it in, and you sit at the same table. You go through it together, with new people around. And the round takes minutes, not your evening.',pf4q:'Can I come with friends?',pf3a:'The format was built for exactly that. One of the four options says you would rather listen, and the system never seats three listeners at one table. And the question everyone gets on their phone removes the opening silence, which is the hardest part.',pf3q:'What if I am introverted and do not know what to say?',pf2a:'No. Tables are three or four people, there are no photos, profiles or ages, and there is no swiping. Nobody chooses anybody — which is why nobody can be turned down and nobody ever learns they were.',pf2q:'Is HelloHuman a dating app?',pf1a:'An evening format that runs in places where people already are: bars, restaurants, bookshops, cafés, museums, hotels. You scan a code on the table and spend a few announced minutes with two or three people you do not know. It is not an app and it does not work online.',pf1q:'What is HelloHuman?',pFaqH:'Questions and answers.',pFaqEye:'What you should know',pNextP:'You cannot join from here. You join by scanning the code on the table, in the place where the evening is held. Tell us which city you are in and we will write when one happens near you.',pNextH:'In bars, bookshops,<br>museums and hotels.',pNextEye:'Where it happens',ps3p:'You never get stuck. The end time stays on your screen. When it rings, you say thanks and go back to your own table.',ps3h:'You are always in control',ps2p:'Nobody chooses anybody, so there is no rejection. The system seats you with people who came with the same openness, and everyone gets the same opening question on their phone.',ps2h:'You get the context, not the task',ps1p:'Type your first name and tell us what you feel like today — maybe just listening, which is an equally good answer. Under ten seconds, no account, nothing to install.',ps1h:'You scan and relax',pStepsP:'The hard part is not the conversation. It is deciding to get up and approach someone. We take that risk, through a setup where nobody asks anybody for anything.',pStepsH:'We take the first step<br>for you.',pStepsEye:'Three steps, no social anxiety',pCardCap:'This is what lands on your phone',pB2:'Common questions',pB1:'Where we meet',pP:'HelloHuman is an evening that runs inside the bar, bookshop or hotel you are already in. You scan the code on your table, get a table with two or three people you do not know and a subject to start from. When the announced time is up, you go back to your own.',pH:'Meet a few people.<br>No pressure, right<br>where you are.',pEye:'It happens where you already are',nav4:'Questions',f4a:'Your sales on the night against the same weekday before. For company events, a written report with new conversations per person and anonymous feedback.',f4q:'How do I know it worked?',f3a:'No. Groups of three or four, no profiles, no photos, no ages. Nobody chooses anybody, so nobody is ever turned down.',f3q:'Is this a dating thing?',f2a:'Three tables, one short round, once in the evening. Guests keep their own table and go straight back to it. Nobody is approached and nobody is announced by name.',f2q:'Will it disturb my other guests?',f1a:'Nothing. No equipment, no installation, no fee. We need a slow evening, a few tables and one person who presses a button. The first evening is always free.',f1q:'What does it cost me?',faqH:'The four questions<br>we always get.',faqEye:'What venues ask us',cardCap:'What your guests see on their phone',footWhere:'Bucharest and the rest of Romania. First evening always free.',prHostLink:'Host link',prCode:'Guest code',ownNever:'never',ownLast:'last',prNoE:'No evenings yet.',ownNoP:'No partners yet.',ownOn:'Turn back on',ownOff:'Turn off',sigC:'I agree to receive emails about HelloHuman evenings in my city.',sigB:'Keep me posted',sigCity:'Your city',sigP:'We\'ll write when there\'s an evening near you. Nothing else.',sigH:'Or just tell us where you are.',mlCopy:'Copy all addresses',mlP:'Everyone who asked to be told about the next one.',prNew:'Set up an evening',prMails:'emails',prPeople:'people',prEvents:'evenings',prEye:'Your panel',npSend:'Send them this',npCreate:'Create the access',npPw:'Their password',npProf:'What kind of place',npName:'Who are they',npP:'They get their own panel and can run as many evenings as they like — but only in the format you choose here.',npH:'A new partner',ownSeeMails:'See the emails',ownNew:'Add a partner',ownMails:'contacts',ownEvents:'events',ownPartners:'partners',ownP:'Everything created under your account. Nobody else sees this.',ownH:'Your partners',ownEye:'Owner',apAtTable:'At the table',apTheme:'Tonight\'s subject',apEdition:'Edition',apOpen:'Open the table',apFlightN:'We only seat you with people whose wait overlaps yours, and we finish before your gate closes.',apFlight:'When do you board?',ctaB:'contact@hellohuman.ro',ctaP:'No cost, no equipment, no commitment. If it does not work, you never hear from us again.',ctaH:'Give us the quietest<br>night you have.',ctaEye:'One evening is enough to find out',whyEnd:'So why do we hesitate? Because of what we might call forecast anxiety: the fear forms before the conversation, and the correction only arrives once it is over. The gap between the two is exactly where HelloHuman works.',wn3p:'Participants, rounds, new conversations per person, and anonymous feedback. Something to show, not a feeling.',wn3t:'A report you can forward',wn2p:'You tell us what the company needs and we write the questions around it. It stays your event.',wn2t:'Written for the client',wn1p:'The system seats people, so no junior has to walk up to a director and no director has to make the first move.',wn1t:'Nobody had to dare',wkB:'Request a demonstration',wkP:'Everyone talks to people from other teams, in short rounds, without repeating anyone. At the end the client gets a report with how many new conversations happened and how many people found them useful.',wkH:'One hour.<br>Eight conversations<br>each.',wkEye:'Company events and agencies',tn3p:'People already pay for a better wait. This is the same thing, cheaper, and it involves other people.',tn3t:'Passengers pay',tn2p:'Below three people nothing happens and nobody is told anything. An empty table is worse than no table.',tn2t:'Nobody sits alone',tn1p:'No host, no announcements. It starts on its own when enough people are waiting.',tn1t:'Runs without staff',trB:'Talk about your terminal',trP:'Passengers tell us when they board. We only seat people whose waiting overlaps, and the session closes before the earliest departure. Nobody misses anything, and nobody has to invent an excuse to leave.',trH:'Forty minutes<br>that were going<br>to be wasted.',trEye:'Airports and stations',kn3p:'Forty people discussing a book for an hour beats a launch where thirty listen and leave.',kn3t:'Publishers pay for this',kn2p:'Week one is light on purpose. By the fourth edition the room can hold a conversation the first one could not.',kn2t:'The subject gets deeper',kn1p:'Nobody is moved anywhere. It is a table with a subject and someone who keeps it going.',kn1t:'No timers, no rounds',bkB:'Start a series',bkP:'One table, one hour, one subject announced in advance. Your staff hosts it. People come for the subject, stay for the room, and by the fourth week they are yours.',bkH:'The same faces,<br>every week.',bkEye:'Bookshops and cafés',bn3p:'Your sales on the night against the same day last week. If it does not go up, we stop.',bn3t:'You keep the numbers',bn2p:'Guests keep their table. They move for one short round and go straight back to their friends.',bn2t:'Ten minutes, not your evening',bn1p:'No equipment, no installation, no fee. We do not ask for money and we do not ask for staff.',bn1t:'Costs you nothing',barB:'Book a first night',barP:'People who move to another table order again and stay an hour longer. You give us a slow evening, three tables, and someone who presses one button. We bring the people.',barH:'A full room<br>on a Tuesday.',barEye:'Bars and restaurants',d4p:'An hour where nobody sits with their own department.',d4h:'Company events',d3p:'Turn dead waiting time into something people remember.',d3h:'Airports and stations',d2p:'Turn readers who come alone into a group that comes back.',d2h:'Bookshops and cafés',d1p:'Fill the night of the week you would rather not talk about.',d1h:'Bars and restaurants',dMore:'See how',whoH:'Where are your people<br>sitting right now?',whoEye:'Four kinds of place, four different reasons',
 nav1:'Where',nav2:'Why',nav3:'Contact',
 heroEye:'For places where people wait, sit, or gather',
 heroH:'The people worth<br>meeting are two<br>tables away.',
@@ -829,7 +890,7 @@ apEmail:'Email',apConsent:"Tell me when there's another one. I can unsubscribe f
 apSendEmail:'Send it',apTellFriend:'Tell a friend',apNoThanks:'No thanks',
 apByeH:'See you next time.',apByeP:'The host will call the next round if there is one.',
 apStayIn:'Stay in for the next round',apOut:'Out'
-},ro:{loEmpty:'Încă niciun contact. Apar aici când cineva lasă emailul pe prima pagină.',loNone:'Nimic care să se potrivească.',loSearchPh:'caută după email sau oraș',loP:'Oamenii care au cerut să fie anunțați. Orașele îți spun unde merită să deschizi.',ownTabLo:'Contacte',ownTabPt:'Parteneri',ownTabEv:'Evenimente',prWay2p:'Dacă știi deja ce vrea clientul, treci direct la pregătirea serii.',prWay2:'2. Sau configurezi tu',prWay1p:'Șapte întrebări scurte despre echipele lui și ce vrea să obțină. Îți trimite înapoi un cod, iar tu lipești codul și evenimentul se creează singur. Recomandat.',prWay1:'1. Trimiți chestionarul clientului',prFixed:'stabilit de organizator',prHow:'Cum pregătești o seară',gdpr:'Îți folosim adresa doar ca să te anunțăm despre serile din orașul tău. Nu o dăm și nu o vindem nimănui. Te poți dezabona dintr-un click, din orice mesaj, iar la cerere ștergem tot ce avem despre tine. Scrie la contact@hellohuman.ro. Operator: HelloHuman, București.',apReady:'Restul e deja setat',apLess:'Ascunde detaliile',apMore:'Ajustează detaliile',evNoLive:'Nicio rundă în desfășurare acum.',evLoading:'se verifică…',evHAgo:'acum {n} h',evMinAgo:'acum {n} min',evNow:'chiar acum',evStop:'Oprește runda',evRounds:'{n} runde',evWaiting:'{n} în coadă',evRunning:'Rundă în curs',ownLive:'în desfășurare acum',ownOnlyLive:'Doar cele în desfășurare',ownRefresh:'Reîmprospătează',cSendMail:'Trimite pe email',cSendWa:'Trimite codul pe WhatsApp',ownEventsL:'Evenimente',ownPartnersL:'Parteneri',evMine:'al meu',evSure:'Sigur?',evDel:'Șterge',apTeamPh:'Operațiuni',apFirstPh:'Andrei',c1ph2:'Compania X',c1ph:'Kickoff 2026',qbSend:'Trimite clientului',apExit:'Ieși din cont',qbLoad:'Creează evenimentul din cod',qbCode:'Codul primit de la client',qbCopy:'Copiază linkul',qbNote:'<b>Chestionarul pentru client</b>Trimiteți-i decidentului linkul de mai jos. Răspunde la șapte întrebări scurte și vă trimite înapoi un cod, pe care îl lipiți aici.',cDoneN:'<b>Ce urmează</b>Primiți înapoi un cod QR pentru participanți. Îl printați și îl puneți pe mese, sau îl afișați pe ecran.',cAgain:'Reia chestionarul',cCopy:'Copiază codul',cDoneP:'Trimiteți-l organizatorului pe WhatsApp sau email. Nu e un link — e un cod pe care îl introduce el.',cDoneH:'Trimiteți codul acesta.',cDoneEye:'Gata',cGen:'Gata, generează codul',c7a:'Sau scrieți-le voi, una pe rând',c7p:'Întrebarea apare pe telefonul fiecăruia, la masă. Alegeți un set sau scrieți-le voi.',c7h:'Despre ce să vorbească?',c6p:'O singură atingere la înscriere. Din asta se formează mesele.',c6h:'Ce alege fiecare om?',c5chk:'În sală sunt și șefi împreună cu echipele lor. Evitați-i la aceeași masă.',c5o2:'Vreau ca oameni cu roluri asemănătoare să facă schimb de experiență',c5o1:'Vreau ca oameni din echipe diferite să se cunoască între ei',c5p:'De asta depinde cine cu cine se așază la masă.',c5h:'Ce vreți să obțineți?',c4o4:'20 de minute — puține runde',c4o3:'15 minute — discuții mai adânci',c4o2:'10 minute — recomandat',c4o1:'5 minute — foarte alert',c3a:'Număr de mese',c2o4:'Peste 100',c2o3:'Între 60 și 100',c2o2:'Între 30 și 60',c2o1:'Sub 30 de oameni',cNext:'Continuă',c1b:'Compania',c1a:'Numele evenimentului',cStep7:'Pasul 7 din 7',cStep6:'Pasul 6 din 7',cStep5:'Pasul 5 din 7',cStep4:'Pasul 4 din 7',cStep3:'Pasul 3 din 7',cStep2:'Pasul 2 din 7',cStep:'Pasul 1 din 7',pFootWhere:'Pe scurt',pFootWhere:'Unde se întâmplă',sigInt:'Ce fel de seri te-ar interesa? Poți alege câte vrei.',sigMail:'tu@email.com',pNav0:'Cum funcționează',pNav2:'Întrebări',pNav1:'Unde',pFootPart:'Ai un local sau organizezi evenimente?',pFootTag:'HelloHuman organizează seri în care oameni care nu se cunosc stau câteva minute la aceeași masă, în locuri unde sunt deja prezenți.',pf5a:'Nimic de instalat. Se deschide în browserul telefonului când scanezi codul. Folosim doar prenumele tău, cât ține seara. Emailul îl lași la final și doar dacă vrei să te anunțăm când mai facem.',pf5q:'Ce trebuie să instalez și ce se întâmplă cu datele mele?',pf4a:'Da. Unul face un cod de trei cifre, celălalt îl tastează, și stați la aceeași masă. Treceți prin experiență împreună, dar cu oameni noi în jur. Iar toată runda durează câteva minute, nu seara.',pf4q:'Pot veni cu prietenii?',pf3a:'Formatul e construit exact pentru asta. Una dintre cele patru variante de la înscriere spune că preferi să asculți, iar sistemul nu așază trei ascultători la aceeași masă. Iar întrebarea pe care o primiți toți pe telefon elimină tăcerea de la început, care e partea cea mai grea.',pf3q:'Ce mă fac dacă sunt introvertit și nu știu ce să zic?',pf2a:'Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nimeni nu alege pe nimeni — de aceea nimeni nu poate fi refuzat și nimeni nu află vreodată că a fost.',pf2q:'Este HelloHuman o aplicație de dating?',pf1a:'Un format de seară care se ține în locuri unde oamenii sunt deja: baruri, restaurante, librării, cafenele, muzee, hoteluri. Scanezi un cod de pe masă și stai câteva minute, anunțate dinainte, cu doi-trei oameni pe care nu îi cunoști. Nu e o aplicație și nu funcționează online.',pf1q:'Ce este HelloHuman?',pFaqH:'Întrebări și răspunsuri.',pFaqEye:'Ce trebuie să știi',pNextP:'Nu te poți înscrie de aici. Se intră doar scanând codul de pe masă, în locul unde se ține seara. Spune-ne în ce oraș ești și îți scriem când se organizează una aproape de tine.',pNextH:'În baruri, librării,<br>muzee și hoteluri.',pNextEye:'Unde se organizează',ps3p:'Nu rămâi blocat nicăieri. Ora la care se termină e pe ecran tot timpul. Când sună, mulțumești și te întorci la masa ta.',ps3h:'Ești mereu în control',ps2p:'Nimeni nu alege pe nimeni, deci nu există respingere. Sistemul te așază la o masă cu oameni care au venit cu aceeași deschidere, iar pe telefon primiți toți aceeași întrebare de pornire.',ps2h:'Primești contextul, nu sarcina',ps1p:'Îți scrii prenumele și ne spui ce ai chef azi — poate doar să asculți, e o variantă la fel de bună. Durează sub zece secunde, fără cont și fără nimic de instalat.',ps1h:'Scanezi și te relaxezi',pStepsP:'Partea grea nu e conversația. E decizia de a te ridica și de a aborda pe cineva. Riscul ăsta îl luăm noi, printr-un cadru în care nimeni nu cere nimic nimănui.',pStepsH:'Noi facem primul pas<br>în locul tău.',pStepsEye:'Trei pași, zero anxietate socială',pCardCap:'Asta primești pe telefon',pB2:'Întrebări frecvente',pB1:'Unde ne întâlnim',pP:'HelloHuman e o seară care se ține chiar în barul, librăria sau hotelul în care te afli. Scanezi codul de pe masă, primești o masă cu doi-trei oameni pe care nu îi cunoști și un subiect de pornire. Când se termină intervalul anunțat, te întorci la ale tale.',pH:'Cunoști câțiva oameni.<br>Fără presiune, fix<br>acolo unde ești.',pEye:'Se întâmplă acolo unde ești deja',nav4:'Întrebări',f4a:'Vânzarea din seara aia față de aceeași zi dinainte. La evenimente de firmă, un raport scris cu conversații noi de persoană și feedback anonim.',f4q:'De unde știu că a mers?',f3a:'Nu. Grupuri de trei sau patru, fără profiluri, fără poze, fără vârste. Nimeni nu alege pe nimeni, deci nimeni nu e refuzat vreodată.',f3q:'E ceva de agățat?',f2a:'Trei mese, o rundă scurtă, o dată în seara aia. Oaspeții își păstrează masa și se întorc direct la ea. Nimeni nu e abordat și nimeni nu e strigat pe nume.',f2q:'Îmi deranjează ceilalți clienți?',f1a:'Nimic. Fără echipament, fără instalare, fără taxă. Avem nevoie de o seară slabă, câteva mese și de un om care apasă un buton. Prima seară e mereu gratuită.',f1q:'Cât mă costă?',faqH:'Cele patru întrebări<br>pe care le primim mereu.',faqEye:'Ce ne întreabă localurile',cardCap:'Ce văd oaspeții tăi pe telefon',footWhere:'București și restul țării. Prima seară e mereu gratuită.',prHostLink:'Link de gazdă',prCode:'Codul pentru oameni',ownNever:'niciodată',ownLast:'ultima',prNoE:'Nicio seară încă.',ownNoP:'Niciun partener încă.',ownOn:'Reactivează',ownOff:'Dezactivează',sigC:'Sunt de acord să primesc emailuri despre serile HelloHuman din orașul meu.',sigB:'Anunță-mă',sigCity:'Orașul tău',sigP:'Îți scriem când e o seară aproape de tine. Nimic altceva.',sigH:'Sau spune-ne unde ești.',mlCopy:'Copiază toate adresele',mlP:'Toți cei care au cerut să fie anunțați când mai facem.',prNew:'Pregătește o seară',prMails:'emailuri',prPeople:'oameni',prEvents:'seri',prEye:'Panoul tău',npSend:'Trimite-i asta',npCreate:'Creează accesul',npPw:'Parola lui',npProf:'Ce fel de loc',npName:'Cine e',npP:'Primește panoul lui și poate face oricâte seri vrea — dar numai în formatul pe care îl alegi tu aici.',npH:'Un partener nou',ownSeeMails:'Vezi emailurile',ownNew:'Adaugă un partener',ownMails:'contacte',ownEvents:'evenimente',ownPartners:'parteneri',ownP:'Tot ce s-a creat sub contul tău. Nimeni altcineva nu vede asta.',ownH:'Partenerii tăi',ownEye:'Proprietar',apAtTable:'La masă',apTheme:'Subiectul serii',apEdition:'Ediția',apOpen:'Deschide masa',apFlightN:'Te așezăm doar cu oameni a căror așteptare se suprapune cu a ta, iar terminăm înainte să ți se închidă poarta.',apFlight:'Când te îmbarci?',ctaB:'contact@hellohuman.ro',ctaP:'Fără cost, fără echipament, fără angajament. Dacă nu merge, nu mai auzi de noi.',ctaH:'Dă-ne cea mai liniștită<br>seară pe care o ai.',ctaEye:'O seară e de ajuns ca să afli',wn3p:'Participanți, runde, conversații noi de persoană și feedback anonim. Ceva de arătat, nu o impresie.',wn3t:'Un raport pe care îl poți trimite mai departe',wn2p:'Ne spui de ce are nevoie compania și scriem întrebările în jurul asta. Rămâne evenimentul vostru.',wn2t:'Scris pentru client',wn1p:'Sistemul așază oamenii, deci niciun junior nu trebuie să se ducă la un director și niciun director nu face primul pas.',wn1t:'Nimeni nu a trebuit să îndrăznească',wkB:'Cere o demonstrație',wkP:'Toată lumea vorbește cu oameni din alte echipe, în runde scurte, fără să repete pe nimeni. La final, clientul primește un raport cu câte conversații noi s-au făcut și câți le-au găsit utile.',wkH:'O oră.<br>Opt conversații<br>de fiecare.',wkEye:'Evenimente de firmă și agenții',tn3p:'Oamenii plătesc deja pentru o așteptare mai bună. Asta e același lucru, mai ieftin, și cu oameni în el.',tn3t:'Plătesc pasagerii',tn2p:'Sub trei oameni nu se întâmplă nimic și nimeni nu află nimic. O masă goală e mai rea decât nicio masă.',tn2t:'Nimeni nu stă singur',tn1p:'Fără gazdă, fără anunțuri. Pornește singur când sunt destui oameni care așteaptă.',tn1t:'Merge fără personal',trB:'Vorbește despre terminalul tău',trP:'Pasagerii ne spun când se îmbarcă. Așezăm doar oameni ale căror așteptări se suprapun, iar sesiunea se închide înainte de prima plecare. Nimeni nu pierde nimic și nimeni nu inventează o scuză.',trH:'Patruzeci de minute<br>care oricum<br>se pierdeau.',trEye:'Aeroporturi și gări',kn3p:'Patruzeci de oameni care discută o carte o oră bat o lansare unde treizeci ascultă și pleacă.',kn3t:'Editurile plătesc pentru asta',kn2p:'Prima săptămână e ușoară intenționat. La a patra ediție, sala suportă o discuție pe care prima nu o suporta.',kn2t:'Subiectul urcă',kn1p:'Nimeni nu e mutat nicăieri. E o masă cu un subiect și cineva care o ține în viață.',kn1t:'Fără cronometru, fără runde',bkB:'Pornește o serie',bkP:'O masă, o oră, un subiect anunțat din timp. Gazda e omul vostru. Lumea vine pentru subiect, rămâne pentru sală, iar la a patra săptămână e a voastră.',bkH:'Aceleași fețe,<br>în fiecare săptămână.',bkEye:'Librării și cafenele',bn3p:'Vânzarea din seara aia față de aceeași zi din săptămâna trecută. Dacă nu crește, ne oprim.',bn3t:'Cifrele rămân ale tale',bn2p:'Oamenii își păstrează masa. Se mută pentru o rundă scurtă și se întorc direct la prietenii lor.',bn2t:'Zece minute, nu seara ta',bn1p:'Fără echipament, fără instalare, fără taxă. Nu cerem bani și nu cerem personal.',bn1t:'Nu te costă nimic',barB:'Rezervă prima seară',barP:'Oamenii care se mută la altă masă comandă din nou și mai stau o oră. Ne dai o seară slabă, trei mese și pe cineva care apasă un buton. Noi aducem oamenii.',barH:'Sală plină<br>într-o marți.',barEye:'Baruri și restaurante',d4p:'O oră în care nimeni nu stă cu departamentul lui.',d4h:'Evenimente de firmă',d3p:'Transformă timpul mort în ceva ce oamenii țin minte.',d3h:'Aeroporturi și gări',d2p:'Transformă cititorii care vin singuri într-un grup care revine.',d2h:'Librării și cafenele',d1p:'Umple seara despre care nu-ți place să vorbești.',d1h:'Baruri și restaurante',dMore:'Vezi cum',whoH:'Unde stau oamenii tăi<br>chiar acum?',whoEye:'Patru feluri de loc, patru motive diferite',
+},ro:{loFromEv:'de la',loFromSite:'de pe site',evIdle:'Nicio rundă acum',esNoMail:'Niciun email lăsat aici.',esNobody:'Încă nimeni nu s-a înscris.',esMet:'cunoscuți',esDelete:'Șterge evenimentul',esMails:'Emailuri lăsate aici',esWho2:'Cine a fost în sală',psNotePh:'cu cine ai vorbit, ce ați stabilit, când reveniți',psSince:'din',psNoCity:'oraș nespecificat',psOff:'(dezactivat)',psOpen:'deschide',psDelete:'Șterge partenerul',psEvents:'Serile lui',psSave:'Salvează notițele',psNotes:'Notițele tale',psAccess:'Accesul lui',npCity:'În ce oraș',loEmpty:'Încă niciun contact. Apar aici când cineva lasă emailul pe prima pagină.',loNone:'Nimic care să se potrivească.',loSearchPh:'caută după email sau oraș',loP:'Oamenii care au cerut să fie anunțați. Orașele îți spun unde merită să deschizi.',ownTabLo:'Contacte',ownTabPt:'Parteneri',ownTabEv:'Evenimente',prWay2p:'Dacă știi deja ce vrea clientul, treci direct la pregătirea serii.',prWay2:'2. Sau configurezi tu',prWay1p:'Șapte întrebări scurte despre echipele lui și ce vrea să obțină. Îți trimite înapoi un cod, iar tu lipești codul și evenimentul se creează singur. Recomandat.',prWay1:'1. Trimiți chestionarul clientului',prFixed:'stabilit de organizator',prHow:'Cum pregătești o seară',gdpr:'Îți folosim adresa doar ca să te anunțăm despre serile din orașul tău. Nu o dăm și nu o vindem nimănui. Te poți dezabona dintr-un click, din orice mesaj, iar la cerere ștergem tot ce avem despre tine. Scrie la contact@hellohuman.ro. Operator: HelloHuman, București.',apReady:'Restul e deja setat',apLess:'Ascunde detaliile',apMore:'Ajustează detaliile',evNoLive:'Nicio rundă în desfășurare acum.',evLoading:'se verifică…',evHAgo:'acum {n} h',evMinAgo:'acum {n} min',evNow:'chiar acum',evStop:'Oprește runda',evRounds:'{n} runde',evWaiting:'{n} în coadă',evRunning:'Rundă în curs',ownLive:'în desfășurare acum',ownOnlyLive:'Doar cele în desfășurare',ownRefresh:'Reîmprospătează',cSendMail:'Trimite pe email',cSendWa:'Trimite codul pe WhatsApp',ownEventsL:'Evenimente',ownPartnersL:'Parteneri',evMine:'al meu',evSure:'Sigur?',evDel:'Șterge',apTeamPh:'Operațiuni',apFirstPh:'Andrei',c1ph2:'Compania X',c1ph:'Kickoff 2026',qbSend:'Trimite clientului',apExit:'Ieși din cont',qbLoad:'Creează evenimentul din cod',qbCode:'Codul primit de la client',qbCopy:'Copiază linkul',qbNote:'<b>Chestionarul pentru client</b>Trimiteți-i decidentului linkul de mai jos. Răspunde la șapte întrebări scurte și vă trimite înapoi un cod, pe care îl lipiți aici.',cDoneN:'<b>Ce urmează</b>Primiți înapoi un cod QR pentru participanți. Îl printați și îl puneți pe mese, sau îl afișați pe ecran.',cAgain:'Reia chestionarul',cCopy:'Copiază codul',cDoneP:'Trimiteți-l organizatorului pe WhatsApp sau email. Nu e un link — e un cod pe care îl introduce el.',cDoneH:'Trimiteți codul acesta.',cDoneEye:'Gata',cGen:'Gata, generează codul',c7a:'Sau scrieți-le voi, una pe rând',c7p:'Întrebarea apare pe telefonul fiecăruia, la masă. Alegeți un set sau scrieți-le voi.',c7h:'Despre ce să vorbească?',c6p:'O singură atingere la înscriere. Din asta se formează mesele.',c6h:'Ce alege fiecare om?',c5chk:'În sală sunt și șefi împreună cu echipele lor. Evitați-i la aceeași masă.',c5o2:'Vreau ca oameni cu roluri asemănătoare să facă schimb de experiență',c5o1:'Vreau ca oameni din echipe diferite să se cunoască între ei',c5p:'De asta depinde cine cu cine se așază la masă.',c5h:'Ce vreți să obțineți?',c4o4:'20 de minute — puține runde',c4o3:'15 minute — discuții mai adânci',c4o2:'10 minute — recomandat',c4o1:'5 minute — foarte alert',c3a:'Număr de mese',c2o4:'Peste 100',c2o3:'Între 60 și 100',c2o2:'Între 30 și 60',c2o1:'Sub 30 de oameni',cNext:'Continuă',c1b:'Compania',c1a:'Numele evenimentului',cStep7:'Pasul 7 din 7',cStep6:'Pasul 6 din 7',cStep5:'Pasul 5 din 7',cStep4:'Pasul 4 din 7',cStep3:'Pasul 3 din 7',cStep2:'Pasul 2 din 7',cStep:'Pasul 1 din 7',pFootWhere:'Pe scurt',pFootWhere:'Unde se întâmplă',sigInt:'Ce fel de seri te-ar interesa? Poți alege câte vrei.',sigMail:'tu@email.com',pNav0:'Cum funcționează',pNav2:'Întrebări',pNav1:'Unde',pFootPart:'Ai un local sau organizezi evenimente?',pFootTag:'HelloHuman organizează seri în care oameni care nu se cunosc stau câteva minute la aceeași masă, în locuri unde sunt deja prezenți.',pf5a:'Nimic de instalat. Se deschide în browserul telefonului când scanezi codul. Folosim doar prenumele tău, cât ține seara. Emailul îl lași la final și doar dacă vrei să te anunțăm când mai facem.',pf5q:'Ce trebuie să instalez și ce se întâmplă cu datele mele?',pf4a:'Da. Unul face un cod de trei cifre, celălalt îl tastează, și stați la aceeași masă. Treceți prin experiență împreună, dar cu oameni noi în jur. Iar toată runda durează câteva minute, nu seara.',pf4q:'Pot veni cu prietenii?',pf3a:'Formatul e construit exact pentru asta. Una dintre cele patru variante de la înscriere spune că preferi să asculți, iar sistemul nu așază trei ascultători la aceeași masă. Iar întrebarea pe care o primiți toți pe telefon elimină tăcerea de la început, care e partea cea mai grea.',pf3q:'Ce mă fac dacă sunt introvertit și nu știu ce să zic?',pf2a:'Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nimeni nu alege pe nimeni — de aceea nimeni nu poate fi refuzat și nimeni nu află vreodată că a fost.',pf2q:'Este HelloHuman o aplicație de dating?',pf1a:'Un format de seară care se ține în locuri unde oamenii sunt deja: baruri, restaurante, librării, cafenele, muzee, hoteluri. Scanezi un cod de pe masă și stai câteva minute, anunțate dinainte, cu doi-trei oameni pe care nu îi cunoști. Nu e o aplicație și nu funcționează online.',pf1q:'Ce este HelloHuman?',pFaqH:'Întrebări și răspunsuri.',pFaqEye:'Ce trebuie să știi',pNextP:'Nu te poți înscrie de aici. Se intră doar scanând codul de pe masă, în locul unde se ține seara. Spune-ne în ce oraș ești și îți scriem când se organizează una aproape de tine.',pNextH:'În baruri, librării,<br>muzee și hoteluri.',pNextEye:'Unde se organizează',ps3p:'Nu rămâi blocat nicăieri. Ora la care se termină e pe ecran tot timpul. Când sună, mulțumești și te întorci la masa ta.',ps3h:'Ești mereu în control',ps2p:'Nimeni nu alege pe nimeni, deci nu există respingere. Sistemul te așază la o masă cu oameni care au venit cu aceeași deschidere, iar pe telefon primiți toți aceeași întrebare de pornire.',ps2h:'Primești contextul, nu sarcina',ps1p:'Îți scrii prenumele și ne spui ce ai chef azi — poate doar să asculți, e o variantă la fel de bună. Durează sub zece secunde, fără cont și fără nimic de instalat.',ps1h:'Scanezi și te relaxezi',pStepsP:'Partea grea nu e conversația. E decizia de a te ridica și de a aborda pe cineva. Riscul ăsta îl luăm noi, printr-un cadru în care nimeni nu cere nimic nimănui.',pStepsH:'Noi facem primul pas<br>în locul tău.',pStepsEye:'Trei pași, zero anxietate socială',pCardCap:'Asta primești pe telefon',pB2:'Întrebări frecvente',pB1:'Unde ne întâlnim',pP:'HelloHuman e o seară care se ține chiar în barul, librăria sau hotelul în care te afli. Scanezi codul de pe masă, primești o masă cu doi-trei oameni pe care nu îi cunoști și un subiect de pornire. Când se termină intervalul anunțat, te întorci la ale tale.',pH:'Cunoști câțiva oameni.<br>Fără presiune, fix<br>acolo unde ești.',pEye:'Se întâmplă acolo unde ești deja',nav4:'Întrebări',f4a:'Vânzarea din seara aia față de aceeași zi dinainte. La evenimente de firmă, un raport scris cu conversații noi de persoană și feedback anonim.',f4q:'De unde știu că a mers?',f3a:'Nu. Grupuri de trei sau patru, fără profiluri, fără poze, fără vârste. Nimeni nu alege pe nimeni, deci nimeni nu e refuzat vreodată.',f3q:'E ceva de agățat?',f2a:'Trei mese, o rundă scurtă, o dată în seara aia. Oaspeții își păstrează masa și se întorc direct la ea. Nimeni nu e abordat și nimeni nu e strigat pe nume.',f2q:'Îmi deranjează ceilalți clienți?',f1a:'Nimic. Fără echipament, fără instalare, fără taxă. Avem nevoie de o seară slabă, câteva mese și de un om care apasă un buton. Prima seară e mereu gratuită.',f1q:'Cât mă costă?',faqH:'Cele patru întrebări<br>pe care le primim mereu.',faqEye:'Ce ne întreabă localurile',cardCap:'Ce văd oaspeții tăi pe telefon',footWhere:'București și restul țării. Prima seară e mereu gratuită.',prHostLink:'Link de gazdă',prCode:'Codul pentru oameni',ownNever:'niciodată',ownLast:'ultima',prNoE:'Nicio seară încă.',ownNoP:'Niciun partener încă.',ownOn:'Reactivează',ownOff:'Dezactivează',sigC:'Sunt de acord să primesc emailuri despre serile HelloHuman din orașul meu.',sigB:'Anunță-mă',sigCity:'Orașul tău',sigP:'Îți scriem când e o seară aproape de tine. Nimic altceva.',sigH:'Sau spune-ne unde ești.',mlCopy:'Copiază toate adresele',mlP:'Toți cei care au cerut să fie anunțați când mai facem.',prNew:'Pregătește o seară',prMails:'emailuri',prPeople:'oameni',prEvents:'seri',prEye:'Panoul tău',npSend:'Trimite-i asta',npCreate:'Creează accesul',npPw:'Parola lui',npProf:'Ce fel de loc',npName:'Cine e',npP:'Primește panoul lui și poate face oricâte seri vrea — dar numai în formatul pe care îl alegi tu aici.',npH:'Un partener nou',ownSeeMails:'Vezi emailurile',ownNew:'Adaugă un partener',ownMails:'contacte',ownEvents:'evenimente',ownPartners:'parteneri',ownP:'Tot ce s-a creat sub contul tău. Nimeni altcineva nu vede asta.',ownH:'Partenerii tăi',ownEye:'Proprietar',apAtTable:'La masă',apTheme:'Subiectul serii',apEdition:'Ediția',apOpen:'Deschide masa',apFlightN:'Te așezăm doar cu oameni a căror așteptare se suprapune cu a ta, iar terminăm înainte să ți se închidă poarta.',apFlight:'Când te îmbarci?',ctaB:'contact@hellohuman.ro',ctaP:'Fără cost, fără echipament, fără angajament. Dacă nu merge, nu mai auzi de noi.',ctaH:'Dă-ne cea mai liniștită<br>seară pe care o ai.',ctaEye:'O seară e de ajuns ca să afli',wn3p:'Participanți, runde, conversații noi de persoană și feedback anonim. Ceva de arătat, nu o impresie.',wn3t:'Un raport pe care îl poți trimite mai departe',wn2p:'Ne spui de ce are nevoie compania și scriem întrebările în jurul asta. Rămâne evenimentul vostru.',wn2t:'Scris pentru client',wn1p:'Sistemul așază oamenii, deci niciun junior nu trebuie să se ducă la un director și niciun director nu face primul pas.',wn1t:'Nimeni nu a trebuit să îndrăznească',wkB:'Cere o demonstrație',wkP:'Toată lumea vorbește cu oameni din alte echipe, în runde scurte, fără să repete pe nimeni. La final, clientul primește un raport cu câte conversații noi s-au făcut și câți le-au găsit utile.',wkH:'O oră.<br>Opt conversații<br>de fiecare.',wkEye:'Evenimente de firmă și agenții',tn3p:'Oamenii plătesc deja pentru o așteptare mai bună. Asta e același lucru, mai ieftin, și cu oameni în el.',tn3t:'Plătesc pasagerii',tn2p:'Sub trei oameni nu se întâmplă nimic și nimeni nu află nimic. O masă goală e mai rea decât nicio masă.',tn2t:'Nimeni nu stă singur',tn1p:'Fără gazdă, fără anunțuri. Pornește singur când sunt destui oameni care așteaptă.',tn1t:'Merge fără personal',trB:'Vorbește despre terminalul tău',trP:'Pasagerii ne spun când se îmbarcă. Așezăm doar oameni ale căror așteptări se suprapun, iar sesiunea se închide înainte de prima plecare. Nimeni nu pierde nimic și nimeni nu inventează o scuză.',trH:'Patruzeci de minute<br>care oricum<br>se pierdeau.',trEye:'Aeroporturi și gări',kn3p:'Patruzeci de oameni care discută o carte o oră bat o lansare unde treizeci ascultă și pleacă.',kn3t:'Editurile plătesc pentru asta',kn2p:'Prima săptămână e ușoară intenționat. La a patra ediție, sala suportă o discuție pe care prima nu o suporta.',kn2t:'Subiectul urcă',kn1p:'Nimeni nu e mutat nicăieri. E o masă cu un subiect și cineva care o ține în viață.',kn1t:'Fără cronometru, fără runde',bkB:'Pornește o serie',bkP:'O masă, o oră, un subiect anunțat din timp. Gazda e omul vostru. Lumea vine pentru subiect, rămâne pentru sală, iar la a patra săptămână e a voastră.',bkH:'Aceleași fețe,<br>în fiecare săptămână.',bkEye:'Librării și cafenele',bn3p:'Vânzarea din seara aia față de aceeași zi din săptămâna trecută. Dacă nu crește, ne oprim.',bn3t:'Cifrele rămân ale tale',bn2p:'Oamenii își păstrează masa. Se mută pentru o rundă scurtă și se întorc direct la prietenii lor.',bn2t:'Zece minute, nu seara ta',bn1p:'Fără echipament, fără instalare, fără taxă. Nu cerem bani și nu cerem personal.',bn1t:'Nu te costă nimic',barB:'Rezervă prima seară',barP:'Oamenii care se mută la altă masă comandă din nou și mai stau o oră. Ne dai o seară slabă, trei mese și pe cineva care apasă un buton. Noi aducem oamenii.',barH:'Sală plină<br>într-o marți.',barEye:'Baruri și restaurante',d4p:'O oră în care nimeni nu stă cu departamentul lui.',d4h:'Evenimente de firmă',d3p:'Transformă timpul mort în ceva ce oamenii țin minte.',d3h:'Aeroporturi și gări',d2p:'Transformă cititorii care vin singuri într-un grup care revine.',d2h:'Librării și cafenele',d1p:'Umple seara despre care nu-ți place să vorbești.',d1h:'Baruri și restaurante',dMore:'Vezi cum',whoH:'Unde stau oamenii tăi<br>chiar acum?',whoEye:'Patru feluri de loc, patru motive diferite',
 nav1:'Unde',nav2:'De ce',nav3:'Contact',
 heroEye:'Pentru locurile unde oamenii așteaptă, stau sau se adună',
 heroH:'Oamenii care merită<br>cunoscuți sunt la<br>două mese distanță.',
@@ -1365,6 +1426,7 @@ el('bQRHost').onclick=function(){showQR(base()+'#e='+eid)};
 el('bQR0').onclick=function(){
   var w=el('sHost').dataset.was;
   if(w==='1')go('sHost');
+  else if(w==='3')go('sESheet');
   else if(w==='2'){partner?renderPartner():renderOwner();go(partner?'sPartner':'sOwner')}
   else go('sOrg');
 };
@@ -1404,45 +1466,14 @@ function evRow(e,cine){
   } else {
     stare=L('evWaiting').replace('{n}',s.wait)+' · '+L('evRounds').replace('{n}',s.rounds);
   }
-  var buts='<button class="btn ghost small" data-ev="qr" data-id="'+e.id+'">'+L('prCode')+'</button>'
-    +'<button class="btn ghost small" data-ev="host" data-id="'+e.id+'">'+L('prHostLink')+'</button>';
-  if(live)buts+='<button class="btn ghost small" data-ev="stop" data-id="'+e.id+'" style="border-color:rgba(245,184,75,.55);color:var(--gold)">'+L('evStop')+'</button>';
-  buts+='<button class="btn ghost small" data-ev="del" data-id="'+e.id+'" style="border-color:rgba(196,85,47,.5);color:#E89078">'+L('evDel')+'</button>';
-  return '<div class="prow"'+(live?' style="border-left:2px solid #9BD8A8;padding-left:12px"':'')+'>'
+  return '<div class="prow tap" data-open="'+e.id+'"'+(live?' style="border-left:2px solid #9BD8A8;padding-left:12px"':'')+'>'
     +'<div><div class="nm">'+esc(e.name||'—')+'</div>'
     +'<div class="sub">'+esc(cine||'')+(cine?' · ':'')+fmtWhen(e.ts)+'</div>'
-    +'<div class="sub" style="margin-top:4px">'+stare+'</div>'
-    +'<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">'+buts+'</div></div>'
-    +'<div><div class="num">'+(s?s.people:(e.people||0))+'</div><div class="numt">'+L('prPeople')+'</div></div></div>';
+    +'<div class="sub" style="margin-top:4px">'+stare+'</div></div>'
+    +'<div><div class="num">'+(s?s.people:(e.people||0))+'</div><div class="numt">'+L('prPeople')+'</div>'
+    +'<div class="numt" style="margin-top:6px;color:var(--gold)">'+L('psOpen')+' →</div></div></div>';
 }
 
-async function evAction(box,e,lista,dupa){
-  var b=e.target.closest('button[data-ev]'); if(!b)return true;
-  var id=b.dataset.id, ev=lista.filter(function(x){return x.id===id})[0];
-  if(!ev)return true;
-  var act=b.dataset.ev;
-  if(act==='qr'){ eid=ev.id; cfg=cfg||{}; cfg.ev=ev.name; el('sHost').dataset.was='2'; showQR(base()+'#e='+ev.id); return true }
-  if(act==='host'){ copy(base()+'#m='+ev.id+'\n'+(lang==='en'?'Password: ':'Parola: ')+(ev.pw||''), b); return true }
-  if(act==='stop'){
-    b.disabled=true; b.textContent='…';
-    try{ await api('POST','?stop=1&id='+encodeURIComponent(id),{}); await loadLive(lista); dupa() }
-    catch(err){ b.disabled=false; b.textContent=L('evStop') }
-    return true;
-  }
-  if(act==='del'){
-    if(b.dataset.sure!=='1'){ b.dataset.sure='1'; b.textContent=L('evSure');
-      setTimeout(function(){ if(b.dataset.sure==='1'){b.dataset.sure='';b.textContent=L('evDel')} },4000); return true }
-    b.disabled=true; b.textContent='…';
-    try{
-      if(ownerKey){ await saveBook(function(bk){ bk.events=(bk.events||[]).filter(function(x){return x.id!==id}) }) }
-      else if(partner){ await fetch('/api/store?delevent=1&id='+encodeURIComponent(partner.id)+'&pw='+encodeURIComponent(partnerPw)+'&ev='+encodeURIComponent(id),{method:'POST'});
-        book.events=(book.events||[]).filter(function(x){return x.id!==id}) }
-      dupa();
-    }catch(err){ b.disabled=false; b.textContent=L('evDel') }
-    return true;
-  }
-  return true;
-}
 function renderOwner(){
   var ps=(book&&book.partners)||[], evs=(book&&book.events)||[], leads=(book&&book.leads)||[];
   el('oPartners').textContent=ps.filter(function(p){return !p.off}).length;
@@ -1453,15 +1484,11 @@ function renderOwner(){
     var mine=evs.filter(function(e){return e.pid===p.id});
     var people=mine.reduce(function(a,e){return a+(e.people||0)},0);
     var last=mine.length?Math.max.apply(null,mine.map(function(e){return e.ts||0})):0;
-    hh+='<div class="prow'+(p.off?' off':'')+'">'
-      +'<div><div class="nm">'+esc(p.name)+'</div>'
-      +'<div class="sub">'+esc((PROFILES[p.profile]||PROFILES.bar)[lang])+' · '+L('ownLast')+' '+fmtDate(last)+'</div>'
-      +'<div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">'
-      +'<button class="btn ghost small" data-act="link" data-id="'+p.id+'">'+L('apCopy')+'</button>'
-      +'<button class="btn ghost small" data-act="off" data-id="'+p.id+'">'+(p.off?L('ownOn'):L('ownOff'))+'</button>'
-      +'</div></div>'
-      +'<div><div class="num">'+mine.length+'</div><div class="numt">'+L('ownEvents')+'</div>'
-      +'<div class="num" style="margin-top:8px">'+people+'</div><div class="numt">'+L('ownPartners').replace(/.*/,L('prPeople'))+'</div></div>'
+    hh+='<div class="prow tap'+(p.off?' off':'')+'" data-openp="'+p.id+'">'
+      +'<div><div class="nm">'+esc(p.name)+(p.off?' <span style="color:var(--rust);font-size:12px">'+L('psOff')+'</span>':'')+'</div>'
+      +'<div class="sub">'+esc((PROFILES[p.profile]||PROFILES.bar)[lang])+(p.city?(' · '+esc(p.city)):'')+'</div>'
+      +'<div class="sub" style="margin-top:4px">'+mine.length+' '+L('ownEvents')+' · '+people+' '+L('prPeople')+' · '+L('ownLast')+' '+fmtWhen(last)+'</div></div>'
+      +'<div><div class="numt" style="color:var(--gold)">'+L('psOpen')+' →</div></div>'
       +'</div>';
   });
   if(!hh)hh='<p class="sub2" style="padding:16px 0">'+L('ownNoP')+'</p>';
@@ -1490,7 +1517,14 @@ el('bRefresh').onclick=async function(){
   try{ await loadBook(); await loadLive(book.events||[]); renderOwner() }catch(e){ say('mOwn',e.message,'err') }
   b.disabled=false; b.textContent=L('ownRefresh');
 };
-el('ownEv').onclick=function(e){ evAction('ownEv',e,(book&&book.events)||[],function(){renderOwner()}) };
+el('ownEv').onclick=function(e){
+  var r=e.target.closest('[data-open]'); if(!r)return;
+  openEvent(r.dataset.open);
+};
+el('ownList').onclick=function(e){
+  var r=e.target.closest('[data-openp]'); if(!r)return;
+  openPartner(r.dataset.openp);
+};
 el('ownList').onclick=async function(e){
   var b=e.target.closest('button[data-act]'); if(!b)return;
   var id=b.dataset.id, p=(book.partners||[]).filter(function(x){return x.id===id})[0];
@@ -1507,6 +1541,11 @@ el('ownTabs').onclick=function(e){
   ['ev','pt','lo'].forEach(function(t){ el('tab'+t.charAt(0).toUpperCase()+t.slice(1)).style.display=(t===b.dataset.tab)?'':'none' });
   if(b.dataset.tab==='lo')renderLeads();
 };
+function srcName(s){
+  if(!s||s==='site')return L('loFromSite');
+  var e=((book&&book.events)||[]).filter(function(x){return x.id===s})[0];
+  return e?(L('loFromEv')+' '+e.name):L('loFromEv');
+}
 function renderLeads(){
   var leads=(book&&book.leads)||[];
   var q=(el('loSearch').value||'').toLowerCase();
@@ -1522,7 +1561,8 @@ function renderLeads(){
   var hh='';
   f.forEach(function(x){
     hh+='<div class="prow"><div><div class="nm" style="font-size:15px">'+esc(x.email)+'</div>'
-      +'<div class="sub">'+esc(x.city||'—')+(x.interests&&x.interests.length?(' · '+esc(x.interests.join(', '))):'')+'</div></div>'
+      +'<div class="sub">'+esc(x.city||'—')+(x.interests&&x.interests.length?(' · '+esc(x.interests.join(', '))):'')+'</div>'
+      +'<div class="sub" style="margin-top:3px;color:var(--gold)">'+esc(srcName(x.src))+'</div></div>'
       +'<div><div class="numt">'+fmtDate(x.ts)+'</div></div></div>' });
   if(!hh)hh='<p class="sub2" style="padding:16px 0">'+(q?L('loNone'):L('loEmpty'))+'</p>';
   el('loList').innerHTML=hh;
@@ -1538,7 +1578,7 @@ el('bOwn0').onclick=function(){
   showApp(false); location.hash='';
 };
 el('bNewPartner').onclick=function(){
-  npProf='bar'; el('npName').value=''; el('npPw').value=String(Math.floor(1000+Math.random()*9000));
+  npProf='bar'; el('npName').value=''; el('npCity').value=''; el('npPw').value=String(Math.floor(1000+Math.random()*9000));
   el('npOut').style.display='none'; say('mNp',''); paintNpProf(); go('sNewP');
 };
 el('bNp0').onclick=function(){renderOwner();go('sOwner')};
@@ -1559,7 +1599,7 @@ el('bNpSave').onclick=async function(){
   say('mNp',lang==='en'?'Saving…':'Se salvează…');
   try{
     await saveBook(function(bk){ bk.partners=bk.partners||[];
-      bk.partners.push({id:id,name:n,profile:npProf,pw:pw,off:false,ts:Date.now()}) });
+      bk.partners.push({id:id,name:n,city:el('npCity').value.trim(),profile:npProf,pw:pw,off:false,notes:'',ts:Date.now()}) });
     var lnk=base()+'#p='+id;
     el('npLink').textContent=lnk;
     el('npPwOut').textContent=(lang==='en'?'Password: ':'Parola: ')+pw;
@@ -1615,6 +1655,129 @@ function startLive(getLista,dupa){
 }
 function stopLive(){ if(liveTimer){clearInterval(liveTimer);liveTimer=null} }
 
+
+/* =============== fișa partenerului =============== */
+var psId='';
+function openPartner(id){
+  var p=((book&&book.partners)||[]).filter(function(x){return x.id===id})[0];
+  if(!p)return;
+  psId=id; stopLive();
+  var pr=PROFILES[p.profile]||PROFILES.bar;
+  el('psKind').textContent=pr[lang];
+  el('psName').textContent=p.name;
+  el('psWhere').textContent=(p.city||L('psNoCity'))+' · '+L('psSince')+' '+fmtDate(p.ts);
+  var evs=((book&&book.events)||[]).filter(function(e){return e.pid===id});
+  el('psEv').textContent=evs.length;
+  el('psPe').textContent=evs.reduce(function(a,e){return a+((evLive[e.id]&&evLive[e.id].people)||e.people||0)},0);
+  el('psMa').textContent=((book&&book.leads)||[]).filter(function(l){
+    return evs.some(function(e){return e.id===l.src}) }).length;
+  el('psLink').textContent=base()+'#p='+p.id;
+  el('psPw').textContent=(lang==='en'?'Password: ':'Parola: ')+(p.pw||'');
+  el('psNote').value=p.notes||'';
+  el('bPsOff').textContent=p.off?L('ownOn'):L('ownOff');
+  var hh='';
+  evs.slice().reverse().forEach(function(e){
+    var s=evLive[e.id];
+    hh+='<div class="li tap" data-open="'+e.id+'"><span>'+esc(e.name)+'<br><span style="color:var(--dim);font-size:13px">'+fmtWhen(e.ts)+'</span></span>'
+      +'<b>'+((s&&s.people)||e.people||0)+'</b></div>';
+  });
+  el('psList').innerHTML=hh||'<p class="sub2" style="padding:14px 0">'+L('prNoE')+'</p>';
+  say('mPs',''); go('sPSheet');
+}
+el('psList').onclick=function(e){ var r=e.target.closest('[data-open]'); if(r)openEvent(r.dataset.open) };
+el('bPS0').onclick=function(e){ e.preventDefault(); backToOwner('pt') };
+function psMsg(){ return (lang==='en'?'Your HelloHuman panel:':'Panoul tău HelloHuman:')+'\n\n'+el('psLink').textContent+'\n'+el('psPw').textContent }
+el('bPsSend').onclick=function(){ shareTxt(psMsg()) };
+el('bPsCopy').onclick=function(){ copy(psMsg(), el('bPsCopy')) };
+el('bPsSave').onclick=async function(){
+  var t=el('psNote').value;
+  say('mPs',lang==='en'?'Saving…':'Se salvează…');
+  try{ await saveBook(function(bk){ (bk.partners||[]).forEach(function(x){ if(x.id===psId)x.notes=t }) });
+    say('mPs',lang==='en'?'Saved.':'Salvat.','ok') }catch(e){ say('mPs',e.message,'err') }
+};
+el('bPsOff').onclick=async function(){
+  try{ await saveBook(function(bk){ (bk.partners||[]).forEach(function(x){ if(x.id===psId)x.off=!x.off }) });
+    openPartner(psId) }catch(e){ say('mPs',e.message,'err') }
+};
+el('bPsDel').onclick=async function(){
+  var p=((book&&book.partners)||[]).filter(function(x){return x.id===psId})[0]; if(!p)return;
+  var evs=((book&&book.events)||[]).filter(function(e){return e.pid===psId});
+  if(!confirm((lang==='en'
+    ? 'Delete "'+p.name+'"? Their access stops working immediately. '+evs.length+' event(s) stay in the register.'
+    : 'Ștergi "'+p.name+'"? Accesul lui nu mai funcționează din acest moment. Cele '+evs.length+' seri rămân în registru.')))return;
+  try{ await saveBook(function(bk){ bk.partners=(bk.partners||[]).filter(function(x){return x.id!==psId}) });
+    backToOwner('pt') }catch(e){ say('mPs',e.message,'err') }
+};
+
+/* =============== fișa evenimentului =============== */
+var esId='';
+function openEvent(id){
+  var e=((book&&book.events)||[]).filter(function(x){return x.id===id})[0];
+  if(!e)return;
+  esId=id; stopLive();
+  var p=((book&&book.partners)||[]).filter(function(x){return x.id===e.pid})[0];
+  el('esWho').textContent=p?(p.name+(p.city?(' · '+p.city):'')):L('evMine');
+  el('esName').textContent=e.name||'—';
+  el('esWhen').textContent=fmtDate(e.ts)+' · '+fmtWhen(e.ts);
+  el('esPeople').innerHTML='<p class="sub2" style="padding:12px 0">'+L('evLoading')+'</p>';
+  el('esMails').innerHTML='';
+  say('mEs',''); go('sESheet');
+  refreshEvent(id);
+}
+async function refreshEvent(id){
+  try{
+    var d=await apiGet(id), st=(d&&d.state)||{};
+    var live=st.round;
+    el('esState').innerHTML='<b>'+(live?L('evRunning'):L('evIdle'))+'</b>'+
+      (live ? (live.tables.length+' '+L('apTablesW')+' · '+(live.dur?fmtLeft(live.start+live.dur-Date.now())+' '+L('apLeft'):'—'))
+            : (L('evWaiting').replace('{n}',(st.wait||[]).length)+' · '+L('evRounds').replace('{n}',st.rounds||0)));
+    el('bEsStop').style.display=live?'':'none';
+    // cine a fost in sala: din intalnirile inregistrate si din coada
+    var nume={};
+    (st.wait||[]).forEach(function(w){nume[w.id]=w.name+(w.dep?(' · '+w.dep):'')});
+    if(live)live.tables.forEach(function(t){t.people.forEach(function(x){nume[x.id]=x.name+(x.dep?(' · '+x.dep):'')})});
+    Object.keys(st.met||{}).forEach(function(k){ if(!nume[k])nume[k]='—' });
+    var ids=Object.keys(nume);
+    el('esPeople').innerHTML=ids.length
+      ? ids.map(function(k){
+          var n=(st.met&&st.met[k]||[]).length;
+          return '<div class="li"><span>'+esc(nume[k])+'</span><b>'+(n?(n+' '+L('esMet')):'—')+'</b></div>' }).join('')
+      : '<p class="sub2" style="padding:12px 0">'+L('esNobody')+'</p>';
+    var lz=(st.leads||[]);
+    el('esMails').innerHTML=lz.length
+      ? lz.slice().reverse().map(function(x){return '<div class="li"><span>'+esc(x.email)+'</span><b>'+esc(x.name||'')+'</b></div>'}).join('')
+      : '<p class="sub2" style="padding:12px 0">'+L('esNoMail')+'</p>';
+  }catch(err){ say('mEs',err.message,'err') }
+}
+el('bES0').onclick=function(e){ e.preventDefault(); backToOwner('ev') };
+el('bEsQr').onclick=function(){ var e=((book&&book.events)||[]).filter(function(x){return x.id===esId})[0];
+  if(e){ eid=e.id; cfg=cfg||{}; cfg.ev=e.name; el('sHost').dataset.was='3'; showQR(base()+'#e='+e.id) } };
+el('bEsHost').onclick=function(){ var e=((book&&book.events)||[]).filter(function(x){return x.id===esId})[0];
+  if(e)copy(base()+'#m='+e.id+'\n'+(lang==='en'?'Password: ':'Parola: ')+(e.pw||''), el('bEsHost')) };
+el('bEsStop').onclick=async function(){
+  try{ await api('POST','?stop=1&id='+encodeURIComponent(esId),{}); refreshEvent(esId) }catch(e){ say('mEs',e.message,'err') }
+};
+el('bEsDel').onclick=async function(){
+  var e=((book&&book.events)||[]).filter(function(x){return x.id===esId})[0]; if(!e)return;
+  if(!confirm(lang==='en' ? 'Delete "'+e.name+'" from the register? This cannot be undone.'
+                          : 'Ștergi "'+e.name+'" din registru? Nu se mai poate reveni.'))return;
+  try{
+    if(ownerKey){ await saveBook(function(bk){ bk.events=(bk.events||[]).filter(function(x){return x.id!==esId}) }) }
+    else if(partner){ await fetch('/api/store?delevent=1&id='+encodeURIComponent(partner.id)+'&pw='+encodeURIComponent(partnerPw)+'&ev='+encodeURIComponent(esId),{method:'POST'});
+      book.events=(book.events||[]).filter(function(x){return x.id!==esId}) }
+    delete evLive[esId];
+    backToOwner('ev');
+  }catch(err){ say('mEs',err.message,'err') }
+};
+function backToOwner(fila){
+  if(partner){ renderPartner(); go('sPartner');
+    startLive(function(){return (book&&book.events)||[]}, function(){ if(el('sPartner').classList.contains('on'))renderPartner() });
+    return }
+  renderOwner(); go('sOwner');
+  if(fila){ var t=[].slice.call(el('ownTabs').children).filter(function(x){return x.dataset.tab===fila})[0]; if(t)t.click() }
+  startLive(function(){return (book&&book.events)||[]}, function(){ if(el('sOwner').classList.contains('on'))renderOwner() });
+}
+
 /* =============== partner panel =============== */
 function renderPartner(){
   el('prName').textContent=partner.name;
@@ -1632,7 +1795,7 @@ function renderPartner(){
   if(!hh)hh='<p class="sub2" style="padding:16px 0">'+L('prNoE')+'</p>';
   el('prList').innerHTML=hh;
 }
-el('prList').onclick=function(e){ evAction('prList',e,(book&&book.events)||[],function(){renderPartner()}) };
+el('prList').onclick=function(e){ var r=e.target.closest('[data-open]'); if(r)openEvent(r.dataset.open) };
 function q2msg(){ return (lang==='en'
   ? 'Seven short questions so we can set up your event. At the end you get a code — send it back to us.\n\n'
   : 'Șapte întrebări scurte, ca să putem pregăti evenimentul. La final primiți un cod — trimiteți-ni-l înapoi.\n\n')
