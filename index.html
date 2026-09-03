@@ -222,9 +222,8 @@
       <p class="lead" style="margin-top:14px" data-t="pNextP">Nu te poți înscrie de aici. Se intră doar scanând codul de pe masă, în locul unde se ține seara. Spune-ne în ce oraș ești și îți scriem când se organizează una aproape de tine.</p>
       <div class="sig">
         <div class="sigrow">
-          <input type="email" id="pubEmail" placeholder="tu@email.com" autocomplete="email" data-tp="sigMail">
-          <input type="text" id="pubCity" maxlength="30" placeholder="Orașul tău" data-tp="sigCity">
-          <button class="btn" id="bPubMail" data-t="sigB">Anunță-mă</button>
+          <input type="email" id="pubEmail" placeholder="tu@email.com" autocomplete="email" data-tp="sigMail" enterkeyhint="done">
+          <input type="text" id="pubCity" maxlength="30" placeholder="Orașul tău" data-tp="sigCity" enterkeyhint="done">
         </div>
         <p class="signote2" style="margin:18px 0 0" data-t="sigInt">Ce fel de seri te-ar interesa? Poți alege câte vrei.</p>
         <div class="chips" id="ints">
@@ -235,7 +234,8 @@
           <button class="chip" data-v="arta">Artă și cultură</button>
           <button class="chip" data-v="oras">Oameni noi în oraș</button>
         </div>
-        <label class="check"><input type="checkbox" id="pubCons"><span data-t="sigC">Sunt de acord să primesc emailuri despre serile HelloHuman din orașul meu.</span></label>
+        <label class="check" id="consBox"><input type="checkbox" id="pubCons"><span data-t="sigC">Sunt de acord să primesc emailuri despre serile HelloHuman din orașul meu.</span></label>
+        <button class="btn" id="bPubMail" style="margin-top:18px;min-width:220px" data-t="sigB">Anunță-mă</button>
         <p class="msg2" id="mPub" style="text-align:center"></p>
         <p class="signote2" style="margin-top:14px;font-size:13px;line-height:1.6" data-t="gdpr">Îți folosim adresa doar ca să te anunțăm despre serile din orașul tău. Nu o dăm și nu o vindem nimănui. Te poți dezabona dintr-un click, din orice mesaj, iar la cerere ștergem tot ce avem despre tine. Scrie la contact@hellohuman.ro. Operator: HelloHuman, București.</p>
       </div>
@@ -980,6 +980,7 @@ function applyLang(){
   document.querySelectorAll('[data-t]').forEach(function(n){
     var v=L(n.dataset.t); if(v)n.innerHTML=v;
   });
+  var bp=el('bPubMail'); if(bp)bp.style.opacity=el('pubCons').checked?'1':'.55';
   document.querySelectorAll('[data-tp]').forEach(function(n){
     var v=L(n.dataset.tp); if(v)n.setAttribute('placeholder',v);
   });
@@ -1042,6 +1043,14 @@ function evRound(round,seated,left,met){ return evPost('round',{round:round,seat
 
 /* =============== public sign-up =============== */
 el('ints').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;b.classList.toggle('on')};
+// Pe telefon, dupa email se apasa "Go" pe tastatura. Fara asta nu se intampla nimic.
+el('pubEmail').onkeydown=el('pubCity').onkeydown=function(e){
+  if(e.key==='Enter'){ e.preventDefault(); el('bPubMail').click() }
+};
+// bifa se aprinde odata cu butonul, ca sa se vada legatura
+el('pubCons').onchange=function(){
+  el('bPubMail').style.opacity=el('pubCons').checked?'1':'.55';
+};
 el('bPubMail').onclick=async function(){
   var b=el('bPubMail'), en=lang==='en';
   var v=el('pubEmail').value.trim(), c=el('pubCity').value.trim();
@@ -1055,7 +1064,7 @@ el('bPubMail').onclick=async function(){
   if(!v||v.indexOf('@')<1||v.indexOf('.')<0)
     return nu(en?'That email does not look right.':'Emailul nu pare corect.',el('pubEmail'));
   if(!el('pubCons').checked){
-    var box=el('pubCons').parentNode;
+    var box=el('consBox');
     box.style.background='rgba(196,85,47,.14)'; box.style.borderRadius='3px'; box.style.padding='8px';
     setTimeout(function(){box.style.background='';box.style.padding=''},2600);
     return nu(en?'Please tick the box below so we are allowed to write to you.':'Bifează căsuța de mai jos, ca să avem voie să-ți scriem.');
@@ -1067,9 +1076,14 @@ el('bPubMail').onclick=async function(){
     if(!rr.ok){var t='';try{t=(await rr.json()).error||''}catch(e){} throw new Error(t||('HTTP '+rr.status))}
     el('pubEmail').value='';el('pubCity').value='';el('pubCons').checked=false;
     [].slice.call(el('ints').querySelectorAll('.chip.on')).forEach(function(x){x.classList.remove('on')});
-    b.textContent=en?'Got it':'Gata, te-am notat';
-    say('mPub',en?'You are on the list. We will write when an evening happens near you — nothing else.'
-                :'Ești pe listă. Îți scriem când e o seară aproape de tine — nimic altceva.','ok');
+    b.textContent=en?'Got it':'Te-am notat';
+    var oras=c.replace(/\s+/g,' ').trim();
+    var mesaj = oras
+      ? (en ? 'You are on the list. There are a few of us in '+oras+' already, and more keep arriving. We will write when there is an evening there.'
+            : 'Te-am notat. Ne-am adunat câțiva în '+oras+' și tot mai vin. Îți scriem când e o seară acolo.')
+      : (en ? 'You are on the list. We will write when there is an evening near you.'
+            : 'Te-am notat. Îți scriem când e o seară aproape de tine.');
+    say('mPub',mesaj,'ok');
     setTimeout(function(){b.disabled=false;b.textContent=L('sigB')},3500);
   }catch(e){
     b.disabled=false; b.textContent=L('sigB');
