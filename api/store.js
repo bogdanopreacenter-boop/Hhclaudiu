@@ -25,6 +25,7 @@ const OWNER = process.env.OWNER_KEY || 'sef2026';
 const TTL = 2592000;              // evenimentele traiesc 30 de zile
 const BOOK = 'hh:book';
 const LEADS = 'hh:leads';
+const REQS  = 'hh:reqs';
 
 const ready = () => !!(UP_URL && UP_TOK);
 
@@ -157,6 +158,35 @@ async function evStop(id) {
   return true;
 }
 
+/* ---------- cereri de la parteneri ---------- */
+// Oricine poate trimite o cerere. Nimeni nu le poate citi fara cheia proprietarului.
+async function addReq(r) {
+  const rec = {
+    id: 'rq' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5),
+    name: String(r.name || '').slice(0, 60),
+    city: String(r.city || '').slice(0, 40),
+    kind: String(r.kind || '').slice(0, 20),
+    found: String(r.found || '').slice(0, 40),
+    want: String(r.want || '').slice(0, 400),
+    email: String(r.email || '').slice(0, 80),
+    phone: String(r.phone || '').slice(0, 30),
+    status: 'nou',
+    ts: Date.now()
+  };
+  await cmd(['RPUSH', REQS, JSON.stringify(rec)]);
+  return rec.id;
+}
+async function reqsRead() {
+  const l = await cmd(['LRANGE', REQS, '0', '-1']);
+  return (l || []).map(function (x) { return parse(x, null) }).filter(Boolean);
+}
+async function reqsWrite(list) {
+  const cmds = [['DEL', REQS]];
+  list.forEach(function (r) { cmds.push(['RPUSH', REQS, JSON.stringify(r)]) });
+  if (list.length) await pipe(cmds); else await cmd(['DEL', REQS]);
+  return true;
+}
+
 /* ---------- registrul proprietarului ---------- */
 async function bookRead() {
   if (!ready()) throw new Error('registrul are nevoie de Upstash; adauga-l in Vercel');
@@ -165,6 +195,7 @@ async function bookRead() {
   book.partners = book.partners || [];
   book.events = book.events || [];
   book.leads = (l || []).map(function (x) { return parse(x, null) }).filter(Boolean);
+  book.requests = await reqsRead();
   return book;
 }
 async function bookWrite(data) {
@@ -228,6 +259,25 @@ export default async function handler(req, res) {
       if (!email || email.indexOf('@') < 1) return res.status(400).json({ error: 'email invalid' });
       const n = await addLead(email, String(body.city || '').slice(0, 40), body.interests);
       return res.status(200).json({ ok: true, total: n });
+    }
+
+    /* --- cerere de alaturare: oricine poate scrie, nimeni nu poate citi --- */
+    if (req.method === 'POST' && q.request) {
+      const email = String(body.email || '').trim();
+      const name = String(body.name || '').trim();
+      if (!name) return res.status(400).json({ error: 'lipseste numele' });
+      if (!email || email.indexOf('@') < 1) return res.status(400).json({ error: 'email invalid' });
+      const id = await addReq(body);
+      return res.status(200).json({ ok: true, id: id });
+    }
+    if (req.method === 'POST' && q.reqstatus) {
+      if (String(q.k || '') !== OWNER) return res.status(401).json({ error: 'cheie gresita' });
+      const list = await reqsRead();
+      const one = list.filter(function (r) { return r.id === String(q.id || '') })[0];
+      if (!one) return res.status(404).json({ error: 'inexistent' });
+      one.status = String(q.s || 'nou');
+      await reqsWrite(list);
+      return res.status(200).json({ ok: true });
     }
 
     /* --- partener --- */
