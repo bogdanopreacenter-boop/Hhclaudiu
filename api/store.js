@@ -130,7 +130,12 @@ async function evVote(id, pid, val) {
 }
 async function evLead(id, lead) {
   const k = K(id);
-  await pipe([['RPUSH', k.l, JSON.stringify(lead)], ['EXPIRE', k.l, String(TTL)]]);
+  const cu = Object.assign({}, lead, { src: id, ts: lead.ts || Date.now() });
+  // se scrie si in evenimentul lui, si in registrul general, ca sa apara in CRM
+  await pipe([
+    ['RPUSH', k.l, JSON.stringify(cu)], ['EXPIRE', k.l, String(TTL)],
+    ['RPUSH', LEADS, JSON.stringify(cu)]
+  ]);
   return true;
 }
 // Runda o scrie doar gazda, deci nu exista concurenta.
@@ -173,7 +178,7 @@ async function addLead(email, city, interests) {
   await cmd(['RPUSH', LEADS, JSON.stringify({
     email: email, city: city || '',
     interests: Array.isArray(interests) ? interests.slice(0, 8) : [],
-    ts: Date.now()
+    src: 'site', ts: Date.now()
   })]);
   return await cmd(['LLEN', LEADS]);
 }
