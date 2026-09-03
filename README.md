@@ -77,6 +77,24 @@ Pasul 6 e cel mai important — el pică dacă Upstash nu e conectat.
 
 ---
 
+
+---
+
+## Domeniul — de făcut înainte de lansare
+
+Adresele canonice din toate paginile arată spre `hellohuman.ro`. Cât timp site-ul rulează doar pe adresa de probă `.vercel.app`, motoarele de căutare sunt ținute afară prin `robots.txt`.
+
+**Când conectezi domeniul la Vercel:**
+
+1. În Vercel, la *Settings → Domains*, adaugi `hellohuman.ro`. Vercel îți dă două înregistrări DNS.
+2. La HostGate, unde ai cumpărat domeniul, adaugi acele înregistrări.
+3. În `robots.txt`, ștergi linia `Disallow: /` și decomentezi blocul de dedesubt.
+4. Trimiți sitemap-ul în Google Search Console.
+
+**Dacă rămâi pe altă adresă**, caută `hellohuman.ro` în toate fișierele `.html`, în `sitemap.xml` și în `llms.txt`, și înlocuiește-l.
+
+---
+
 ## Adresa de domeniu
 
 Adresele canonice și datele structurate conțin `hellohuman.ro`. Dacă folosești alt domeniu, caută-l și înlocuiește-l în toate fișierele `.html`, în `sitemap.xml` și în `llms.txt`.
