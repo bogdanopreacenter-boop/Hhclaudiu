@@ -236,6 +236,18 @@ body.appbody .sc.on{display:block}
     <button class="btn ghost small" id="bQShare">Trimite</button>
   </div>
   <div class="note" id="qHost" style="margin-top:20px"></div>
+
+  <div id="qDemo" style="display:none">
+    <div class="stats" style="margin-top:20px">
+      <div class="st" style="grid-column:span 3"><div class="n" id="qCount">0</div><div class="t">au scanat până acum</div></div>
+    </div>
+    <div class="list" id="qWho" style="max-height:none"></div>
+    <p class="msg2" id="qMsg"></p>
+    <div class="push">
+      <button class="btn wide" id="qStart">Pornește runda</button>
+      <button class="btn ghost wide" id="qStop2">Oprește runda</button>
+    </div>
+  </div>
 </section>
 
 </div>
@@ -664,8 +676,75 @@ el('bDGo').onclick=async function(){
       bk.events.push({id:id,name:'Demonstrație',pid:'',profile:'demo',pw:pw,ts:Date.now(),people:0,demo:true}) });
     paintMain();
     aratQR('Demonstrație', HH.base()+'#e='+id, pw, id);
+    demoPornit(id);
   }catch(e){ say('mDemo',e.message,'err') }
   b.disabled=false; b.textContent='Pornește demonstrația';
+};
+
+/* ---------- demonstrația se conduce din același ecran ----------
+   La o demonstrație tu ești și organizator, și gazdă. Nu ai cui să
+   trimiți un link: stai lângă patron, cu telefonul în mână. */
+var demoId='', demoT=null;
+function demoPornit(id){
+  demoId=id;
+  el('qHost').style.display='none';
+  el('qDemo').style.display='block';
+  if(demoT)clearInterval(demoT);
+  demoT=setInterval(demoTick,2000); demoTick();
+}
+function demoOprit(){
+  if(demoT){clearInterval(demoT);demoT=null}
+  demoId='';
+  el('qHost').style.display='';
+  el('qDemo').style.display='none';
+}
+async function demoTick(){
+  if(!demoId)return;
+  try{
+    var d=await API.get(demoId), st=(d&&d.state)||{}, r=st.round;
+    el('qCount').textContent=r
+      ? r.tables.reduce(function(a,t){return a+t.people.length},0)
+      : (st.wait||[]).length;
+    el('qStop2').style.display=r?'':'none';
+    el('qStart').textContent=r?'Runda următoare':'Pornește runda';
+    el('qWho').innerHTML = r
+      ? r.tables.map(function(t){
+          return '<div class="li"><span>masa '+t.n+'</span><b>'+esc(t.people.map(function(p){return p.name}).join(' + '))+'</b></div>' }).join('')
+        + '<p class="sub2" style="padding:10px 0">'+(r.dur?('Se termină în '+HH.fmtLeft(r.start+r.dur-Date.now())):'')+'</p>'
+      : ((st.wait||[]).length
+          ? (st.wait||[]).map(function(w){return '<div class="li"><span>'+esc(w.name)+'</span><b></b></div>'}).join('')
+          : '<p class="sub2" style="padding:12px 0">Încă nimeni. Dă-le telefonul să scaneze.</p>');
+  }catch(e){}
+}
+el('qStart').onclick=async function(){
+  var b=el('qStart'); if(!demoId)return;
+  b.disabled=true; say('qMsg','');
+  try{
+    var d=await API.get(demoId), cfg=d.cfg||{}, st=d.state||{};
+    var q=(st.wait||[]).slice().sort(HH.ordq);
+    if(q.length<2)throw new Error('Ai nevoie de cel puțin doi oameni care au scanat.');
+    var mese=(cfg.tables||[1,2]).slice();
+    var qq=(cfg.qs||'').split('\n').map(function(x){return x.trim()}).filter(Boolean);
+    var b2=HH.makeGroups(q, HH.sizes(q.length, mese.length, cfg.seats||2), st.met||{}, '');
+    if(!b2.groups.length)throw new Error('Nu se poate forma nicio masă.');
+    var off=(st.rounds||0)*mese.length;
+    var tables=b2.groups.map(function(g,i){
+      return {n:mese[i], q:qq[(off+i)%qq.length]||qq[0],
+              people:g.map(function(p){return{id:p.id,name:p.name,dep:p.dep}})} });
+    var metAdd={};
+    tables.forEach(function(t){t.people.forEach(function(a){t.people.forEach(function(x){
+      if(a.id!==x.id){ metAdd[a.id]=metAdd[a.id]||((st.met||{})[a.id]||[]).slice();
+        if(metAdd[a.id].indexOf(x.id)<0)metAdd[a.id].push(x.id) }})})});
+    var seated=[]; tables.forEach(function(t){t.people.forEach(function(p){seated.push(p.id)})});
+    var left=b2.left.map(function(p){return{id:p.id,name:p.name,dep:p.dep,cat:p.cat,ts:p.ts,miss:(p.miss||0)+1,pair:'',stay:''}});
+    await API.op(demoId,'round',{round:{id:'r'+Date.now(),start:Date.now(),
+      dur:(cfg.minutes||3)*60000, tables:tables}, seated:seated, left:left, met:metAdd});
+    HH.vibrate([40,60,40]); demoTick();
+  }catch(e){ say('qMsg',e.message,'err') }
+  b.disabled=false;
+};
+el('qStop2').onclick=async function(){
+  try{ await API.op(demoId,'stop'); demoTick() }catch(e){ say('qMsg',e.message,'err') }
 };
 
 /* ---------- pregătirea unei seri ---------- */
@@ -732,7 +811,7 @@ function aratQR(nume, url, pw, id){
   el('qHost').innerHTML='<b>Pentru cel care pornește runda</b>'+esc(HH.base()+'partener.html#m='+id)+'<br>Parola: '+esc(pw||'');
   go('sQR');
 }
-el('bQB').onclick=function(e){ e.preventDefault(); HH.back() };
+el('bQB').onclick=function(e){ e.preventDefault(); demoOprit(); HH.back() };
 el('bQCopy').onclick=function(){ HH.copy(qUrl, el('bQCopy')) };
 el('bQShare').onclick=function(){ HH.shareTxt('Scanează codul de pe masă: '+qUrl) };
 el('bQPrint').onclick=function(){ window.print() };
