@@ -306,7 +306,7 @@ function porneste(){
 function opreste(){ if(timer){clearInterval(timer);timer=null} }
 
 /* ---------- panoul ---------- */
-var fila='Ev', doarLive=false;
+var fila='Ev';
 el('tabs').onclick=function(e){
   var b=e.target.closest('.tab'); if(!b)return;
   fila=b.dataset.tab;
@@ -319,9 +319,7 @@ el('bRef').onclick=async function(){
   try{ book=await API.book(key); await citesteLive(); paintMain() }catch(e){ say('mMain',e.message,'err') }
   b.disabled=false; b.textContent='Reîmprospătează';
 };
-el('bLiveOnly').onclick=function(){ doarLive=!doarLive;
-  el('bLiveOnly').style.borderColor=doarLive?'var(--gold)':'';
-  el('bLiveOnly').style.color=doarLive?'var(--gold)':''; paintMain() };
+
 
 function starea(e){
   var s=live[e.id];
@@ -344,16 +342,22 @@ function paintMain(){
 
   if(fila==='Ev'){
     var l=evs.slice().reverse();
-    if(doarLive)l=l.filter(function(e){return live[e.id]&&live[e.id].round});
+    if(filtru==='real')l=l.filter(function(e){return !e.demo});
+    if(filtru==='test')l=l.filter(function(e){return !!e.demo});
+    if(filtru==='live')l=l.filter(function(e){return live[e.id]&&live[e.id].round});
     el('lEv').innerHTML=l.length?l.map(function(e){
       var p=ps.filter(function(x){return x.id===e.pid})[0], s=live[e.id], viu=s&&s.round;
-      return '<div class="prow tap" data-ev="'+e.id+'"'+(viu?' style="border-left:2px solid #9BD8A8;padding-left:12px"':'')+'>'
-        +'<div><div class="nm">'+esc(e.name||'—')+(e.demo?' <span style="color:var(--gold);font-size:12px">probă</span>':'')+'</div>'
+      var bifa=selMod?('<span class="bif'+(sel[e.id]?' on':'')+'" data-pick="'+e.id+'"></span>'):'';
+      return '<div class="prow'+(selMod?'':' tap')+'" data-ev="'+e.id+'"'+(viu?' style="border-left:2px solid #9BD8A8;padding-left:12px"':'')+'>'
+        +'<div style="display:flex;gap:11px;align-items:flex-start">'+bifa+'<div>'
+        +'<div class="nm">'+esc(e.name||'—')+(e.demo?' <span style="color:var(--gold);font-size:12px">probă</span>':'')+'</div>'
         +'<div class="sub">'+esc(p?(p.name+(p.city?' · '+p.city:'')):'al meu')+' · '+when(e.ts)+'</div>'
-        +'<div class="sub" style="margin-top:4px">'+starea(e)+'</div></div>'
+        +'<div class="sub" style="margin-top:4px">'+starea(e)+'</div></div></div>'
         +'<div><div class="num">'+((s&&s.people)||e.people||0)+'</div><div class="numt">oameni</div>'
-        +'<div class="numt" style="margin-top:6px;color:var(--gold)">deschide →</div></div></div>';
-    }).join(''):'<p class="sub2" style="padding:16px 0">'+(doarLive?'Nicio rundă acum.':'Nicio seară încă.')+'</p>';
+        +(selMod?'':'<div class="numt" style="margin-top:6px;color:var(--gold)">deschide →</div>')+'</div></div>';
+    }).join(''):'<p class="sub2" style="padding:16px 0">'+
+      (filtru==='live'?'Nicio rundă acum.':(filtru==='test'?'Nicio probă.':(filtru==='real'?'Nicio seară reală încă.':'Nicio seară încă.')))+'</p>';
+    if(selMod){ el('bDelSel').textContent='Șterge selectate'+(nrSel()?(' ('+nrSel()+')'):'') }
   }
 
   if(fila==='Pt'){
@@ -372,7 +376,11 @@ function paintMain(){
   if(fila==='Lo')paintLeads();
   if(fila==='Rq')paintReqs();
 }
-el('lEv').onclick=function(e){ var r=e.target.closest('[data-ev]'); if(r)deschideEv(r.dataset.ev) };
+el('lEv').onclick=function(e){
+  var r=e.target.closest('[data-ev]'); if(!r)return;
+  if(selMod){ sel[r.dataset.ev]=!sel[r.dataset.ev]; paintMain(); return }
+  deschideEv(r.dataset.ev);
+};
 el('lPt').onclick=function(e){ var r=e.target.closest('[data-pt]'); if(r)deschidePt(r.dataset.pt) };
 
 /* ---------- filtre și selecție multiplă ---------- */
@@ -555,6 +563,7 @@ function deschideEv(id){
   el('eWho').textContent=p?(p.name+(p.city?' · '+p.city:'')):'al meu';
   el('eName').textContent=e.name||'—';
   el('eWhen').textContent=HH.fmtDate(e.ts)+' · '+when(e.ts);
+  el('bEMark').textContent=e.demo?'Scoate din probe':'Marchează ca probă';
   el('ePeople').innerHTML='<p class="sub2" style="padding:12px 0">se verifică…</p>';
   el('eMails').innerHTML=''; say('mEv',''); go('sEv'); reciteste(id);
 }

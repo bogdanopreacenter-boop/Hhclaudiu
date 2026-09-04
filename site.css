@@ -290,3 +290,6 @@ input.big:focus{border-bottom-color:var(--gold)}
 .prow.tap{cursor:pointer;transition:background .12s}
 .prow.tap:hover{background:rgba(240,235,224,.05)}
 .li.tap{cursor:pointer}.li.tap:hover{color:var(--gold)}
+.bif{width:22px;height:22px;border:2px solid var(--line);border-radius:3px;flex-shrink:0;margin-top:2px;display:inline-block}
+.bif.on{background:var(--gold);border-color:var(--gold);position:relative}
+.bif.on::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg)}
