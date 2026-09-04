@@ -178,8 +178,8 @@ var HH = (function () {
     demo: {
       ro: 'Demonstrație', en: 'Demonstration', seats: 2, minutes: 3, dep: false, isDemo: true,
       cats: {
-        ro: ['Sunt gata', 'Sunt gata', 'Sunt gata', 'Sunt gata'],
-        en: ['Ready', 'Ready', 'Ready', 'Ready']
+        ro: ['Lucrez aici de mult', 'Sunt nou pe aici', 'Sunt clientul locului', 'Prima dată aici'],
+        en: ['I have worked here a while', 'I am new here', 'I am a regular', 'First time here']
       },
       quiet: { ro: '', en: '' },
       qs: {
