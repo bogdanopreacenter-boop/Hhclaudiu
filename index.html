@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>HelloHuman — un cod pe masă, câteva minute la altă masă</title>
-<meta name="description" content="Ești într-un bar plin de oameni și vorbești cu aceiași doi cu care ai venit. HelloHuman e un cod pe masă: îl scanezi, primești un număr de masă și câteva minute cu oameni pe care nu îi cunoști, apoi te întorci la ai tăi.">
+<title>HelloHuman — scanezi un cod de pe masă, primești un loc și-o întrebare</title>
+<meta name="description" content="HelloHuman e un cod pe masă, în barul sau librăria unde ești deja. Îl scanezi și te așezi alături de alți oameni din aceeași încăpere, pentru o discuție scurtă. Fără cont, fără aplicație. Când timpul expiră, ești liber.">
 <link rel="canonical" href="https://hellohuman.ro/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#16302B">
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="ro_RO">
 <meta property="og:site_name" content="HelloHuman">
 <meta property="og:url" content="https://hellohuman.ro/">
-<meta property="og:title" content="HelloHuman — un cod pe masă, câteva minute la altă masă">
+<meta property="og:title" content="HelloHuman — scanezi un cod de pe masă, primești un loc și-o întrebare">
 <meta property="og:description" content="Scanezi un cod de pe masă, stai câteva minute cu oameni noi, apoi te întorci la ale tale.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@ body{background:#16302B;margin:0}
 {"@type":"WebSite","url":"https://hellohuman.ro/","name":"HelloHuman","publisher":{"@id":"https://hellohuman.ro/#org"},"inLanguage":["ro","en"]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Ce este HelloHuman?","acceptedAnswer":{"@type":"Answer","text":"Un format de seară care se ține în locuri unde oamenii sunt deja: baruri, restaurante, librării, cafenele, muzee, hoteluri. Scanezi un cod de pe masă și stai câteva minute, anunțate dinainte, cu doi sau trei oameni pe care nu îi cunoști. Nu este o aplicație și nu funcționează online."}},
-{"@type":"Question","name":"Este HelloHuman o aplicație de dating?","acceptedAnswer":{"@type":"Answer","text":"Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nimeni nu alege pe nimeni, de aceea nimeni nu poate fi refuzat."}},
+{"@type":"Question","name":"Este HelloHuman o aplicație de dating?","acceptedAnswer":{"@type":"Answer","text":"Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nu alegi pe nimeni — sistemul așază."}},
 {"@type":"Question","name":"Ce fac dacă sunt introvertit?","acceptedAnswer":{"@type":"Answer","text":"Una dintre cele patru variante de la înscriere spune că preferi să asculți, iar sistemul nu așază trei ascultători la aceeași masă. Întrebarea primită pe telefon elimină tăcerea de la început."}},
 {"@type":"Question","name":"Ce trebuie să instalez?","acceptedAnswer":{"@type":"Answer","text":"Nimic. Se deschide în browserul telefonului când scanezi codul QR de pe masă."}},
 {"@type":"Question","name":"Unde se organizează?","acceptedAnswer":{"@type":"Answer","text":"În baruri, restaurante, librării, cafenele, muzee, hoteluri, aeroporturi și gări, precum și la evenimente de firmă. În București și în restul României."}}]}]}
@@ -60,9 +60,9 @@ body{background:#16302B;margin:0}
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow" data-t="hEye">Se întâmplă în barul unde ești deja</p>
-        <h1 data-t="hH">Ești într-o sală plină<br>de oameni. Vorbești<br>cu aceiași doi.</h1>
-        <p class="lead" data-t="hP">HelloHuman e un cod pe masă. Îl scanezi, primești un număr de masă și câteva minute cu doi-trei oameni pe care nu îi cunoști. Apoi te întorci la ai tăi.<br><br><b style='color:var(--oat)'>Se întâmplă în baruri, librării, muzee și hoteluri. Nu online, nu într-o aplicație.</b></p>
+        <p class="eyebrow" data-t="hEye">Se întâmplă în locul în care ești deja</p>
+        <h1 data-t="hH">Scanezi un cod de pe masă.<br>Primești un loc și-o întrebare.</h1>
+        <p class="lead" data-t="hP">Te așezi alături de alți oameni aflați în aceeași încăpere, pentru o discuție scurtă. Nu îți faci cont și nu alegi pe nimeni — sistemul te așază. Poți să participi sau doar să asculți, iar când timpul expiră, ești liber.<br><br><b style='color:var(--oat)'>Se întâmplă în baruri, librării, muzee și hoteluri. Nu online, nu într-o aplicație.</b></b></b></p>
         <div class="cta">
           <a class="btn" href="#next" data-t="hB1">Unde ne întâlnim</a>
           <a class="btn ghost" href="#faq" data-t="hB2">Întrebări frecvente</a>
@@ -85,12 +85,12 @@ body{background:#16302B;margin:0}
   <section class="paper" id="how">
     <div class="wrap">
       <p class="eyebrow" data-t="sEye">Ce se întâmplă, exact</p>
-      <h2 data-t="sH">Trei pași. Zece secunde<br>de la scanare la masă.</h2>
-      <p class="lead" style="margin-top:14px" data-t="sP">Partea grea nu e conversația. E decizia de a te ridica și de a aborda pe cineva. Pe aia o ia sistemul în locul tău — nimeni nu cere nimic nimănui.</p>
+      <h2 data-t="sH">Trei pași.<br>Zece secunde de înscriere.</h2>
+      <p class="lead" style="margin-top:14px" data-t="sP">Partea grea nu e conversația, ci decizia de a aborda pe cineva. Aici, sistemul face logistica în locul tău.</p>
       <div class="steps">
-        <div class="step"><p class="n">1</p><h3 data-t="s1h">Scanezi codul de pe masă</h3><p data-t="s1p">Îți scrii prenumele și alegi una din patru variante. Una dintre ele spune că preferi să asculți. Fără cont, fără aplicație de instalat.</p></div>
-        <div class="step"><p class="n">2</p><h3 data-t="s2h">Îți apare: masa 7</h3><p data-t="s2p">Pe telefon vezi numărul mesei, cine mai stă acolo și o întrebare de pornire. Nu alegi pe nimeni și nimeni nu te alege — de aceea nimeni nu poate fi refuzat.</p></div>
-        <div class="step"><p class="n">3</p><h3 data-t="s3h">Te întorci la masa ta</h3><p data-t="s3p">Ora la care se termină e pe ecran de la început. Când sună, mulțumești și pleci. Nu datorezi nimănui o explicație și nu rămâi blocat nicăieri.</p></div>
+        <div class="step"><p class="n">1</p><h3 data-t="s1h">Scanezi codul de pe masă</h3><p data-t="s1p">Îți scrii prenumele și alegi una din patru variante — inclusiv opțiunea că preferi doar să asculți. Totul din browser, fără cont și fără aplicație de instalat.</p></div>
+        <div class="step"><p class="n">2</p><h3 data-t="s2h">Primești locul și subiectul</h3><p data-t="s2p">Vezi pe ecran unde te muți, cine mai vine acolo și întrebarea de la care porniți.</p></div>
+        <div class="step"><p class="n">3</p><h3 data-t="s3h">Timpul expiră. Ești liber.</h3><p data-t="s3p">Ora de final e afișată de la început. Când cronometrul se oprește, te ridici și pleci. Nu datorezi nimănui o explicație și nu rămâi blocat nicăieri.</p></div>
       </div>
     </div>
   </section>
@@ -121,7 +121,7 @@ body{background:#16302B;margin:0}
       <h2 data-t="fH">Întrebări și răspunsuri.</h2>
       <div class="ctx">
         <div class="ctxrow"><h3 data-t="f1q">Ce este HelloHuman?</h3><p data-t="f1a">Un format de seară care se ține în locuri unde oamenii sunt deja: baruri, restaurante, librării, cafenele, muzee, hoteluri. Scanezi un cod de pe masă și stai câteva minute, anunțate dinainte, cu doi-trei oameni pe care nu îi cunoști. Nu e o aplicație și nu funcționează online.</p></div>
-        <div class="ctxrow"><h3 data-t="f2q">Este o aplicație de dating?</h3><p data-t="f2a">Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nimeni nu alege pe nimeni — de aceea nimeni nu poate fi refuzat și nimeni nu află vreodată că a fost.</p></div>
+        <div class="ctxrow"><h3 data-t="f2q">Este o aplicație de dating?</h3><p data-t="f2a">Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nu alegi pe nimeni — sistemul așază.</p></div>
         <div class="ctxrow"><h3 data-t="f3q">Ce mă fac dacă sunt introvertit?</h3><p data-t="f3a">Formatul e construit exact pentru asta. Una dintre cele patru variante de la înscriere spune că preferi să asculți, iar sistemul nu așază trei ascultători la aceeași masă. Iar întrebarea pe care o primiți toți pe telefon elimină tăcerea de la început.</p></div>
         <div class="ctxrow"><h3 data-t="f4q">Pot veni cu prietenii?</h3><p data-t="f4a">Da. Unul face un cod de trei cifre, celălalt îl tastează, și stați la aceeași masă. Treceți prin experiență împreună, dar cu oameni noi în jur.</p></div>
         <div class="ctxrow"><h3 data-t="f5q">Ce se întâmplă cu datele mele?</h3><p data-t="f5a">Nimic de instalat. Se deschide în browserul telefonului când scanezi codul. Folosim doar prenumele tău, cât ține seara. Emailul îl lași la final și doar dacă vrei.</p></div>
@@ -129,28 +129,7 @@ body{background:#16302B;margin:0}
     </div>
   </section>
 
-  <section id="why">
-    <div class="wrap">
-      <p class="eyebrow" data-t="wEye">Psihologia conexiunii</p>
-      <h2 data-t="wH">Oamenii te plac mult mai mult<br>decât crezi.</h2>
-    </div>
-    <div class="wrap two" style="margin-top:24px">
-      <div><div class="quote">
-        <p class="big" data-t="q1">După o conversație, oamenii subestimează sistematic cât de mult i-au plăcut celuilalt. Efectul ține luni de zile.</p>
-        <p class="src">Boothby, Cooney, Sandstrom și Clark, Psychological Science, 2018</p>
-      </div></div>
-      <div><div class="quote">
-        <p class="big" data-t="q2">Navetiștii puși să vorbească cu un străin s-au bucurat de drum mai mult decât cei lăsați singuri — exact opusul a ce preziseseră.</p>
-        <p class="src">Epley și Schroeder, Journal of Experimental Psychology, 2014</p>
-      </div></div>
-    </div>
-    <div class="wrap" style="margin-top:28px">
-      <p class="lead" data-t="wEnd">De ce ezităm, atunci? Din cauza a ceea ce am putea numi anxietatea de prognoză: frica se formează înainte de conversație, iar corectarea vine abia după ce s-a terminat. Distanța dintre ele e chiar spațiul în care HelloHuman lucrează.</p>
-    </div>
-  </section>
-</main>
-
-<footer class="foot">
+    <footer class="foot">
   <div class="wrap">
     <div>
       <p class="logo" style="font-size:24px">Hello<span>Human</span></p>
@@ -163,14 +142,13 @@ body{background:#16302B;margin:0}
         <li><a href="#how" data-t="nav1">Cum funcționează</a></li>
         <li><a href="#next" data-t="nav2">Unde</a></li>
         <li><a href="#faq" data-t="nav3">Întrebări</a></li>
-        <li><a href="#why" data-t="wEye">Psihologia conexiunii</a></li>
       </ul>
     </div>
     <div class="col">
       <h4>Contact</h4>
       <ul>
         <li><a href="mailto:contact@hellohuman.ro">contact@hellohuman.ro</a></li>
-        <li><a href="tel:+40750255200">0750 255 200</a></li>
+        <li><a href="tel:+40750255200">+40 750 255 200</a></li>
       </ul>
     </div>
   </div>
@@ -432,52 +410,52 @@ en:{nav1:'How it works',nav2:'Where',nav3:'Questions',back:'Back',next:'Continue
  cdWa:'Send on WhatsApp',cdMail:'Send by email',cdCopy:'Copy the code'}
 };
 var SITE={
-ro:{ hP:'HelloHuman e un cod pe masă. Îl scanezi, primești un număr de masă și câteva minute cu doi-trei oameni pe care nu îi cunoști. Apoi te întorci la ai tăi.<br><br><b style=\'color:var(--oat)\'>Se întâmplă în baruri, librării, muzee și hoteluri. Nu online, nu într-o aplicație.</b>',
- sP:'Partea grea nu e conversația. E decizia de a te ridica și de a aborda pe cineva. Pe aia o ia sistemul în locul tău — nimeni nu cere nimic nimănui.',
- s1h:'Scanezi codul de pe masă',s1p:'Îți scrii prenumele și alegi una din patru variante. Una dintre ele spune că preferi să asculți. Fără cont, fără aplicație de instalat.',
- s2h:'Îți apare: masa 7',s2p:'Pe telefon vezi numărul mesei, cine mai stă acolo și o întrebare de pornire. Nu alegi pe nimeni și nimeni nu te alege — de aceea nimeni nu poate fi refuzat.',
- s3h:'Te întorci la masa ta',s3p:'Ora la care se termină e pe ecran de la început. Când sună, mulțumești și pleci. Nu datorezi nimănui o explicație și nu rămâi blocat nicăieri.',
+ro:{ hP:'Te așezi alături de alți oameni aflați în aceeași încăpere, pentru o discuție scurtă. Nu îți faci cont și nu alegi pe nimeni — sistemul te așază. Poți să participi sau doar să asculți, iar când timpul expiră, ești liber.<br><br><b style=\'color:var(--oat)\'>Se întâmplă în baruri, librării, muzee și hoteluri. Nu online, nu într-o aplicație.</b>',
+ sP:'Partea grea nu e conversația, ci decizia de a aborda pe cineva. Aici, sistemul face logistica în locul tău.',
+ s1h:'Scanezi codul de pe masă',s1p:'Îți scrii prenumele și alegi una din patru variante — inclusiv opțiunea că preferi doar să asculți. Totul din browser, fără cont și fără aplicație de instalat.',
+ s2h:'Primești locul și subiectul',s2p:'Vezi pe ecran unde te muți, cine mai vine acolo și întrebarea de la care porniți.',
+ s3h:'Timpul expiră. Ești liber.',s3p:'Ora de final e afișată de la început. Când cronometrul se oprește, te ridici și pleci. Nu datorezi nimănui o explicație și nu rămâi blocat nicăieri.',
  nP:'Nu te poți înscrie de aici. Se intră doar scanând codul de pe masă, în locul unde se ține seara. Spune-ne în ce oraș ești și îți scriem când se organizează una aproape de tine.',
  cons:'Sunt de acord să primesc emailuri despre serile HelloHuman din orașul meu.',
  gdpr:'Îți folosim adresa doar ca să te anunțăm despre serile din orașul tău. Nu o dăm și nu o vindem nimănui. Te poți dezabona dintr-un click, din orice mesaj, iar la cerere ștergem tot ce avem despre tine. Scrie la contact@hellohuman.ro. Operator: HelloHuman, București.',
  f1q:'Ce este HelloHuman?',f1a:'Un format de seară care se ține în locuri unde oamenii sunt deja: baruri, restaurante, librării, cafenele, muzee, hoteluri. Scanezi un cod de pe masă și stai câteva minute, anunțate dinainte, cu doi-trei oameni pe care nu îi cunoști. Nu e o aplicație și nu funcționează online.',
- f2q:'Este o aplicație de dating?',f2a:'Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nimeni nu alege pe nimeni — de aceea nimeni nu poate fi refuzat și nimeni nu află vreodată că a fost.',
+ f2q:'Este o aplicație de dating?',f2a:'Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu se dă niciun fel de swipe. Nu alegi pe nimeni — sistemul așază.',
  f3q:'Ce mă fac dacă sunt introvertit?',f3a:'Formatul e construit exact pentru asta. Una dintre cele patru variante de la înscriere spune că preferi să asculți, iar sistemul nu așază trei ascultători la aceeași masă. Iar întrebarea pe care o primiți toți pe telefon elimină tăcerea de la început.',
  f4q:'Pot veni cu prietenii?',f4a:'Da. Unul face un cod de trei cifre, celălalt îl tastează, și stați la aceeași masă. Treceți prin experiență împreună, dar cu oameni noi în jur.',
  f5q:'Ce se întâmplă cu datele mele?',f5a:'Nimic de instalat. Se deschide în browserul telefonului când scanezi codul. Folosim doar prenumele tău, cât ține seara. Emailul îl lași la final și doar dacă vrei.',
  q1:'După o conversație, oamenii subestimează sistematic cât de mult i-au plăcut celuilalt. Efectul ține luni de zile.',
  q2:'Navetiștii puși să vorbească cu un străin s-au bucurat de drum mai mult decât cei lăsați singuri — exact opusul a ce preziseseră.',
  wEnd:'De ce ezităm, atunci? Din cauza a ceea ce am putea numi anxietatea de prognoză: frica se formează înainte de conversație, iar corectarea vine abia după ce s-a terminat. Distanța dintre ele e chiar spațiul în care HelloHuman lucrează.',
- hEye:'Se întâmplă în barul unde ești deja',
- hH:'Ești într-o sală plină<br>de oameni. Vorbești<br>cu aceiași doi.',
+ hEye:'Se întâmplă în locul în care ești deja',
+ hH:'Scanezi un cod de pe masă.<br>Primești un loc și-o întrebare.',
  hB1:'Unde ne întâlnim',hB2:'Întrebări frecvente',cCap:'Asta primești pe telefon',
  cQv:'Găsiți trei lucruri<br>pe care le aveți în comun',
- sEye:'Ce se întâmplă, exact',sH:'Trei pași. Zece secunde<br>de la scanare la masă.',
+ sEye:'Ce se întâmplă, exact',sH:'Trei pași.<br>Zece secunde de înscriere.',
  nEye:'Unde se organizează',nH:'În baruri, librării,<br>muzee și hoteluri.',
  fEye:'Ce trebuie să știi',fH:'Întrebări și răspunsuri.',
  wEye:'Psihologia conexiunii',wH:'Oamenii te plac mult mai mult<br>decât crezi.',
  ftS:'Pe scurt',ftT:'Seri în care oameni care nu se cunosc stau câteva minute la aceeași masă, în locuri unde sunt deja prezenți.'},
-en:{ hP:'HelloHuman is a code on your table. You scan it, get a table number and a few minutes with two or three people you do not know. Then you go back to your own.<br><br><b style=\'color:var(--oat)\'>It happens in bars, bookshops, museums and hotels. Not online, not in an app.</b>',
- sP:'The hard part is not the conversation. It is deciding to get up and approach someone. We take that risk, through a setup where nobody asks anybody for anything.',
- s1h:'You scan the code on the table',s1p:'You type your first name and pick one of four options. One of them says you would rather listen. No account, no app to install.',
- s2h:'Your phone says: table 7',s2p:'Your phone shows the table number, who else is there and a question to start from. You choose nobody and nobody chooses you — which is why nobody can be turned down.',
- s3h:'You go back to your own table',s3p:'The end time is on your screen from the start. When it rings, you say thanks and leave. You owe nobody an explanation and you never get stuck.',
+en:{ hP:'You sit down with other people who are already in the same room, for a short conversation. No account, and you choose nobody — the system seats you. You can take part or just listen, and when the time is up, you are free.<br><br><b style=\'color:var(--oat)\'>It happens in bars, bookshops, museums and hotels. Not online, not in an app.</b>',
+ sP:'The hard part is not the conversation, it is deciding to approach someone. Here, the system does the logistics for you.',
+ s1h:'You scan the code on the table',s1p:'You type your first name and pick one of four options — including the one that says you would rather just listen. All in the browser, no account and no app to install.',
+ s2h:'You get the seat and the subject',s2p:'You see on screen where you move, who else is coming and the question you start from.',
+ s3h:'Time is up. You are free.',s3p:'The end time is shown from the start. When the timer stops, you get up and leave. You owe nobody an explanation and you never get stuck.',
  nP:'You cannot join from here. You join by scanning the code on the table, in the place where the evening is held. Tell us which city you are in and we will write when one happens near you.',
  cons:'I agree to receive emails about HelloHuman evenings in my city.',
  gdpr:'We use your address only to tell you about evenings in your city. We never share or sell it. You can unsubscribe in one click from any message, and on request we delete everything we hold about you. Write to contact@hellohuman.ro. Data controller: HelloHuman, Bucharest, Romania.',
  f1q:'What is HelloHuman?',f1a:'An evening format that runs in places where people already are: bars, restaurants, bookshops, cafés, museums, hotels. You scan a code on the table and spend a few announced minutes with two or three people you do not know. It is not an app and it does not work online.',
- f2q:'Is it a dating app?',f2a:'No. Tables are three or four people, there are no photos, profiles or ages, and there is no swiping. Nobody chooses anybody — which is why nobody can be turned down and nobody ever learns they were.',
+ f2q:'Is it a dating app?',f2a:'No. Tables are three or four people, there are no photos, profiles or ages, and there is no swiping. You choose nobody — the system seats you.',
  f3q:'What if I am introverted?',f3a:'The format was built for exactly that. One of the four options says you would rather listen, and the system never seats three listeners at one table. And the question everyone gets on their phone removes the opening silence.',
  f4q:'Can I come with friends?',f4a:'Yes. One of you makes a three-digit code, the other types it in, and you sit at the same table. You go through it together, with new people around.',
  f5q:'What happens to my data?',f5a:'Nothing to install. It opens in your phone browser when you scan the code. We use only your first name, for the length of the evening. Email is left at the end, and only if you want.',
  q1:'After a conversation, people systematically underestimate how much the other person liked them. The effect lasts for months.',
  q2:'Commuters asked to talk to a stranger enjoyed the journey more than those left alone — the opposite of what they had predicted.',
  wEnd:'So why do we hesitate? Because of what we might call forecast anxiety: the fear forms before the conversation, and the correction only arrives once it is over. The gap between the two is exactly where HelloHuman works.',
- hEye:'It happens in the bar you are already in',
- hH:'You are in a room full<br>of people. You talk<br>to the same two.',
+ hEye:'It happens in the place you are already in',
+ hH:'You scan a code on the table.<br>You get a seat and a question.',
  hB1:'Where we meet',hB2:'Common questions',cCap:'This is what lands on your phone',
  cQv:'Find three things<br>you all have in common',
- sEye:'What happens, exactly',sH:'Three steps. Ten seconds<br>from scan to table.',
+ sEye:'What happens, exactly',sH:'Three steps.<br>Ten seconds to join.',
  nEye:'Where it happens',nH:'In bars, bookshops,<br>museums and hotels.',
  fEye:'What you should know',fH:'Questions and answers.',
  wEye:'The psychology of connection',wH:'People like you far more<br>than you think.',
