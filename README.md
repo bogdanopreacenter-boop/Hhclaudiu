@@ -1,6 +1,6 @@
 # HelloHuman
 
-Format de seară care așază oameni care nu se cunosc la aceeași masă, pentru un interval scurt și anunțat dinainte. Funcționează în baruri, librării, muzee, hoteluri, terminale de călători și la evenimente de firmă.
+Format de seară care așază oameni care nu se cunosc la aceeași masă, pentru un interval scurt și anunțat dinainte. Funcționează în baruri, librării, muzee, hoteluri, terminale de călători și la evenime nte de firmă.
 
 Site și aplicație, fără cadru de dezvoltare și fără pas de compilare. Se urcă direct pe Vercel.
 
