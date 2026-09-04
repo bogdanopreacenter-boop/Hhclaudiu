@@ -9,7 +9,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Karla:wght@400;500;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
-<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/site.css?v=4">
+<style>
+/* Garanție de afișare: paginile astea nu depind de nicio regulă din altă parte. */
+body.appbody{background:#16302B;margin:0}
+body.appbody .app{display:block!important;max-width:560px;margin:0 auto;padding:26px 20px 60px;min-height:100vh}
+body.appbody .sc{display:none}
+body.appbody .sc.on{display:block}
+</style>
+
 </head>
 <body class="appbody">
 <div class="app">
@@ -48,9 +56,17 @@
   </div>
 
   <div id="tEv">
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px">
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 8px">
+      <button class="btn ghost small" id="fAll">Toate</button>
+      <button class="btn ghost small" id="fReal">Reale</button>
+      <button class="btn ghost small" id="fTest">Probe</button>
+      <button class="btn ghost small" id="fLive">Active</button>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px">
       <button class="btn ghost small" id="bRef">Reîmprospătează</button>
-      <button class="btn ghost small" id="bLiveOnly">Doar cele active</button>
+      <button class="btn ghost small" id="bPick">Selectează</button>
+      <button class="btn ghost small" id="bDelSel" style="display:none;border-color:rgba(196,85,47,.5);color:#E89078">Șterge selectate</button>
+      <button class="btn ghost small" id="bMarkSel" style="display:none">Marchează ca probă</button>
     </div>
     <div class="list" id="lEv" style="max-height:none"></div>
     <button class="btn wide" id="bNewEv" style="margin-top:16px">Pregătește o seară</button>
@@ -120,6 +136,7 @@
     <button class="btn ghost small" id="bEQr">Codul pentru oameni</button>
     <button class="btn ghost small" id="bEHost">Link de gazdă</button>
     <button class="btn ghost small" id="bEStop">Oprește runda</button>
+    <button class="btn ghost small" id="bEMark">Marchează ca probă</button>
   </div>
   <label class="lb">Cine a fost în sală</label>
   <div class="list" id="ePeople" style="max-height:none"></div>
@@ -357,6 +374,61 @@ function paintMain(){
 }
 el('lEv').onclick=function(e){ var r=e.target.closest('[data-ev]'); if(r)deschideEv(r.dataset.ev) };
 el('lPt').onclick=function(e){ var r=e.target.closest('[data-pt]'); if(r)deschidePt(r.dataset.pt) };
+
+/* ---------- filtre și selecție multiplă ---------- */
+var filtru='all', selMod=false, sel={};
+['All','Real','Test','Live'].forEach(function(k){
+  el('f'+k).onclick=function(){
+    filtru={All:'all',Real:'real',Test:'test',Live:'live'}[k];
+    ['All','Real','Test','Live'].forEach(function(x){
+      var b=el('f'+x), on=(x===k);
+      b.style.borderColor=on?'var(--gold)':''; b.style.color=on?'var(--gold)':'';
+    });
+    paintMain();
+  };
+});
+el('fAll').style.borderColor='var(--gold)'; el('fAll').style.color='var(--gold)';
+
+el('bPick').onclick=function(){
+  selMod=!selMod; sel={};
+  el('bPick').textContent=selMod?'Renunță':'Selectează';
+  el('bPick').style.borderColor=selMod?'var(--gold)':'';
+  el('bDelSel').style.display=selMod?'':'none';
+  el('bMarkSel').style.display=selMod?'':'none';
+  paintMain();
+};
+function nrSel(){ return Object.keys(sel).filter(function(k){return sel[k]}).length }
+el('bDelSel').onclick=async function(){
+  var ids=Object.keys(sel).filter(function(k){return sel[k]});
+  if(!ids.length)return say('mMain','Nu ai bifat nimic.','err');
+  if(!confirm('Ștergi '+ids.length+' '+(ids.length===1?'seară':'seri')+' din registru? Nu se mai poate reveni.'))return;
+  var b=el('bDelSel'); b.disabled=true; b.textContent='…';
+  try{
+    await salveaza(function(bk){ bk.events=(bk.events||[]).filter(function(e){return ids.indexOf(e.id)<0}) });
+    ids.forEach(function(i){delete live[i]});
+    sel={}; selMod=false; el('bPick').click(); el('bPick').click();
+    say('mMain','Șterse.','ok'); paintMain();
+  }catch(e){ say('mMain',e.message,'err') }
+  b.disabled=false; b.textContent='Șterge selectate';
+};
+el('bMarkSel').onclick=async function(){
+  var ids=Object.keys(sel).filter(function(k){return sel[k]});
+  if(!ids.length)return say('mMain','Nu ai bifat nimic.','err');
+  try{
+    await salveaza(function(bk){ (bk.events||[]).forEach(function(e){ if(ids.indexOf(e.id)>=0)e.demo=true }) });
+    sel={}; say('mMain','Marcate ca probă. Le poți ascunde din filtrul „Reale".','ok'); paintMain();
+  }catch(e){ say('mMain',e.message,'err') }
+};
+el('bEMark').onclick=async function(){
+  var e=(book.events||[]).filter(function(x){return x.id===evId})[0]; if(!e)return;
+  try{
+    var nou=!e.demo;
+    await salveaza(function(bk){ (bk.events||[]).forEach(function(x){ if(x.id===evId)x.demo=nou }) });
+    e.demo=nou; el('bEMark').textContent=nou?'Scoate din probe':'Marchează ca probă';
+    say('mEv',nou?'Marcată ca probă. Nu mai intră în cifre.':'Scoasă din probe.','ok');
+    paintMain();
+  }catch(err){ say('mEv',err.message,'err') }
+};
 
 /* ---------- contacte ---------- */
 function sursa(s){
