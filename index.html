@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HelloHuman — cunoști oameni noi, chiar acolo unde ești</title>
+<meta name="description" content="Cunoști oameni noi chiar acolo unde ești deja. Scanezi codul de pe masă, alegi cum vrei să participi, iar noi te așezăm la o masă cu oameni care vor să discute. Fără cont, fără aplicație.">
+<link rel="canonical" href="https://hellohuman.ro/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#16302B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:site_name" content="HelloHuman">
+<meta property="og:url" content="https://hellohuman.ro/">
+<meta property="og:title" content="HelloHuman — cunoști oameni noi, chiar acolo unde ești">
+<meta property="og:description" content="Scanezi codul de pe masă, alegi cum vrei să participi, iar noi te așezăm la o masă cu oameni care vor să discute.">
+<meta property="og:image" content="https://hellohuman.ro/cartonas-cod-qr-masa-bar.jpg">
+<meta property="og:image:width" content="1408">
+<meta property="og:image:height" content="768">
+<meta property="og:image:alt" content="Cartonaș HelloHuman cu cod QR pe o masă de bar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hellohuman.ro/cartonas-cod-qr-masa-bar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Karla:wght@400;500;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=5">
+<style>
+/* Garanție de afișare: pagina nu depinde de nimic altceva ca să fie citibilă. */
+body{background:#16302B;margin:0}
+#site{display:block}
+#app{display:none}
+#app.on{display:block;max-width:560px;margin:0 auto;padding:26px 20px 60px;min-height:100vh}
+#app .sc{display:none}
+#app .sc.on{display:block}
+
+.pmenu{ position:relative; display:inline-block }
+.pbtn{ background:none; border:0; font:inherit; color:inherit; cursor:pointer;
+  padding:0; -webkit-tap-highlight-color:transparent }
+.pbtn::after{ content:"›"; display:inline-block; margin-left:5px;
+  transform:rotate(90deg); font-size:.9em; opacity:.55; transition:transform .22s }
+.pbtn[aria-expanded="true"]::after{ transform:rotate(-90deg); opacity:1 }
+.pdrop{ position:absolute; top:calc(100% + 12px); right:0; z-index:60;
+  min-width:278px; background:var(--ink,#0B2620); border:1px solid rgba(255,255,255,.14);
+  border-radius:3px; padding:6px; box-shadow:0 14px 34px rgba(0,0,0,.32) }
+.pdrop[hidden]{ display:none }
+.pdrop a{ display:block; padding:12px 14px; text-decoration:none; border-radius:2px;
+  transition:background .2s }
+.pdrop a + a{ margin-top:2px }
+.pdrop a:hover,.pdrop a:focus-visible{ background:rgba(255,255,255,.07) }
+.pdrop b{ display:block; font:500 15px/1.3 var(--sr,Georgia,serif); color:#F3EFE7; margin-bottom:3px }
+.pdrop span{ display:block; font:400 12.5px/1.45 var(--ui); color:rgba(243,239,231,.62) }
+@media(max-width:640px){
+  .pmenu{ position:static }
+  .pdrop{ left:12px; right:12px; min-width:0 }
+}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://hellohuman.ro/#org",
+   "name": "HelloHuman",
+   "url": "https://hellohuman.ro/",
+   "email": "contact@hellohuman.ro",
+   "telephone": "+40750255200",
+   "areaServed": {
+    "@type": "Country",
+    "name": "România"
+   }
+  },
+  {
+   "@type": "WebSite",
+   "url": "https://hellohuman.ro/",
+   "name": "HelloHuman",
+   "publisher": {
+    "@id": "https://hellohuman.ro/#org"
+   },
+   "inLanguage": [
+    "ro",
+    "en"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Ce este HelloHuman?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Un cod QR care stă pe masă, în locuri unde oamenii sunt deja: baruri, restaurante, librării, cafenele, muzee, hoteluri. Îl scanezi și stai câteva minute, anunțate dinainte, cu doi sau trei oameni pe care nu îi cunoști. Nu este o aplicație și nu funcționează online."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Este HelloHuman o aplicație de dating?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nu. Mesele sunt de trei sau patru oameni, nu există poze, profiluri sau vârste, și nu alegi pe nimeni dintr-o listă. Nu alegi pe nimeni — sistemul așază."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ce fac dacă sunt introvertit?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Una dintre cele patru variante de la înscriere spune că preferi să asculți, iar sistemul nu așază trei ascultători la aceeași masă. Întrebarea primită pe telefon elimină tăcerea de la început."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Ce trebuie să instalez?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nimic. Se deschide în browserul telefonului când scanezi codul QR de pe masă."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Unde se organizează?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "În baruri, restaurante, librării, cafenele, muzee, hoteluri, aeroporturi și gări, precum și la evenimente de firmă. În București și în restul României."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "ImageObject",
+   "contentUrl": "https://hellohuman.ro/cartonas-cod-qr-masa-bar.jpg",
+   "caption": "Cartonaș HelloHuman cu cod QR pe o masă de bar, lângă un telefon care tocmai l-a scanat",
+   "width": 1408,
+   "height": 768
+  },
+  {
+   "@type": "ImageObject",
+   "contentUrl": "https://hellohuman.ro/conversatie-masa-librarie.jpg",
+   "caption": "Patru oameni la aceeași masă într-o librărie, în conversație, cu telefonul arătând numărul mesei și întrebarea de pornire",
+   "width": 1408,
+   "height": 768
+  }
+ ]
+}
+</script>
+
+<style>
+/* limba, in aplicatie: discret, ca sa nu concureze cu ce are de facut omul */
+#aLang{ position:fixed; top:10px; right:12px; z-index:50;
+  background:rgba(255,255,255,.08); color:var(--mist); border:1px solid rgba(255,255,255,.16);
+  border-radius:2px; padding:5px 10px; font:600 12px/1 var(--ui); letter-spacing:.06em;
+  cursor:pointer; -webkit-tap-highlight-color:transparent }
+#aLang:active{ background:rgba(255,255,255,.16) }
+#app:not(.on) #aLang{ display:none }
+</style>
+</head>
+<body>
+
+<div id="site">
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">Hello<span>Human</span></a>
+    <nav class="barnav">
+      <a href="#how" class="hidem" data-t="nav1">Cum funcționează</a>
+      <a href="#next" class="hidem" data-t="nav2">Unde</a>
+      <a href="#faq" class="hidem" data-t="nav3">Întrebări</a>
+      <div class="pmenu">
+        <button class="bizlink pbtn" id="bPart" type="button" aria-expanded="false" aria-controls="pdrop" data-t="navBiz">Parteneri</button>
+        <div class="pdrop" id="pdrop" hidden>
+          <a href="/business">
+            <b data-t="pmC">Companii</b>
+            <span data-t="pmCs">Evenimente interne, măsurare, rapoarte</span>
+          </a>
+          <a href="/parteneri.html">
+            <b data-t="pmL">Locuri cu public</b>
+            <span data-t="pmLs">Baruri, librării, muzee, hoteluri, terminale</span>
+          </a>
+        </div>
+      </div>
+      <button class="lang" id="bLang">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <figure class="heroimg">
+        <img src="/cartonas-cod-qr-masa-bar.jpg" width="1408" height="768"
+             alt="Cartonaș HelloHuman cu cod QR pe o masă, lângă mâna cuiva care tocmai l-a scanat cu telefonul"
+             fetchpriority="high" decoding="async">
+      </figure>
+      <h1 data-t="hH">Cunoști oameni noi.<br>Chiar acolo unde ești.</h1>
+      <p class="lead" data-t="hP">Fără dating, fără aplicații, fără profiluri.</p><p class="lead2" data-t="hP2">Scanezi codul de pe masă, alegi cum vrei să participi, iar noi te așezăm la o masă cu oameni care vor să discute.</p>
+      <div class="cta">
+        <a class="btn" href="#how" data-t="hB1">Vezi cum funcționează</a>
+        <a class="btn ghost" href="#faq" data-t="hB2">Întrebări frecvente</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper" id="how">
+    <div class="wrap">
+      <p class="eyebrow" data-t="sEye">Cum funcționează?</p>
+      <h2 data-t="sH">Trei pași.<br>Zece secunde.</h2>
+      <p class="lead" style="margin-top:14px" data-t="sP">Nu trebuie să abordezi pe nimeni. Sistemul face totul pentru tine.</p>
+      <div class="steps">
+        <div class="step"><p class="n">1</p><h3 data-t="s1h">Scanezi codul</h3><p data-t="s1p">Găsești un cod pe masă. Îl scanezi cu camera telefonului și scrii prenumele tău.</p></div>
+        <div class="step"><p class="n">2</p><h3 data-t="s2h">Alegi cum vrei să participi</h3><p data-t="s2p">Vrei să vorbești? Preferi să asculți? Cauți idei noi? Alege o opțiune, iar noi îți spunem imediat la ce masă să te așezi.</p></div>
+        <div class="step"><p class="n">3</p><h3 data-t="s3h">Discuți. Apoi ești liber.</h3><p data-t="s3p">Primești o întrebare care sparge gheața. Când timpul expiră, te ridici și pleci. Fără obligații.</p></div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section id="next">
+    <div class="wrap">
+      <p class="eyebrow" data-t="nEye">Unde se organizează?</p>
+      <h2 data-t="nH">În locurile pe care<br>deja le frecventezi.</h2>
+      <figure class="patru">
+        <img src="/locuri-hellohuman.jpg" width="1408" height="768"
+             alt="Patru locuri unde se întâmplă: o cafenea, cartonașul pe masă, un muzeu și lobby-ul unui hotel"
+             loading="lazy" decoding="async">
+      </figure>
+      <p class="lead" style="margin-top:14px" data-t="nP">Nu te poți înscrie de aici. Participarea se face doar scanând codul de pe masă. Spune-ne orașul tău și te anunțăm când organizăm ceva acolo.</p>
+      <div class="sig">
+        <div class="sigrow">
+          <input type="email" id="pubMail" placeholder="tu@email.com" autocomplete="email" enterkeyhint="done" data-tp="phMail">
+          <input type="text" id="pubCity" maxlength="30" placeholder="Orașul tău" enterkeyhint="done" data-tp="phCity">
+        </div>
+        <p class="signote2" style="margin:18px 0 0" data-t="iEye">Ce te-ar interesa? Poți alege câte vrei.</p>
+        <div class="chips" id="ints"></div>
+        <label class="check" id="consBox"><input type="checkbox" id="pubCons"><span data-t="cons">Sunt de acord să primesc notificări despre evenimentele din orașul meu.</span></label>
+        <button class="btn" id="bMail" style="margin-top:18px;min-width:220px" data-t="bMailT">Anunță-mă</button>
+        <p class="msg2" id="mMail" style="text-align:center"></p>
+        <p class="signote2" style="margin-top:14px;font-size:13px;line-height:1.6" data-t="gdpr">Folosim emailul tău doar pentru a te anunța despre evenimente din orașul tău. Nu îl vindem sau distribuim. Te poți dezabona oricând. Operator: HelloHuman, România.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper" id="faq">
+    <div class="wrap">
+      <p class="eyebrow" data-t="fEye">Întrebări frecvente</p>
+      <h2 data-t="fH">Ai întrebări?<br>Iată răspunsurile.</h2>
+      <div class="ctx">
+        <div class="ctxrow"><h3 data-t="f1q">Ce este HelloHuman?</h3><p data-t="f1a">Este un mod simplu de a cunoaște oameni noi, chiar acolo unde ești deja. Găsești un cod QR pe masă, îl scanezi, alegi cum vrei să participi, iar noi te așezăm la o masă cu alți doi sau trei oameni care vor să discute.</p></div>
+        <div class="ctxrow"><h3 data-t="f2q">Este o aplicație de dating?</h3><p data-t="f2a">Nu. Nu există profiluri, poze sau vârste. Nu alegi pe nimeni. Sistemul face mese de trei sau patru oameni, pentru conversații care curg de la sine.</p></div>
+        <div class="ctxrow"><h3 data-t="f3q">Sunt introvertit. Este pentru mine?</h3><p data-t="f3a">Da. La înscriere poți alege că azi preferi să asculți. Sistemul nu adună la aceeași masă doar oameni care ascultă, iar întrebarea de început sparge gheața fără să ceară nimic de la tine.</p></div>
+        
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img src="/logo-hellohuman.png" width="821" height="317"
+           alt="HelloHuman — trei oameni la o masă, desenați dintr-o singură linie"
+           style="width:100%;max-width:280px;height:auto;opacity:.9" loading="lazy" decoding="async">
+      <p class="sm" style="margin-top:10px;max-width:34ch" data-t="ftT">Oameni care nu se cunosc stau de vorbă câteva minute, chiar acolo unde se aflau oricum.</p>
+      
+    </div>
+    <div class="col">
+      <h4 data-t="ftS">Pe scurt</h4>
+      <ul>
+        <li><a href="#how" data-t="nav1">Cum funcționează</a></li>
+        <li><a href="#next" data-t="nav2">Unde</a></li>
+        <li><a href="#faq" data-t="nav3">Întrebări</a></li>
+        <li style="margin-top:14px"><a href="/parteneri.html" data-t="ftBiz">Ai un local? Vezi cum funcționează</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@hellohuman.ro">contact@hellohuman.ro</a></li>
+        <li><a href="tel:+40750255200">+40 750 255 200</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</div>
+
+<div id="app">
+<button id="aLang" type="button" aria-label="Language">EN</button>
+
+<section class="sc" id="sJoin">
+  <p class="eyebrow" id="jEv">HelloHuman</p>
+  <h2 data-t="jH">Ce ți se potrivește?</h2>
+  <label class="lb" for="nm" data-t="jName">Prenumele tău</label>
+  <input type="text" class="big" id="nm" maxlength="30" autocomplete="given-name" placeholder="Andrei" data-tp="phName">
+  <div id="depBox" style="display:none">
+    <label class="lb" for="dp" data-t="jTeam">Echipa sau departamentul</label>
+    <input type="text" id="dp" maxlength="30" placeholder="Operațiuni" data-tp="phTeam">
+  </div>
+  <div id="vechBox" style="display:none">
+    <label class="lb" data-t="jVech">De cât timp ești aici?</label>
+    <div class="opts" id="vech" style="margin-bottom:4px">
+      <button class="opt" data-v="nou" data-t="vNou">Sub un an</button>
+      <button class="opt" data-v="mediu" data-t="vMediu">Unu până la trei ani</button>
+      <button class="opt" data-v="vechi" data-t="vVechi">Peste trei ani</button>
+    </div>
+  </div>
+  <div class="opts" id="cats" style="margin-top:24px"></div>
+  <p class="msg2" id="mJoin"></p>
+  <div class="push">
+    <button class="btn wide" id="bIn" data-t="jIn">Intru</button>
+    <button class="btn ghost wide" id="bPair" data-t="jPair">Vin cu cineva</button>
+  </div>
+</section>
+
+<section class="sc" id="sPair">
+  <p class="eyebrow" data-t="pEye">Împreună</p>
+  <h2 data-t="pH">Aceeași masă,<br>voi doi.</h2>
+  <p class="sub2" style="margin-top:10px" data-t="pP">Unul face un cod, celălalt îl scrie aici. Sau i-l trimiți direct.</p>
+  <button class="btn wide" id="bGen" style="margin-top:22px" data-t="pGen">Fă-mi un cod</button>
+  <p class="msg2" id="mPair"></p>
+
+  <div id="pSendBox" style="display:none;margin-top:10px">
+    <button class="btn ghost wide" id="bPSendCode" data-t="pSend">Trimite-i codul</button>
+  </div>
+
+  <p class="sub2" style="margin-top:26px;text-align:center" data-t="pOr">— sau —</p>
+
+  <label class="lb" for="pcode" data-t="pCode">Codul de la prietenul tău</label>
+  <input type="text" class="big" id="pcode" maxlength="3" inputmode="numeric" placeholder="000">
+
+  <div class="push">
+    <button class="btn wide" id="bUse" data-t="pUse">Gata</button>
+    <button class="btn ghost wide" id="bP0" data-t="back">Înapoi</button>
+  </div>
+</section>
+
+<section class="sc" id="sFlight">
+  <p class="eyebrow">HelloHuman</p>
+  <h2 data-t="flH">Când te îmbarci?</h2>
+  <p class="sub2" style="margin-top:10px" data-t="flP">Te anunțăm din timp.</p>
+  <label class="lb" for="ftime" data-t="flH">Când te îmbarci?</label>
+  <input type="time" id="ftime">
+  <p class="msg2" id="mFl"></p>
+  <div class="push">
+    <button class="btn wide" id="bFl" data-t="jIn">Intru</button>
+    <button class="btn ghost wide" id="bFl0" data-t="back">Înapoi</button>
+  </div>
+</section>
+
+<section class="sc" id="sWait">
+  <p class="eyebrow" data-t="wEyeA">Te-am înscris</p>
+  <h2 id="wLipsa">—</h2>
+  <p class="sub2" id="wS" style="margin-top:14px" data-t="wP">Bagă telefonul în buzunar. Îți vibrează când începe.</p>
+
+  <label class="check" id="wAccBox" style="margin-top:22px">
+    <input type="checkbox" id="wAcc"><span data-t="wAccept">Merge și în doi sau trei, nu aștept să fim patru</span>
+  </label>
+
+  <div class="stats" style="margin-top:20px">
+    <div class="st" style="grid-column:span 3"><div class="n" id="wN">1</div><div class="t" data-t="wPeople">sunt deja înscriși</div></div>
+  </div>
+
+  <p class="note" id="wOre" style="display:none"></p>
+  <div class="push"><button class="btn ghost wide" id="bW0" data-t="leave">Nu mai aștept</button></div>
+</section>
+
+<section class="sc" id="sTab">
+  <p class="eyebrow" data-t="tEye">Runda a început</p>
+  <div class="card" style="margin-top:18px">
+    <p class="kk" data-t="cK">Masa ta</p>
+    <p class="no" id="tNo">—</p>
+    <div class="rule"></div>
+    <div class="row"><span data-t="cW">La masă cu tine</span><b id="tWho">—</b></div>
+    <div class="row"><span data-t="cQ">De aici porniți</span><b id="tQ">—</b></div>
+<div class="row" id="tOfRow" style="display:none"><span data-t="cOf">Din partea casei</span><b id="tOf">—</b></div>
+    <p class="tick" id="clk">—</p>
+  </div>
+  <div class="push"><button class="btn ghost wide" id="bDone" data-t="tDone">Termin mai devreme</button></div>
+</section>
+
+<section class="sc" id="sMid">
+  <p class="eyebrow" data-t="mEye">Se apropie finalul</p>
+  <h2 data-t="mH">Tu ce ai vrea?</h2>
+  <p class="sub2" style="margin-top:10px" data-t="mP">Nimeni de la masă nu vede ce alegi.</p>
+  <div class="opts" style="margin-top:22px">
+    <button class="opt" data-v="stay" data-t="mStay">Aș mai sta cu ei</button>
+    <button class="opt" data-v="move" data-t="mMove">Aș cunoaște pe altcineva</button>
+    <button class="opt" data-v="back" data-t="mBack">Eu am terminat</button>
+  </div>
+</section>
+
+<section class="sc" id="sEnd">
+  <img src="/logo-hellohuman.png" width="821" height="317"
+       alt="HelloHuman — trei oameni la o masă, desenați dintr-o singură linie"
+       style="width:100%;max-width:300px;height:auto;opacity:.85;display:block;margin:0 auto 24px">
+  <p class="eyebrow" data-t="eEye">Gata pentru azi</p>
+  <h2 id="eH">Le-ai plăcut mai mult<br>decât crezi.</h2>
+  <p class="sub2" style="margin-top:12px" data-t="eP">Vrei să știi când mai facem?</p>
+
+  <div id="askBox">
+    <label class="lb" for="askTxt" data-t="askQ">Dacă i-ai povesti mâine unui prieten ce ai făcut acum, ce i-ai spune?</label>
+    <textarea id="askTxt" rows="3" placeholder="o propoziție, în cuvintele tale" data-tp="askPh"></textarea>
+    <button class="btn ghost small" id="bAsk" style="margin-top:9px" data-t="askSend">Trimite răspunsul</button>
+    <p class="msg2" id="mAsk"></p>
+
+    <label class="lb" style="margin-top:22px" data-t="frQ">Ai chema un prieten data viitoare?</label>
+    <div class="opts" id="frBox"></div>
+  </div>
+
+  <div id="chBox" style="display:none;margin-top:26px">
+    <p class="kk" data-t="chQ">Cu cine ai vorbit cel mai ușor?</p>
+    <div class="opts" id="chOpts" style="margin-top:12px"></div>
+    <p class="sub2" style="margin-top:8px" data-t="chP">Nu vede nimeni răspunsul.</p>
+    <button class="btn ghost small" id="bChSkip" style="margin-top:10px" data-t="chSkip">Sari peste</button>
+  </div>
+
+  <div id="nevBox" style="margin-top:26px">
+    <p class="kk" data-t="nevQ">Ce te-ar ajuta cel mai mult acum?</p>
+    <textarea id="nev" rows="2" maxlength="180" data-tp="nevPh" placeholder="o propoziție, fără nume și fără firmă"></textarea>
+    <button class="btn ghost small" id="bNev" style="margin-top:8px" data-t="nevB">Trimite</button>
+    <p class="msg2" id="mNev"></p>
+  </div>
+
+  <label class="lb" for="em" data-t="eMail">Email</label>
+  <input type="email" id="em" autocomplete="email" placeholder="tu@email.com" enterkeyhint="done" data-tp="phMail">
+  <label class="check" id="eConsBox"><input type="checkbox" id="eCons"><span data-t="eCons">Da, anunță-mă. Mă pot dezabona oricând.</span></label>
+  <p class="msg2" id="mEnd"></p>
+  <div class="push">
+    <button class="btn wide" id="bSend" data-t="eSend">Trimite</button>
+    <button class="btn ghost wide" id="bTell" data-t="eTell">Spune-i unui prieten</button>
+    <button class="btn ghost wide" id="bNo" data-t="eNo">Nu, mulțumesc</button>
+  </div>
+</section>
+
+<section class="sc" id="sBye">
+  <p class="eyebrow" data-t="byEye">Mulțumim</p>
+  <h2 data-t="byH">Mulțumim<br>că ai venit.</h2>
+  <p class="sub2" style="margin-top:12px" data-t="byP">Dacă mai e o rundă, îți vibrează telefonul.</p>
+  <div class="push">
+    <button class="btn wide" id="bAgain" data-t="byAgain">Rămân și pentru următoarea</button>
+    <button class="btn ghost wide" id="bLeave" data-t="byLeave">Gata, plec</button>
+  </div>
+</section>
+
+<section class="sc" id="sCorp">
+  <p class="eyebrow" data-t="aEye"></p>
+  <h2 data-t="aH"></h2>
+  <p class="sub2" style="margin-top:10px" data-t="aP"></p>
+  
+  <label class="lb" for="aEv" data-t="c1a"></label>
+  <input type="text" class="big" id="aEv" maxlength="46" placeholder="Kickoff 2026">
+  <label class="lb" for="aCl" data-t="c1b" style="margin-top:16px"></label>
+  <input type="text" class="big" id="aCl" maxlength="40" placeholder="Compania X">
+
+  <label class="lb" style="margin-top:24px" data-t="c2h"></label>
+  <div class="opts" id="aPeople"></div>
+
+  <label class="lb" for="aT" style="margin-top:24px" data-t="c3h"></label>
+  <input type="text" class="big" id="aT" maxlength="4" inputmode="numeric" placeholder="15">
+  <p class="note" id="aHint"></p>
+
+  <label class="lb" style="margin-top:24px" data-t="c4h"></label>
+  <div class="opts" id="aMin"></div>
+
+  <label class="lb" style="margin-top:24px" data-t="c5h"></label>
+  <div class="opts" id="aGoal"></div>
+  <label class="check"><input type="checkbox" id="aHier"><span data-t="c5chk"></span></label>
+
+  <label class="lb" style="margin-top:24px" data-t="c6h"></label>
+  <div id="aSets"></div>
+
+  <label class="lb" style="margin-top:24px" data-t="c7h"></label>
+  <div id="aQSets"></div>
+  <label class="lb" for="aQ" data-t="c7a"></label>
+  <textarea id="aQ" rows="5"></textarea>
+
+  <p class="msg2" id="mCorp"></p>
+  <div class="push"><button class="btn wide" id="bCorpGen" data-t="cGen"></button></div>
+</section>
+
+<section class="sc" id="sCDone">
+  <p class="eyebrow" data-t="done">Gata</p>
+  <h2 data-t="cdH">Gata. Trimite-ne codul.</h2>
+  <p class="sub2" style="margin-top:10px" data-t="cdP">Îl încărcăm noi și primești linkurile pentru eveniment.</p>
+  <div class="link" id="qOut" style="font-family:var(--disp);font-size:30px;font-weight:900;letter-spacing:.06em;text-align:center;padding:26px 15px;color:var(--gold)"></div>
+  <button class="btn wide" id="bQSh" style="margin-top:12px" data-t="cdWa">Trimite pe WhatsApp</button>
+  <button class="btn ghost wide" id="bQMail" data-t="cdMail">Trimite pe email</button>
+  <button class="btn ghost wide" id="bQCp" data-t="cdCopy">Copiază codul</button>
+</section>
+
+
+
+
+</div>
+
+<script src="/core.js"></script>
+<script>
+/* ============================================================
+   index.html — pagina participantului.
+   Fără cod, se vede prezentarea. Cu #e=ID, se intră în seară.
+   Cu #c, se deschide chestionarul pentru clientul unei agenții.
+   ============================================================ */
+var el=HH.el, esc=HH.esc, say=HH.say, go=HH.go, API=HH.API, P=HH.PROFILES;
+
+var T={
+ro:{cOf:'Din partea casei',dp1:'Scanezi cartonașul de pe masă.',dp2:'Te așezi cu trei oameni pe care nu îi cunoști.',ftBiz:'Ai un local? Vezi cum funcționează',navBiz:'Parteneri',pmC:'Companii',pmCs:'Evenimente interne, măsurare, rapoarte',pmL:'Locuri cu public',pmLs:'Baruri, librării, muzee, hoteluri, terminale',aEye:'Pentru firma de evenimente',aH:'Șapte lucruri despre eveniment',aP:'Completezi o dată, primești un cod. Ni-l trimiți și îți dăm linkurile.',nevQ:'Ce te-ar ajuta cel mai mult acum?',nevPh:'o propoziție, fără nume și fără firmă',nevB:'Trimite',nevOk:'Am notat.',nevWait:'Se trimite…',nevScurt:'Scrie o propoziție.',chQ:'Cu cine ai vorbit cel mai ușor?',chP:'Nu vede nimeni răspunsul.',chSkip:'Sari peste',frQ:'Ai chema un prieten data viitoare?',wAccept:'Merge și în doi sau trei, nu aștept să fim patru',cap1:'Cartonașul stă pe masă. Atât trebuie să vezi.',cap2:'Patru oameni care nu se cunoșteau, la masa 7.',askPh:'o propoziție, în cuvintele tale',askSend:'Trimite răspunsul',askQ:'Dacă i-ai povesti mâine unui prieten ce ai făcut acum, ce i-ai spune?',nav1:'Cum funcționează',nav2:'Unde',nav3:'Întrebări',back:'Înapoi',next:'Continuă',leave:'Nu mai aștept',done:'Gata',
+ phMail:'tu@email.com',phCity:'Orașul tău',phName:'Andrei',phTeam:'Operațiuni',
+ bMailT:'Anunță-mă',iEye:'Ce te-ar interesa? Poți alege câte vrei.',
+ jH:'Ce ți se potrivește?',jName:'Prenumele tău',jVech:'De cât timp ești aici?',vNou:'Sub un an',vMediu:'Unu până la trei ani',vVechi:'Peste trei ani',jTeam:'Echipa sau departamentul',
+ jPick:'',jIn:'Intru',jPair:'Vin cu cineva',
+ pEye:'Împreună',pH:'Aceeași masă,<br>voi doi.',pP:'Unul face un cod, celălalt îl scrie aici. Sau i-l trimiți direct.',
+ pCode:'Codul de la prietenul tău',pUse:'Gata',pSendTxt:'Stăm la aceeași masă. Codul e',pSend:'Trimite-i codul',pOr:'— sau —',pGen:'Fă-mi un cod',
+ flH:'Când te îmbarci?',flP:'Te anunțăm din timp.',
+ wEyeA:'Te-am înscris',wPeople:'sunt deja înscriși',wP:'Bagă telefonul în buzunar. Îți vibrează când începe.',
+ tEye:'Runda a început',tDone:'Termin mai devreme',cK:'Masa ta',cW:'La masă cu tine',cQ:'De aici porniți',
+ mEye:'Se apropie finalul',mH:'Tu ce ai vrea?',mP:'Nimeni de la masă nu vede ce alegi.',
+ mStay:'Aș mai sta cu ei',mMove:'Aș cunoaște pe altcineva',mBack:'Eu am terminat',
+ eEye:'Gata pentru azi',eP:'Vrei să știi când mai facem?',eMail:'Email',
+ eCons:'Da, anunță-mă. Mă pot dezabona oricând.',
+ eSend:'Gata',eTell:'Spune-i unui prieten',eNo:'Nu, mulțumesc',
+ byEye:'Mulțumim',byH:'Mulțumim<br>că ai venit.',byP:'Dacă mai e o rundă, îți vibrează telefonul.',
+ byAgain:'Rămân și pentru următoarea',byLeave:'Gata, plec',
+ q17:'Pasul 1 din 7',q27:'Pasul 2 din 7',q37:'Pasul 3 din 7',q47:'Pasul 4 din 7',q57:'Pasul 5 din 7',q67:'Pasul 6 din 7',q77:'Pasul 7 din 7',
+ c1h:'Ce eveniment pregătiți?',c1p:'Șapte întrebări scurte. La final primiți un cod pe care îl trimiteți înapoi organizatorului.',
+ c1a:'Numele evenimentului',c1b:'Compania',
+ c2h:'Câți oameni sunt în sală?',c2p:'O estimare e suficientă.',
+ c3h:'Câte mese are sala?',c3p:'Numărul de mese la care se pot așeza oamenii.',c3a:'Număr de mese',
+ c4h:'Cât durează o rundă?',c4p:'După atâtea minute, oamenii se mută la altă masă.',
+ c5h:'Ce vrei să obții?',c5p:'De asta depinde cine cu cine se așază la masă.',
+ c5chk:'Sunt și șefi cu echipele lor. Nu-i pune la aceeași masă.',
+ c6h:'Ce alege fiecare om?',c6p:'O singură atingere la înscriere. Din asta se formează mesele.',
+ c7h:'Despre ce să vorbească?',c7p:'Întrebarea apare pe telefonul fiecăruia, la masă.',
+ c7a:'Sau scrie-le tu, una pe rând',cGen:'Generează codul',
+ cdH:'Gata. Trimite-ne codul.',cdP:'Îl încărcăm noi și primești linkurile pentru eveniment.',
+ cdWa:'Trimite pe WhatsApp',cdMail:'Trimite pe email',cdCopy:'Copiază codul'},
+en:{cOf:'On the house',dp1:'You scan the card on the table.',dp2:'You sit down with three people you do not know.',ftBiz:'Got a venue? See how it works',navBiz:'Partners',pmC:'Companies',pmCs:'Internal events, measurement, reports',pmL:'Places with people',pmLs:'Bars, bookshops, museums, hotels, terminals',aEye:'For the events company',aH:'Seven things about the event',aP:'Fill it once, get a code. Send it to the agency and they handle the rest.',nevQ:'What would help you most right now?',nevPh:'one sentence, no names, no company',nevB:'Send',nevOk:'Noted.',nevWait:'Sending…',nevScurt:'Write one sentence.',chQ:'Who did you talk to most easily?',chP:'Nobody sees your answer.',chSkip:'Skip',frQ:'Would you bring a friend next time?',wAccept:"Two or three is fine, I'm not waiting for four",cap1:'The card sits on the table. That is all you need to see.',cap2:'Four people who had never met, at table 7.',askPh:'one sentence, in your own words',askSend:'Send it',askQ:'If you told a friend tomorrow what you just did, what would you say?',nav1:'How it works',nav2:'Where',nav3:'Questions',back:'Back',next:'Continue',leave:'I am not waiting',done:'Done',
+ phMail:'you@email.com',phCity:'Your city',phName:'Andrew',phTeam:'Operations',
+ bMailT:'Keep me posted',iEye:'What would interest you? Pick as many as you like.',
+ jH:'Which one fits?',jName:'Your first name',jVech:'How long have you been here?',vNou:'Under a year',vMediu:'One to three years',vVechi:'Over three years',jTeam:'Team or department',
+ jPick:'',jIn:"I am in",jPair:'I came with someone',
+ pEye:'Together',pH:'Same table,<br>the two of you.',pP:'One makes a code, the other writes it here. Or you just send it over.',
+ pCode:'The code from your friend',pUse:'Done',pSendTxt:'We are sitting together. The code is',pSend:'Send them the code',pOr:'— or —',pGen:'Make me a code',
+ flH:'When do you board?',flP:'We will get you out in time.',
+ wEyeA:'You are in',wPeople:'are already in',wP:"Put your phone away. It will buzz when it starts.",
+ tEye:'The round has started',tDone:'Finish early',cK:'Your table',cW:'At your table',cQ:'Start here',
+ mEye:'Time is nearly up',mH:'What would you like?',mP:'Nobody at the table sees what you pick.',
+ mStay:'I would stay with them',mMove:'I would meet someone new',mBack:'I am done',
+ eEye:'Done for today',eP:'Want to know when we do it again?',eMail:'Email',
+ eCons:'Yes, let me know. I can unsubscribe anytime.',
+ eSend:'Done',eTell:'Tell a friend',eNo:'No thanks',
+ byEye:'Thank you',byH:'Thanks<br>for coming.',byP:'If there is another round, your phone will buzz.',
+ byAgain:'I am staying for the next one',byLeave:'That is it, I am off',
+ q17:'Step 1 of 7',q27:'Step 2 of 7',q37:'Step 3 of 7',q47:'Step 4 of 7',q57:'Step 5 of 7',q67:'Step 6 of 7',q77:'Step 7 of 7',
+ c1h:'What event are you preparing?',c1p:'Seven short questions. At the end you get a code to send back to the organiser.',
+ c1a:'Event name',c1b:'Company',
+ c2h:'How many people will be in the room?',c2p:'An estimate is enough.',
+ c3h:'How many tables does the room have?',c3p:'The number of tables people can sit at.',c3a:'Number of tables',
+ c4h:'How long is one round?',c4p:'After that many minutes, people move to another table.',
+ c5h:'What do you want out of it?',c5p:'This decides who sits with whom.',
+ c5chk:'Managers will be in the room with their own teams. Keep them off the same table.',
+ c6h:'What does each person pick?',c6p:'One tap when they join. This is what the tables are built from.',
+ c7h:'What should they talk about?',c7p:"The question appears on everyone's phone at the table.",
+ c7a:'Or write your own, one per line',cGen:'Done, generate the code',
+ cdH:'Done. Send us the code.',cdP:'We load it on our side and you get the links for the event.',
+ cdWa:'Send on WhatsApp',cdMail:'Send by email',cdCopy:'Copy the code'}
+};
+var SITE={
+ ro:{ hP:'Fără dating, fără aplicații, fără profiluri.',hP2:'Scanezi codul de pe masă, alegi cum vrei să participi, iar noi te așezăm la o masă cu oameni care vor să discute.',
+ sP:'Nu trebuie să abordezi pe nimeni. Sistemul face totul pentru tine.',
+ s1h:'Scanezi codul',s1p:'Găsești un cod pe masă. Îl scanezi cu camera telefonului și scrii prenumele tău.',
+ s2h:'Alegi cum vrei să participi',s2p:'Vrei să vorbești? Preferi să asculți? Cauți idei noi? Alege o opțiune, iar noi îți spunem imediat la ce masă să te așezi.',
+ s3h:'Discuți. Apoi ești liber.',s3p:'Primești o întrebare care sparge gheața. Când timpul expiră, te ridici și pleci. Fără obligații.',
+ nP:'Nu te poți înscrie de aici. Participarea se face doar scanând codul de pe masă. Spune-ne orașul tău și te anunțăm când organizăm ceva acolo.',
+ cons:'Sunt de acord să primesc notificări despre evenimentele din orașul meu.',
+ gdpr:'Folosim emailul tău doar pentru a te anunța despre evenimente din orașul tău. Nu îl vindem sau distribuim. Te poți dezabona oricând. Operator: HelloHuman, România.',
+ f1q:'Ce este HelloHuman?',f1a:'Este un mod simplu de a cunoaște oameni noi, chiar acolo unde ești deja. Găsești un cod QR pe masă, îl scanezi, alegi cum vrei să participi, iar noi te așezăm la o masă cu alți doi sau trei oameni care vor să discute.',
+ f2q:'Este o aplicație de dating?',f2a:'Nu. Nu există profiluri, poze sau vârste. Nu alegi pe nimeni. Sistemul face mese de trei sau patru oameni, pentru conversații care curg de la sine.',
+ f3q:'Sunt introvertit. Este pentru mine?',f3a:'Da. La înscriere poți alege că azi preferi să asculți. Sistemul nu adună la aceeași masă doar oameni care ascultă, iar întrebarea de început sparge gheața fără să ceară nimic de la tine.',
+ f4q:'Pot veni cu un prieten?',f4a:'Da. Unul dintre voi generează un cod de 3 cifre, celălalt îl introduce, iar sistemul vă așază împreună.',
+ f5q:'Ce se întâmplă cu datele mele?',f5a:'Folosim doar prenumele tău pe durata evenimentului. Emailul este opțional, doar pentru a te anunța despre viitoare evenimente.',
+ q1:'După o conversație, oamenii subestimează cât de mult i-au plăcut celuilalt. Este un efect care durează luni de zile.',
+ q2:'Comunicarea spontană cu un străin poate aduce o stare de bine neașteptată.',
+ wEnd:'De ce amânăm atunci? Pentru că ne e teamă de ce va crede celălalt. HelloHuman elimină presiunea: tu doar te așezi la masă.',
+ hEye:'Oameni noi, acolo unde ești deja',
+ hH:'Cunoști oameni noi.<br>Chiar acolo unde ești.',
+ hB1:'Vezi cum funcționează',hB2:'Întrebări frecvente',cCap:'Acesta este ecranul pe care îl vei vedea',
+ cQv:'Descoperiți trei lucruri<br>pe care le aveți în comun',
+ sEye:'Cum funcționează?',sH:'Trei pași.<br>Zece secunde.',
+ nEye:'Unde se organizează?',nH:'În locurile pe care<br>deja le frecventezi.',
+ fEye:'Întrebări frecvente',fH:'Ai întrebări?<br>Iată răspunsurile.',
+ wEye:'De ce funcționează',wH:'Știința din spatele<br>conexiunilor umane.',
+ ftS:'Pe scurt',ftT:'Oameni care nu se cunosc stau de vorbă câteva minute, chiar acolo unde se aflau oricum.'},
+ en:{ hP:'No dating, no apps, no profiles.',hP2:'Scan the code on the table, choose how you want to join, and we\'ll seat you at a table with people who want to talk.</b>',
+ sP:'You do not have to approach anyone. The system does it all for you.',
+ s1h:'You scan the code',s1p:'There is a code on the table. Scan it with your phone camera and write your first name.',
+ s2h:'You choose how to join',s2p:'Want to talk? Rather listen? Looking for new ideas? Pick one, and we tell you straight away which table to sit at.',
+ s3h:'You talk. Then you are free.',s3p:'You get a question that breaks the ice. When the time runs out, you get up and go. No obligations.',
+ nP:'You cannot sign up from here. You join only by scanning the code on the table. Tell us your city and we will let you know when something happens there.',
+ cons:'I agree to receive notifications about events in my city.',
+ gdpr:'We use your email only to tell you about events in your city. We don\'t sell or share it. You can unsubscribe at any time. Operator: HelloHuman, Romania.',
+ f1q:'What is HelloHuman?',f1a:'It is a simple way to meet new people, right where you already are. You find a QR code on a table, scan it, choose how you want to join, and we seat you at a table with 2-3 people who want to talk.',
+ f2q:'Is it a dating app?',f2a:'No. There are no profiles, photos or ages. You do not pick anyone. The system forms groups of 3-4 people for natural conversation, with no pressure.',
+ f3q:'I am introverted. Is it for me?',f3a:'Yes. You can choose the "prefer to listen" option. The system ensures it doesn\'t seat only shy people at the same table, and the starting question breaks the ice immediately.',
+ f4q:'Can I come with a friend?',f4a:'Yes. One of you generates a 3-digit code, the other enters it, and the system seats you together.',
+ f5q:'What happens to my data?',f5a:'We only use your first name during the event. Email is optional, just so we can tell you about future events.',
+ q1:'After a conversation, people underestimate how much they were liked. This effect lasts for months.',
+ q2:'Spontaneous communication with a stranger can bring unexpected well-being.',
+ wEnd:'Why do we postpone then? Because we fear what the other person will think. HelloHuman removes the pressure: you just sit down at the table.',
+ hEye:'New people, where you already are',
+ hH:'Meet new people.<br>Right where you are.',
+ hB1:'See how it works',hB2:'FAQ',cCap:'This is the screen you will see',
+ cQv:'Discover three things<br>you all have in common',
+ sEye:'How does it work?',sH:'Three steps.<br>Ten seconds.',
+ nEye:'Where does it happen?',nH:'In the places you<br>already frequent.',
+ fEye:'FAQ',fH:'Got questions?<br>Here are the answers.',
+ wEye:'Why it works',wH:'The science behind<br>human connections.',
+ ftS:'In short',ftT:'People who don\'t know each other end up sharing an authentic conversation, right where they already are.'}
+};
+var lang='ro';
+function L(k){ return (T[lang]&&T[lang][k]) || (SITE[lang]&&SITE[lang][k]) || '' }
+function applyLang(){
+  if(el('aLang')) el('aLang').textContent = (lang==='en') ? 'RO' : 'EN';
+  HH.setLang(lang);
+  document.documentElement.lang=lang;
+  el('bLang').textContent=(lang==='ro'?'EN':'RO');
+  document.querySelectorAll('[data-t]').forEach(function(n){ var v=L(n.dataset.t); if(v)n.innerHTML=v });
+  document.querySelectorAll('[data-tp]').forEach(function(n){ var v=L(n.dataset.tp); if(v)n.setAttribute('placeholder',v) });
+  paintInts(); if(cfg.cats)paintCats(); paintQuiz();
+  try{localStorage.setItem('hh_l',lang)}catch(e){}
+}
+el('bLang').onclick=function(){ lang=(lang==='ro'?'en':'ro'); applyLang() };
+</script>
+
+<script>
+/* ---------- înscrierea publică de pe prima pagină ---------- */
+var INT={ro:[['carti','Cărți și idei'],['calatorii','Călătorii'],['gastro','Gastronomie'],
+             ['munca','Muncă și antreprenoriat'],['arta','Artă și cultură'],['oras','Oameni noi în oraș']],
+          en:[['carti','Books and ideas'],['calatorii','Travel'],['gastro','Food and wine'],
+              ['munca','Work and business'],['arta','Art and culture'],['oras','New in town']]};
+var intSel={};
+function paintInts(){
+  var b=el('ints'); if(!b)return;
+  b.innerHTML=INT[lang].map(function(x){
+    return '<button class="chip'+(intSel[x[0]]?' on':'')+'" data-v="'+x[0]+'">'+esc(x[1])+'</button>' }).join('');
+}
+el('ints').onclick=function(e){ var b=e.target.closest('[data-v]'); if(!b)return;
+  intSel[b.dataset.v]=!intSel[b.dataset.v]; paintInts() };
+el('pubCons').onchange=function(){ el('bMail').style.opacity=el('pubCons').checked?'1':'.55' };
+el('pubMail').onkeydown=el('pubCity').onkeydown=function(e){ if(e.key==='Enter'){e.preventDefault();el('bMail').click()} };
+el('bMail').onclick=async function(){
+  var b=el('bMail'), en=lang==='en';
+  var v=el('pubMail').value.trim(), c=el('pubCity').value.trim();
+  function nu(m,camp){ say('mMail',m,'err');
+    if(camp){camp.style.borderColor='var(--rust)';camp.focus();setTimeout(function(){camp.style.borderColor=''},2500)}
+    el('mMail').scrollIntoView({block:'center',behavior:'smooth'}) }
+  if(!v||v.indexOf('@')<1||v.indexOf('.')<0)
+    return nu(en?'That email does not look right.':'Emailul nu pare corect.',el('pubMail'));
+  if(!el('pubCons').checked){
+    var box=el('consBox'); box.style.background='rgba(196,85,47,.14)'; box.style.padding='8px'; box.style.borderRadius='3px';
+    setTimeout(function(){box.style.background='';box.style.padding=''},2600);
+    return nu(en?'Please tick the box so we are allowed to write.':'Bifează căsuța de mai jos, ca să avem voie să-ți scriem.');
+  }
+  b.disabled=true; b.textContent=en?'Sending…':'Se trimite…'; say('mMail','');
+  try{
+    await API.lead({email:v,city:c,interests:Object.keys(intSel).filter(function(k){return intSel[k]})});
+    el('pubMail').value=''; el('pubCity').value=''; el('pubCons').checked=false;
+    intSel={}; paintInts(); b.style.opacity='.55';
+    b.textContent=en?'Got it':'Te-am notat';
+    var oras=c.replace(/\s+/g,' ').trim();
+    say('mMail', oras
+      ? (en?'You are on the list. There are a few of us in '+oras+' already, and more keep arriving. We will write when there is an evening there.'
+           :'Te-am notat. Ne-am adunat câțiva în '+oras+' și tot mai vin. Îți scriem când e o seară acolo.')
+      : (en?'You are on the list. We will write when there is an evening near you.'
+           :'Te-am notat. Îți scriem când e o seară aproape de tine.'),'ok');
+    setTimeout(function(){b.disabled=false;b.textContent=L('bMailT')},3500);
+  }catch(e){
+    b.disabled=false; b.textContent=L('bMailT');
+    nu((en?'Could not send: ':'Nu am putut trimite: ')+e.message+(en?'. Write to contact@hellohuman.ro.':'. Scrie-ne la contact@hellohuman.ro.'));
+  }
+};
+
+/* ---------- participantul într-o seară ---------- */
+var ECR=['sJoin','sPair','sFlight','sWait','sTab','sMid','sEnd','sBye','sCorp','sCDone'];
+var eid='', cfg={}, doc={}, me={id:'',name:'',dep:'',cat:'',pair:'',board:0};
+var poll=null, clkT=null, midShown=false, myTable=null, busy=false;
+
+function uid(){ return 'u'+Date.now().toString(36)+Math.random().toString(36).slice(2,7) }
+function paintCats(){
+  el('cats').innerHTML=(cfg.cats||[]).map(function(c){
+    return '<button class="opt'+(c===me.cat?' sel':'')+'" data-c="'+esc(c)+'">'+esc(c)+'</button>' }).join('');
+}
+el('cats').onclick=function(e){ var b=e.target.closest('[data-c]'); if(!b)return;
+  me.cat=b.dataset.c; paintCats() };
+
+async function intraInSeara(id){
+  eid=id;
+  doc=await API.get(eid); cfg=doc.cfg||{};
+  el('site').style.display='none'; el('app').classList.add('on');
+  el('jEv').textContent=cfg.ev||'HelloHuman';
+  el('depBox').style.display=cfg.dep?'':'none';
+  el('vechBox').style.display=cfg.dep?'':'none';
+  me.id=uid(); paintCats();
+  HH.initNav(ECR,'sJoin',function(){});
+}
+el('bPair').onclick=function(){ say('mPair',''); go('sPair') };
+el('bP0').onclick=function(){ HH.back() };
+el('bGen').onclick=function(){
+  me.pair=String(Math.floor(100+Math.random()*900));
+  el('pcode').value=me.pair;
+  el('pSendBox').style.display='';
+  say('mPair',(lang==='en'?'Say this out loud: ':'Spune cu voce tare: ')+me.pair,'ok');
+};
+
+el('bPSendCode').onclick=function(){
+  // linkul contine si evenimentul, si codul perechii — celalalt apasa o data si e gata
+  var u = HH.base()+'?e='+encodeURIComponent(eid)+'&p='+encodeURIComponent(me.pair||'');
+  HH.shareLink(u, T('pSendTxt')+' '+(me.pair||''));
+};
+
+el('bUse').onclick=function(){
+  var v=el('pcode').value.trim();
+  if(!/^\d{3}$/.test(v))return say('mPair',lang==='en'?'Three digits.':'Trei cifre.','err');
+  me.pair=v; say('mPair',lang==='en'?'Done. Now write your name.':'Gata. Acum scrie-ți prenumele.','ok');
+  setTimeout(function(){HH.back()},900);
+};
+el('bFl0').onclick=function(){ HH.back() };
+el('bFl').onclick=function(){
+  var v=el('ftime').value;
+  if(!v)return say('mFl',lang==='en'?'Pick the time you board.':'Alege ora la care te îmbarci.','err');
+  var p=v.split(':'), d=new Date(); d.setHours(+p[0],+p[1],0,0);
+  if(d.getTime()<Date.now()-3600000)d.setDate(d.getDate()+1);
+  me.board=d.getTime();
+  if(Math.round((me.board-Date.now())/60000)<35)
+    return say('mFl',lang==='en'?'Too close to boarding. Enjoy the flight.':'Prea aproape de îmbarcare. Zbor plăcut.','err');
+  say('mFl',''); inscrie();
+};
+
+el('aLang').onclick=function(){
+  lang = (lang==='en') ? 'ro' : 'en';
+  try{ localStorage.setItem('hh_l', lang) }catch(e){}
+  applyLang();
+  // intrebarea de la masa urmeaza si ea limba, daca avem perechea
+  try{
+    var n=el('tQ');
+    if(n && n.dataset && n.dataset.q){
+      var q1=n.dataset.q, q2=n.dataset.q2;
+      n.innerHTML = esc((q2 && cfg.lang && lang !== cfg.lang) ? q2 : q1);
+    }
+  }catch(e){}
+  // ecranele deja desenate se refac, ca sa nu ramana text vechi
+  try{ if(cfg && cfg.cats) paintCats() }catch(e){}
+  try{ if(typeof deseneaza==='function') deseneaza() }catch(e){}
+};
+
+
+el('vech').onclick=function(e){
+  var b=e.target.closest('.opt'); if(!b) return;
+  [].slice.call(el('vech').querySelectorAll('.opt')).forEach(function(x){ x.classList.remove('sel') });
+  b.classList.add('sel'); me.vech=b.dataset.v;
+};
+
+el('bIn').onclick=function(){
+  var n=el('nm').value.trim();
+  if(!n||!me.cat)return say('mJoin',lang==='en'?'Name and one choice.':'Numele și o variantă.','err');
+  if(cfg.needsFlight&&!me.board){ say('mJoin',''); return go('sFlight') }
+  inscrie();
+};
+async function inscrie(){
+  if(busy)return; busy=true;
+  me.name=el('nm').value.trim(); me.dep=(el('dp').value||'').trim();
+  try{
+    await API.op(eid,'join',{id:me.id,name:me.name,dep:me.dep,vech:me.vech||'',cat:me.cat,ts:Date.now(),miss:0,pair:me.pair||'',board:me.board||0});
+    midShown=false; go('sWait');
+    if(poll)clearInterval(poll); poll=setInterval(tick,3000); tick();
+  }catch(e){ say('mJoin',e.message,'err') }
+  busy=false;
+}
+el('wAcc').onchange=async function(){
+  me.accept = el('wAcc').checked;
+  try{ await API.op(eid,'join',{id:me.id,name:me.name,dep:me.dep,vech:me.vech||'',cat:me.cat,ts:Date.now(),miss:0,pair:me.pair||'',accept:me.accept?1:0}) }catch(e){}
+  tick();
+};
+el('bW0').onclick=async function(){
+  try{ await API.op(eid,'leave',{id:me.id}) }catch(e){}
+  if(poll){clearInterval(poll);poll=null}
+  go('sBye');
+};
+</script>
+
+<script>
+/* ---------- ce se întâmplă în timpul serii ---------- */
+async function tick(){
+  var d; try{ d=await API.get(eid) }catch(e){ return }
+  doc=d; cfg=d.cfg||cfg;
+  var s=d.state||{}, r=s.round;
+  var inCoada=(s.wait||[]).some(function(w){return w.id===me.id});
+  var nCoada=(s.wait||[]).length;
+  el('wN').textContent=nCoada||1;
+  var nT=document.querySelector('#sWait .st .t');
+  if(nT) nT.textContent = (nCoada||1)===1
+    ? (lang==='en'?'is already in':'e deja înscris')
+    : (lang==='en'?'have scanned so far':'au scanat până acum');
+
+  // cati mai lipsesc pana la masa completa
+  var tinta = me.accept ? 3 : (cfg.seats||4);
+  var lipsa = Math.max(0, tinta - nCoada);
+  el('wLipsa').innerHTML = lipsa===0
+    ? (lang==='en'?'Ready. Starting any moment.':'Gata. Începe din clipă în clipă.')
+    : (lang==='en'
+        ? (lipsa===1?'One more person':'Just '+lipsa+' more people')
+        : (lipsa===1?'Mai lipsește un om':'Mai lipsesc '+lipsa+' oameni'));
+
+  // dupa 10 minute de asteptare, ii spunem sincer ca nu s-a adunat
+  var deCand = mi ? (Date.now()-(mi.ts||Date.now())) : 0;
+  if(!s.round && deCand > 10*60000){
+    el('wLipsa').innerHTML = lang==='en'
+      ? "It hasn't come together this time."
+      : 'N-a ieșit de data asta.';
+    el('wS').innerHTML = lang==='en'
+      ? 'Nobody else has scanned. You can leave your email below and we will let you know next time.'
+      : 'Nu a mai scanat nimeni. Poți să ne lași adresa mai jos și te anunțăm data viitoare.';
+    el('wAccBox').style.display='none';
+  } else { el('wAccBox').style.display='' }
+
+  // orele fixe, ca sa stie cand sa revina daca nu iese acum
+  if(cfg.ore){
+    el('wOre').style.display='';
+    el('wOre').innerHTML='<b>'+(lang==='en'?'Fixed times here':'Aici se pornește sigur')+'</b>'+esc(cfg.ore);
+  }
+
+  var mi=(s.wait||[]).filter(function(w){return w.id===me.id})[0];
+  if(mi&&mi.miss>0)el('wS').textContent=lang==='en'
+    ?'That round filled up. You are first in line for the next.'
+    :'Runda s-a umplut. Ești primul la următoarea.';
+
+  // în terminal pornește singur, când sunt destui cu așteptări care se suprapun
+  if(!r&&cfg.autoStart&&inCoada){ await incearcaAuto(s); return }
+  if(!r)return;
+
+  var t=null;
+  r.tables.forEach(function(x){ if(x.people.some(function(p){return p.id===me.id}))t=x });
+  if(!t){ if(el('sWait').classList.contains('on'))el('wS').textContent=lang==='en'
+      ?'That round filled up. You are first in line for the next.'
+      :'Runda s-a umplut. Ești primul la următoarea.'; return }
+  if(myTable&&myTable.id===r.id)return;
+  myTable={id:r.id,n:t.n};
+  el('tNo').textContent=t.n;
+  el('tWho').textContent=t.people.filter(function(p){return p.id!==me.id})
+    .map(function(p){return p.name+(p.dep?(' · '+p.dep):'')}).join(', ')||'—';
+  // Intrebarea in limba omului. E aceeasi intrebare, doar tradusa —
+  // deci masa nu se rupe, chiar daca fiecare o citeste altfel.
+  var intrebare = t.q || '—';
+  if(t.q2 && cfg.lang && lang !== cfg.lang) intrebare = t.q2;
+  el('tQ').innerHTML=esc(intrebare);
+  el('tQ').dataset.q = t.q || '';
+  el('tQ').dataset.q2 = t.q2 || '';
+  if(cfg.ofera){ el('tOfRow').style.display=''; el('tOf').textContent=cfg.ofera } else el('tOfRow').style.display='none';
+  HH.vibrate([60,80,60]);
+  go('sTab');
+  if(cfg.noTimer||!r.dur){ el('clk').style.display='none' }
+  else { el('clk').style.display=''; porneșteCeasul(r.start,r.dur) }
+}
+async function incearcaAuto(s){
+  var acum=Date.now();
+  var vii=(s.wait||[]).filter(function(w){return !w.board||w.board-acum>20*60000});
+  // pragul: patru, sau trei daca toti cei prezenti au bifat ca merge si asa
+  var totiAccepta = vii.length>0 && vii.every(function(w){return w.accept});
+  var need = cfg.threshold || (totiAccepta ? 3 : (cfg.seats||4));
+  if(vii.length<need)return;
+  var grp=vii.slice().sort(function(a,b){return (a.board||0)-(b.board||0)})
+    .slice(0,Math.max(need,Math.min(cfg.seats||3,vii.length)));
+  if(!grp.some(function(w){return w.id===me.id}))return;
+  var prima=Math.min.apply(null,grp.map(function(w){return w.board||acum+3*3600000}));
+  var dur=Math.min((cfg.minutes||30)*60000, prima-acum-20*60000);
+  if(dur<10*60000)return;
+  var qq=(cfg.qs||'').split('\n').map(function(x){return x.trim()}).filter(Boolean);
+  try{
+    await API.op(eid,'round',{round:{id:'r'+Date.now(),start:Date.now(),dur:dur,tables:[
+      {n:(cfg.tables&&cfg.tables[0])||1,q:qq[(s.rounds||0)%qq.length]||qq[0],
+       people:grp.map(function(p){return{id:p.id,name:p.name,dep:p.dep}})}]},
+      seated:grp.map(function(w){return w.id}), left:[], met:{}});
+  }catch(e){}
+}
+function porneșteCeasul(start,dur){
+  if(clkT)clearInterval(clkT);
+  function pas(){
+    var l=start+dur-Date.now();
+    el('clk').textContent=HH.fmtLeft(l);
+    if(l<=60000&&!midShown&&!cfg.noTimer&&!cfg.autoStart&&el('sTab').classList.contains('on')){
+      midShown=true; HH.vibrate([30,40,30]); go('sMid');
+    }
+    if(l<=0){ clearInterval(clkT); clkT=null; HH.vibrate([80,100,80,100,80]); arataFinal(false) }
+  }
+  pas(); clkT=setInterval(pas,1000);
+}
+el('bDone').onclick=function(){ if(clkT){clearInterval(clkT);clkT=null} arataFinal(true) };
+document.querySelector('#sMid .opts').onclick=async function(e){
+  var b=e.target.closest('[data-v]'); if(!b)return;
+  var v=b.dataset.v;
+  try{ await API.op(eid,'vote',{id:me.id,v:v}) }catch(err){}
+  if(v==='back'){ if(clkT){clearInterval(clkT);clkT=null} return arataFinal(true) }
+  var tag=(v==='stay'&&myTable)?('t'+myTable.n):'';
+  try{ await API.op(eid,'join',{id:me.id,name:me.name,dep:me.dep,vech:me.vech||'',cat:me.cat,ts:Date.now(),miss:0,pair:me.pair||'',stay:tag}) }catch(err){}
+  go('sTab');
+};
+function arataFinal(devreme){
+  paintCh();
+  if(poll){clearInterval(poll);poll=null}
+  var p=P[(cfg&&cfg.profile)||'bar']||P.bar;
+  el('eH').innerHTML=(p.end&&p.end[lang])||p.end.ro;
+  el('em').value=''; el('eCons').checked=false; say('mEnd',''); say('mAsk','');
+  el('askTxt').value=''; el('askBox').style.display=''; el('bAsk').disabled=false; paintFr('');
+  go('sEnd');
+}
+el('eCons').onchange=function(){ el('bSend').style.opacity=el('eCons').checked?'1':'.55' };
+el('em').onkeydown=function(e){ if(e.key==='Enter'){e.preventDefault();el('bSend').click()} };
+el('bSend').onclick=async function(){
+  var v=el('em').value.trim(), en=lang==='en';
+  if(!v||v.indexOf('@')<1)return say('mEnd',en?'That email does not look right.':'Emailul nu pare corect.','err');
+  if(!el('eCons').checked)return say('mEnd',en?'Tick the box first.':'Bifează întâi căsuța.','err');
+  el('bSend').disabled=true;
+  try{ await API.op(eid,'lead',{email:v,name:me.name,ts:Date.now()}); go('sBye') }
+  catch(e){ el('bSend').disabled=false; say('mEnd',e.message,'err') }
+};
+el('bAsk').onclick=async function(){
+  var t=el('askTxt').value.trim();
+  if(!t)return say('mAsk',lang==='en'?'Write a sentence, whatever comes to mind.':'Scrie o propoziție, cum îți vine.','err');
+  el('bAsk').disabled=true;
+  try{
+    await API.op(eid,'lead',{email:'', name:me.name, say:t, ts:Date.now()});
+    el('askBox').style.display='none';
+    say('mEnd',lang==='en'?'Thank you. That helps more than you think.':'Mulțumim. Ne ajută mai mult decât crezi.','ok');
+  }catch(e){ el('bAsk').disabled=false; say('mAsk',e.message,'err') }
+};
+var FR={ro:[['da','Da'],['poate','Poate'],['nu','Nu cred']],
+        en:[['da','Yes'],['poate','Maybe'],['nu',"I don't think so"]]};
+function paintFr(v){
+  el('frBox').innerHTML=FR[lang].map(function(x){
+    return '<button class="opt'+(x[0]===v?' sel':'')+'" data-fr="'+x[0]+'">'+esc(x[1])+'</button>' }).join('');
+}
+el('frBox').onclick=async function(e){
+  var b=e.target.closest('[data-fr]'); if(!b)return;
+  paintFr(b.dataset.fr);
+  try{ await API.op(eid,'lead',{email:'',name:me.name,friend:b.dataset.fr,ts:Date.now()}) }catch(err){}
+};
+el('bNo').onclick=function(){ go('sBye') };
+el('bTell').onclick=function(){
+  HH.shareTxt(lang==='en'
+    ?'I just met a few people at a table here. It is called HelloHuman: '+HH.base()
+    :'Tocmai am cunoscut câțiva oameni la o masă aici. Se numește HelloHuman: '+HH.base());
+};
+
+el('bLeave').onclick=async function(){
+  try{ if(eid&&me.id) await API.op(eid,'leave',{id:me.id}) }catch(e){}
+  el('app').classList.remove('on');
+  el('site').style.display='';
+  try{ history.replaceState(null,'',location.pathname) }catch(e){}
+  window.scrollTo(0,0);
+};
+
+
+/* Cine cu cine a functionat. Nu cere date despre om —
+   cere ceva frumos despre altcineva. De aia raspunde. */
+function paintCh(){
+  try{
+    if(!doc || !doc.state || !doc.state.round) return;
+    var t=null;
+    (doc.state.round.tables||[]).forEach(function(x){
+      if((x.people||[]).some(function(p){return p.id===me.id})) t=x;
+    });
+    if(!t) return;
+    var altii=(t.people||[]).filter(function(p){return p.id!==me.id});
+    if(altii.length<2) return;
+    el('chOpts').innerHTML=altii.map(function(p){
+      return '<button class="opt" data-c="'+esc(p.id)+'">'+esc(p.name||'—')+'</button>';
+    }).join('');
+    el('chBox').style.display='';
+  }catch(e){}
+}
+el('chOpts').onclick=async function(e){
+  var b=e.target.closest('.opt'); if(!b) return;
+  [].slice.call(el('chOpts').querySelectorAll('.opt')).forEach(function(x){ x.classList.remove('sel') });
+  b.classList.add('sel');
+  try{ await API.op(eid,'vote',{id:me.id, v:'ch:'+b.dataset.c}) }catch(err){}
+  setTimeout(function(){ el('chBox').style.display='none' }, 700);
+};
+
+/* Intrebarea de aur. Raspunsurile astea sunt materia prima pentru tot ce urmeaza:
+   propozitii reale, scrise de oameni care construiesc ceva, fara nume si fara firma. */
+el('bNev').onclick=async function(){
+  var t=el('nev').value.trim();
+  if(t.length<6) return say('mNev', T('nevScurt'), 'err');
+  say('mNev', T('nevWait'));
+  try{
+    await API.op(eid,'lead',{ nev:t, src:'nevoie', lang:lang, ts:Date.now() });
+    say('mNev', T('nevOk'), 'ok');
+    el('nev').disabled=true; el('bNev').disabled=true;
+  }catch(e){ say('mNev', e.message, 'err') }
+};
+
+el('bChSkip').onclick=function(){ el('chBox').style.display='none' };
+
+el('bAgain').onclick=async function(){
+  try{ await API.op(eid,'join',{id:me.id,name:me.name,dep:me.dep,vech:me.vech||'',cat:me.cat,ts:Date.now(),miss:0,pair:''});
+    midShown=false; myTable=null; go('sWait');
+    if(poll)clearInterval(poll); poll=setInterval(tick,3000); tick();
+  }catch(e){}
+};
+</script>
+
+<script>
+/* ---------- chestionarul pentru clientul unei agenții ---------- */
+var QS=[
+ {ro:'Cunoaștere între echipe',en:'Getting to know other teams',
+  q:{ro:'Ce face echipa ta și restul companiei nu prea vede?\nCare e cea mai frecventă cerere pe care o primești?\nCe parte din munca ta crede toată lumea că e simplă și nu e?',
+     en:'What does your team do that the rest of the company never sees?\nWhat is the most frequent request you get?\nWhat part of your job does everyone think is easy and is not?'}},
+ {ro:'După o reorganizare',en:'After a reorganisation',
+  q:{ro:'Ce funcționa bine înainte și merită păstrat?\nCe nu înțelegi încă din cum lucrează cealaltă parte?\nDe ce ai avea nevoie de la colegul din fața ta?',
+     en:'What worked well before and is worth keeping?\nWhat do you still not understand about how the other side works?\nWhat would you need from the person opposite you?'}},
+ {ro:'Oameni noi în companie',en:'New people in the company',
+  q:{ro:'Ce ai fi vrut să știi în prima ta săptămână aici?\nPe cine ar trebui să cunoască toată lumea și nu știe?\nCe regulă nescrisă ai descoperit singur?',
+     en:'What do you wish you had known in your first week here?\nWho should everyone know and does not?\nWhat unwritten rule did you work out on your own?'}},
+ {ro:'Deblocare și ajutor',en:'Getting unstuck',
+  q:{ro:'La ce ești blocat acum și cine te-ar putea ajuta?\nCe ai afla azi care ți-ar economisi o săptămână?\nCe știi tu și ar trebui să știe și alții?',
+     en:'What are you stuck on right now, and who could help?\nWhat could you learn today that would save you a week?\nWhat do you know that others should know too?'}}
+];
+var CS=[
+ {t:{ro:'Rol în companie',en:'Role in the company'},v:{ro:P.corp.cats.ro,en:P.corp.cats.en}},
+ {t:{ro:'După fuziune sau reorganizare',en:'After a merger'},
+  v:{ro:['Eram în echipa A','Eram în echipa B','Sunt nou de tot','Fac legătura între ele'],
+     en:['I was in team A','I was in team B','I am completely new','I bridge the two']}},
+ {t:{ro:'Vechime în companie',en:'Time in the company'},
+  v:{ro:['Sub 6 luni','Între 1 și 3 ani','Peste 3 ani','De la început'],
+     en:['Under 6 months','1 to 3 years','Over 3 years','Since the beginning']}},
+ {t:{ro:'Ce cauți azi',en:'What you are after today'},
+  v:{ro:['Caut pe cineva care să mă deblocheze','Am ceva de oferit','Vreau să înțeleg alt departament','Sunt aici să ascult'],
+     en:['I need someone to unblock me','I have something to offer','I want to understand another team','I am here to listen']}}
+];
+function paintQuizA(){
+      if(!el('aPeople'))return;
+      function lst(box,list,val){ el(box).innerHTML=list.map(function(x){
+        return '<button class="opt'+(x[0]===val?' sel':'')+'" data-v="'+x[0]+'">'+esc(x[1])+'</button>' }).join('') }
+      lst('aPeople',OPT.people[lang],QA.people);
+      lst('aMin',OPT.min[lang],QA.minutes);
+      lst('aGoal',OPT.goal[lang],QA.mix);
+      el('aSets').innerHTML=CS.map(function(p,i){
+        return '<button class="opt" data-cs="'+i+'" style="display:block"><b style="color:var(--gold)">'+esc(p.t[lang])+'</b><br><span style="font-size:14px;color:var(--mist)">'+esc(p.v[lang].join(' · '))+'</span></button>' }).join('');
+      el('aQSets').innerHTML=QS.map(function(p,i){
+        return '<button class="opt" data-qq="'+i+'" style="display:block"><b style="color:var(--gold)">'+esc(p[lang])+'</b><br><span style="font-size:14px;color:var(--mist)">'+esc(p.q[lang].split('\n')[0])+'…</span></button>' }).join('');
+    }
+    function hintA(){
+      var t=parseInt(el('aT').value,10), en=lang==='en';
+      if(isNaN(t)||t<1){ el('aHint').innerHTML='<b>'+(en?'What this gives':'Ce iese din asta')+'</b>'+
+        (en?'Type the number of tables to see how people would be split.':'Scrie numărul de mese ca să vezi cum se împart oamenii.'); return }
+      var s=Math.max(2,Math.min(6,Math.round(QA.people/t)));
+      el('aHint').innerHTML='<b>'+(en?'What this gives':'Ce iese din asta')+'</b>'+
+        (en?('About '+QA.people+' people at '+t+' tables gives groups of '+s+'. Three or four works best.')
+           :('Cu aproximativ '+QA.people+' de oameni la '+t+' mese ies grupuri de câte '+s+'. Trei sau patru funcționează cel mai bine.'));
+    }
+    if(el('aT')) el('aT').oninput=hintA;
+
+    if(el('aPeople')) el('aPeople').onclick=function(e){ var b=e.target.closest('[data-v]'); if(!b)return;
+      QA.people=+b.dataset.v; pick('aPeople',QA.people,function(){hintA()}) };
+    if(el('aMin')) el('aMin').onclick=function(e){ var b=e.target.closest('[data-v]'); if(!b)return;
+      QA.minutes=+b.dataset.v; pick('aMin',QA.minutes) };
+    if(el('aGoal')) el('aGoal').onclick=function(e){ var b=e.target.closest('[data-v]'); if(!b)return;
+      QA.mix=b.dataset.v; pick('aGoal',QA.mix) };
+    if(el('aSets')) el('aSets').onclick=function(e){ var b=e.target.closest('[data-cs]'); if(!b)return;
+      QA.cats=CS[+b.dataset.cs].v[lang].slice();
+      [].slice.call(el('aSets').children).forEach(function(x){x.classList.toggle('sel',x===b)}) };
+    if(el('aQSets')) el('aQSets').onclick=function(e){ var b=e.target.closest('[data-qq]'); if(!b)return;
+      el('aQ').value=QS[+b.dataset.qq].q[lang];
+      [].slice.call(el('aQSets').children).forEach(function(x){x.classList.toggle('sel',x===b)}) };
+
+    if(el('bCorpGen')) el('bCorpGen').onclick=async function(){
+      QA.ev = el('aEv').value.trim();
+      QA.client = el('aCl').value.trim();
+      var t = parseInt(el('aT').value, 10);
+      var q = el('aQ').value.split('\n').map(function(x){return x.trim()}).filter(Boolean);
+      var en = lang === 'en';
+
+      if(!QA.ev) return say('mCorp', en?'Give the event a name.':'Scrieți numele evenimentului.', 'err');
+      if(isNaN(t)||t<1) return say('mCorp', en?'How many tables?':'Scrieți câte mese are sala.', 'err');
+      if(!q.length) return say('mCorp', en?'Pick a set or write at least one question.':'Alegeți un set sau scrieți cel puțin o întrebare.', 'err');
+
+      QA.tables = t;
+      QA.hier = el('aHier').checked;
+      if(!QA.cats) QA.cats = P.corp.cats[lang].slice();
+
+      var tl=[]; for(var i=1;i<=QA.tables;i++) tl.push(i);
+      var seats=Math.max(2,Math.min(6,Math.round(QA.people/Math.max(1,QA.tables))));
+
+      el('bCorpGen').disabled=true; say('mCorp', en?'Preparing the code…':'Se pregătește codul…');
+      try{
+        var id=await API.create({quiz:{ev:QA.ev,client:QA.client,tables:tl,seats:seats,minutes:QA.minutes,
+          cats:QA.cats,mix:QA.mix,hier:QA.hier,qs:q.join('\n')}});
+        el('qOut').textContent=id; say('mCorp',''); go('sCDone');
+      }catch(e){ say('mCorp',e.message,'err') }
+      el('bCorpGen').disabled=false;
+    };
+
+
+el('bQCp').onclick=function(){ HH.copy(el('qOut').textContent, el('bQCp')) };
+el('bQSh').onclick=function(){ HH.shareTxt((lang==='en'
+  ?'HelloHuman — here is our event code: ':'HelloHuman — codul evenimentului nostru este: ')+el('qOut').textContent) };
+el('bQMail').onclick=function(){
+  var c=el('qOut').textContent, en=lang==='en';
+  location.href='mailto:?subject='+encodeURIComponent(en?'HelloHuman — event code':'HelloHuman — codul evenimentului')
+    +'&body='+encodeURIComponent((en?'Here is our event code:':'Codul evenimentului nostru este:')+'\n\n'+c+'\n');
+};
+
+/* ---------- pornire ---------- */
+(function(){
+  try{ var s=localStorage.getItem('hh_l'); if(s)lang=s;
+    else if((navigator.language||'').toLowerCase().indexOf('ro')!==0)lang='en' }catch(e){}
+  applyLang();
+  var h=location.hash||'';
+
+  // Adresa poate veni ca ?e=ID (nou) sau #e=ID (coduri vechi, deja printate).
+  // Fragmentul cu diez se pierde in unele aplicatii de mesagerie, de aia
+  // codurile noi folosesc ?e= — dar cele vechi trebuie sa functioneze in continuare.
+  var qsId = '';
+  try { qsId = new URLSearchParams(location.search).get('e') || '' } catch(e){}
+
+  // Diagnostic vizibil: daca ceva nu merge, se vede in pagina, nu intr-o alerta
+  // pe care browserul o poate ascunde. Sus, o bara galbena cu motivul.
+  function diag(txt){
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9999;background:#E8B33A;'+
+      'color:#0B1F1A;font:13px/1.4 system-ui;padding:10px 14px;text-align:left';
+    d.textContent='HH v11sep · '+txt;
+    document.body.appendChild(d);
+  }
+
+  var pCodUrl=''; try{ pCodUrl=new URLSearchParams(location.search).get('p')||'' }catch(e){}
+  if(qsId){
+    intraInSeara(qsId).then(function(){
+      if(pCodUrl && /^[0-9]{3}$/.test(pCodUrl)){ me.pair=pCodUrl; if(el('pcode'))el('pcode').value=pCodUrl }
+    }).catch(function(e){
+      el('site').style.display=''; el('app').classList.remove('on');
+      diag('nu am putut intra: '+(e && e.message ? e.message : 'motiv necunoscut'));
+    });
+    return;
+  }
+  if(location.search.indexOf('diag')>0) diag('fisier nou, fara ?e= in adresa');
+
+  if(h.indexOf('#e=')===0){ intraInSeara(h.slice(3)).catch(function(e){
+    el('site').style.display=''; el('app').classList.remove('on'); alert(e.message) }); return }
+  if(h.indexOf('#c')===0){
+    el('site').style.display='none'; el('app').classList.add('on');
+    paintQuiz(); hint(); HH.initNav(ECR,'sC1',function(){}); return;
+  }
+})();
+</script>
+
+<script>
+/* Rutarea, intr-un bloc propriu. Daca orice alt script cade, acesta ruleaza.
+   Asteapta ca intraInSeara sa fie gata, apoi intra in seara. */
+(function(){
+  function bara(txt, culoare){
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;background:'+(culoare||'#E8B33A')+';'+
+      'color:#0B1F1A;font:13px/1.45 system-ui,sans-serif;padding:10px 14px';
+    d.textContent=txt;
+    document.body.appendChild(d);
+  }
+  var id='';
+  try{ id=new URLSearchParams(location.search).get('e')||'' }catch(e){}
+  if(!id && location.hash.indexOf('#e=')===0) id=location.hash.slice(3);
+  if(!id){
+    if(location.search.indexOf('diag')>0) bara('HH v2 · scriptul ruleaza, dar adresa nu are ?e=');
+    return;
+  }
+  var incercari=0;
+  (function asteapta(){
+    if(typeof intraInSeara==='function'){
+      try{
+        intraInSeara(id).catch(function(e){
+          bara('Nu am putut intra: '+((e&&e.message)||'motiv necunoscut'), '#E07A5F');
+        });
+      }catch(e){ bara('Eroare: '+e.message, '#E07A5F') }
+      return;
+    }
+    if(++incercari>60){ bara('Scriptul principal nu a pornit — intraInSeara lipseste', '#E07A5F'); return }
+    setTimeout(asteapta, 50);
+  })();
+})();
+</script>
+<script>
+/* Meniul de parteneri. Doua lumi, un singur buton in antet. */
+(function(){
+  var b=document.getElementById('bPart'), d=document.getElementById('pdrop');
+  if(!b||!d) return;
+  function inchide(){ d.hidden=true; b.setAttribute('aria-expanded','false') }
+  b.onclick=function(e){
+    e.stopPropagation();
+    var deschis = !d.hidden;
+    d.hidden = deschis;
+    b.setAttribute('aria-expanded', deschis?'false':'true');
+  };
+  document.addEventListener('click', function(e){
+    if(!d.hidden && !d.contains(e.target) && e.target!==b) inchide();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape') inchide();
+  });
+})();
+</script>
+</body>
+</html>

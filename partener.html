@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HelloHuman — panoul rundei</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16302B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Karla:wght@400;500;700&display=swap&subset=latin,latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="/site.css?v=4">
+<style>
+/* Garanție de afișare: paginile astea nu depind de nicio regulă din altă parte. */
+body.appbody{background:#16302B;margin:0}
+body.appbody .app{display:block!important;max-width:560px;margin:0 auto;padding:26px 20px 60px;min-height:100vh}
+body.appbody .sc{display:none}
+body.appbody .sc.on{display:block}
+</style>
+
+
+</head>
+<body class="appbody">
+<div class="app">
+
+<button class="lang" id="bLang" style="position:fixed;top:14px;right:14px;z-index:50">EN</button>
+<section class="sc on" id="sLog">
+  <p class="eyebrow" style="margin-top:24px">HelloHuman</p>
+  <h2 id="lTitle">Parola</h2>
+  <p class="sub2" id="lSub" style="margin-top:8px"></p>
+  <label class="lb" for="pw"data-t="pass">Parola</label>
+  <input type="password" id="pw" autocomplete="current-password" enterkeyhint="go" placeholder="••••••">
+  <p class="msg2" id="mLog"></p>
+  <div class="push"><button class="btn wide" id="bLog"data-t="enter">Intră</button></div>
+</section>
+
+<!-- panoul partenerului -->
+<section class="sc" id="sPanel">
+  <p class="eyebrow"data-t="panel">Panoul tău</p>
+  <h2 id="pName">—</h2>
+  <p class="sub2" id="pKind" style="margin-top:6px"></p>
+
+  <div id="pCorp" style="display:none">
+    <div class="note" style="margin-top:18px"><bdata-t="corpH">Pregătești o rundă de firmă</b>Completezi cele șapte întrebări după ce vorbești cu clientul. Dacă preferă să scrie el, îi trimiți linkul de mai jos și îți dă un cod.</div>
+    <div class="link" id="qLink" style="margin-top:10px"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+      <button class="btn ghost small" id="bQSend"data-t="corpSend">Trimite clientului</button>
+      <button class="btn ghost small" id="bQCopy"data-t="corpCopy">Copiază linkul</button>
+    </div>
+    <label class="lb" for="pCode"data-t="corpCode">Codul primit de la client</label>
+    <input type="text" id="pCode" placeholder="u_ab12cd34">
+    <button class="btn ghost small" id="bCode" style="margin-top:9px"data-t="corpLoad">Încarcă din cod</button>
+  </div>
+
+  <div class="stats" style="margin-top:20px">
+    <div class="st"><div class="n" id="kEv">0</div><div class="t">runde</div></div>
+    <div class="st"><div class="n" id="kPe">0</div><div class="t">oameni</div></div>
+    <div class="st"><div class="n" id="kLive">0</div><div class="t">acum</div></div>
+  </div>
+
+  <div class="list" id="lEv" style="max-height:none"></div>
+  <p class="msg2" id="mPanel"></p>
+    <div class="note" id="pMailBox" style="margin-top:18px">
+    <b data-t="mailT">Emailul tău</b>
+    <input type="email" id="pMail" maxlength="80" placeholder="contact@localultau.ro"
+           style="margin-top:8px" autocomplete="off">
+    <p class="sub2" style="margin-top:6px" data-t="mailS">Aici primești raportul de după fiecare rundă.</p>
+    <button class="btn ghost small" id="bMailSave" style="margin-top:8px" data-t="mailB">Salvează</button>
+    <p class="msg2" id="mMail"></p>
+  </div>
+
+<div class="push">
+    <button class="btn wide" id="bNew"data-t="newEv">Pregătește o rundă</button>
+    <button class="btn ghost wide" id="bOut"data-t="out">Ieși din cont</button>
+  </div>
+</section>
+
+<!-- configurarea rundei -->
+<section class="sc" id="sCfg">
+  <a class="back" href="#" id="bCB"data-t="back">← Înapoi</a>
+  <p class="eyebrow" data-t="newEv">Pregătește o rundă</p>
+  <h2 id="cTitle"data-t="cfgH">Runda ta</h2>
+  <label class="lb" for="cEv"data-t="cName">Numele rundei</label>
+  <input type="text" id="cEv" maxlength="46" placeholder="Joi runda">
+    <label class="lb" data-t="cLangL">În ce limbă vorbesc oamenii de aici</label>
+  <div class="opts" id="cLang" style="margin-bottom:6px">
+    <button class="opt sel" data-l="ro">Română</button>
+    <button class="opt" data-l="en">English</button>
+  </div>
+  <label class="lb" for="cT"data-t="cTab">Numerele meselor din sală</label>
+  <input type="text" id="cT" placeholder="1, 2, 3, 4, 5, 6">
+
+  <button class="btn ghost small" id="bAdv" style="margin-top:22px"data-t="cAdv">Ajustează detaliile</button>
+  <p class="note" id="cNote"></p>
+    
+
+  
+
+<div id="cAdv" style="display:none">
+    <label class="lb" for="cOfera" data-t="cOf">Ce oferă localul, dacă oferă ceva</label>
+  <input type="text" id="cOfera" maxlength="80" placeholder="o cafea din partea casei">
+    <label class="lb" for="cQ"data-t="cQs">Întrebările de la mese, una pe rând</label>
+    <textarea id="cQ" rows="5"></textarea>
+    <label class="lb" for="cS"data-t="cSeats">Oameni la o masă</label>
+    <input type="text" id="cS" maxlength="2" inputmode="numeric">
+    <label class="lb" for="cM"data-t="cMin">Minute pe rundă</label>
+    <div class="opts" id="cMOpt" style="margin-bottom:8px"></div>
+    <input type="text" id="cM" maxlength="3" inputmode="numeric">
+    <label class="lb"data-t="cCats">Ce aleg oamenii la înscriere</label>
+    <input type="text" id="cC0" maxlength="46">
+    <input type="text" id="cC1" maxlength="46" style="margin-top:6px">
+    <input type="text" id="cC2" maxlength="46" style="margin-top:6px">
+    <input type="text" id="cC3" maxlength="46" style="margin-top:6px">
+    
+  </div>
+  <label class="lb"data-t="cAutoL">Cum pornesc rundele</label>
+  <div class="opts" id="cAuto"></div>
+  <div id="cPragBox" style="display:none">
+    <label class="lb" for="cPrag"data-t="cPragL">Pornește când s-au adunat</label>
+    <input type="text" id="cPrag" maxlength="2" inputmode="numeric" placeholder="8">
+  </div>
+
+  <label class="lb" for="cPw"data-t="cPwL">Parola pentru cine pornește runda</label>
+  <input type="text" id="cPw" maxlength="24">
+  <p class="msg2" id="mCfg"></p>
+  <div class="push"><button class="btn wide" id="bCGo"data-t="cGo">Creează runda</button></div>
+</section>
+
+<!-- panoul gazdei -->
+<section class="sc" id="sHost">
+  <a class="back" href="#" id="bHB">← Înapoi</a>
+  <p class="eyebrow"data-t="hostH">Gazdă</p>
+  <h2 id="hName">Runda</h2>
+  <div class="stats" style="margin-top:18px">
+    <div class="st"><div class="n" id="hWait">0</div><div class="t">așteaptă</div></div>
+    <div class="st"><div class="n" id="hTab">0</div><div class="t">mese</div></div>
+    <div class="st"><div class="n" id="hLeft">—</div><div class="t">rămas</div></div>
+  </div>
+  <button class="btn ghost small" id="bHQr" style="margin-top:14px"data-t="showQr">Arată codul</button>
+  <p class="note" id="hAuto" style="margin-top:16px"></p>
+  <div class="list" id="hList" style="max-height:none"></div>
+  <div class="note" id="capBox" style="display:none;margin-top:16px">
+    <b id="capT">—</b>
+    <p class="sub2" id="capS" style="margin-top:6px"></p>
+
+    <button class="btn wide" id="capAuto" style="margin-top:14px" data-t="capO3">Adaugă mese, să încapă toți</button>
+    <p class="sub2" style="margin-top:4px" data-t="capO3s">Sistemul calculează câte lipsesc.</p>
+
+    <button class="btn ghost wide" id="capAdd" style="margin-top:12px" data-t="capO2">Adaug eu o masă</button>
+    <p class="sub2" style="margin-top:4px" data-t="capO2s">Aleg numărul, dacă știu sala.</p>
+
+    <button class="btn ghost wide" id="capGo" style="margin-top:12px" data-t="capO1">Pornesc cu câți încap</button>
+    <p class="sub2" style="margin-top:4px" id="capO1s">—</p>
+  </div>
+
+  <div class="note" id="hRap" style="display:none;margin-top:16px"></div>
+  <p class="msg2" id="mHost"></p>
+  <div class="push">
+    <button class="btn ghost wide" id="bStart"data-t="startNow">Pornește acum, fără să mai aștept</button>
+    <button class="btn ghost wide" id="bStop"data-t="stopR">Oprește runda</button>
+  </div>
+</section>
+
+<!-- codul QR -->
+<section class="sc" id="sQR">
+  <a class="back" href="#" id="bQB">← Înapoi</a>
+  <p class="eyebrow"data-t="qrH">Codul pentru oameni</p>
+  <h2 id="qName">—</h2>
+  <p class="sub2" style="margin-top:8px"data-t="qrP">Printează pagina și pune-o pe mese, sau arată codul de pe telefon.</p>
+  <div id="qBox" style="background:#fff;padding:18px;border-radius:3px;margin-top:18px;display:flex;justify-content:center"></div>
+  <div class="link" id="qUrl" style="margin-top:12px"></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+    <button class="btn ghost small" id="bQPrint"data-t="prnt">Printează</button>
+    <button class="btn ghost small" id="bQCp" data-t="corpCopy">Copiază linkul</button>
+    <button class="btn ghost small" id="bQSh"data-t="send">Trimite</button>
+  </div>
+  <div class="note" id="qHost" style="margin-top:20px"></div>
+</section>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="/core.js"></script>
+<script>
+var lang='ro';
+var L={
+ ro:{
+  ttl:"HelloHuman — panoul rundei",
+  pass:"Parola",
+  enter:"Intră",
+  panel:"Panoul tău",
+  corpH:"Pregătești o rundă de firmă",
+  corpSend:"Trimite clientului",
+  corpCopy:"Copiază linkul",
+  corpCode:"Codul primit de la client",
+  corpLoad:"Încarcă din cod",
+  nEv:"runde",
+  nPe:"oameni",
+  nNow:"acum",
+  newEv:"Pregătește o rundă",
+  out:"Ieși din cont",
+  back:"← Înapoi",
+  cfgH:"Runda ta",
+  cName:"Numele rundei",
+  cTab:"Numerele meselor din sală",
+  cTabS:"Scrie-le exact cum apar pe mese. Oamenii sunt trimiși doar acolo.",
+  cAdv:"Ajustează detaliile",
+  cSeats:"Oameni la o masă",
+  cMin:"Minute pe rundă",
+  cCats:"Ce aleg oamenii la înscriere",
+  cQs:"Întrebările de la mese, una pe rând",
+  cQsS:"Fiecare masă primește una, pe rând. Poți schimba oricare.",
+  cOf:"Ce oferă localul, dacă oferă ceva",
+  cOfS:"Apare pe telefonul oamenilor, după ce se așază. Lasă gol dacă nu e nimic.",
+  cAutoL:"Cum pornesc rundele",
+  cPragL:"Pornește când s-au adunat",
+  cPragS:"Cu cât aștepți mai mulți, cu atât mesele ies mai bine. Sub opt oameni, algoritmul nu are ce echilibra.",
+  cPwL:"Parola pentru cine pornește runda",
+  cGo:"Creează runda",
+  hostH:"Gazdă",
+  evL:"Runda",
+  wait:"așteaptă",
+  tabs:"mese",
+  left:"rămas",
+  showQr:"Arată codul",
+  startNow:"Pornește acum, fără să mai aștept",
+  stopR:"Oprește runda",
+  qrH:"Codul pentru oameni",
+  qrP:"Printează pagina și pune-o pe mese, sau arată codul de pe telefon.",
+  prnt:"Printează",
+  send:"Trimite",
+  noEv:"Nicio rundă încă.",
+  rest:"Restul e deja setat",
+  open:"deschide →",
+  hostLink:"Pentru cine pornește runda",
+  noScan:"Încă nimeni nu a scanat.",
+  useLink:"Folosește linkul de mai jos.",
+  inRound:"Rundă în curs",
+  inRoundP:"Se oprește singură când expiră timpul.",
+  autoH:"Pornește singur",
+  manH:"Tu pornești",
+  manP:"Cu cât aștepți mai mulți, cu atât mesele ies mai bune.",
+  aMan:"Pornesc eu, când e momentul",
+  aAuto:"Pornește singur, la un număr de oameni",
+  min:"minute",
+  tbl:"masa",
+  missed:"a ratat o rundă",
+  pW:"Parola",
+  hRun:"Rundă în curs",
+  hRunP:"Se oprește singură când expiră timpul.",
+  hAuto:"Pornește singur",
+  hAutoA:"Când se adună",
+  hAutoB:"de oameni, runda începe fără să faci nimic. Acum sunt",
+  hMan:"Tu pornești",
+  hManA:"Sunt",
+  hManB:"oameni în așteptare. Cu cât aștepți mai mulți, cu atât mesele ies mai bune.",
+  hOpen:"Deschide masa",
+  hNext:"Runda următoare",
+  hGo:"Pornește runda",
+  lSubP:"Panoul tău de partener.",
+  lSubH:"Parola pe care ai primit-o pentru runda asta.",
+  pcLine:"Scanează. Alegi cum vrei să participi.<br>Te așezi cu oameni care vor să discute.",
+  cLangL:"În ce limbă vorbesc oamenii de aici",
+  need2:"Ai nevoie de cel puțin doi oameni.",
+  capA:"Așteaptă",
+  capB:"Ai loc pentru",
+  capC:"ar rămâne pe dinafară.",
+  capOk:"Mese adăugate:",
+  capO3:"Adaugă mese, să încapă toți",
+  capO3s:"Sistemul calculează câte lipsesc.",
+  capO2:"Adaug eu o masă",
+  capO2s:"Aleg numărul, dacă știu sala.",
+  capO1:"Pornesc cu câți încap",
+  capO1s2:"rămân pentru runda următoare.",
+  mailT:"Emailul tău",
+  rapT:"Ce s-a întâmplat azi",
+  rapP:"oameni",
+  rapM:"mese",
+  rapTot:"În total:",
+  rapR1:"rundă",
+  rapRn:"runde",
+  mailS:"Aici primești raportul de după fiecare rundă.",
+  mailB:"Salvează",
+  mailOk:"Salvat.",
+  mailWait:"Se salvează…",
+  mailErr:"Adresa nu pare validă.",
+  evName:"Rundă"
+ },
+ en:{
+  ttl:"HelloHuman — host panel",
+  pass:"Password",
+  enter:"Enter",
+  panel:"Your panel",
+  corpH:"Setting up a company round",
+  corpSend:"Send it to the client",
+  corpCopy:"Copy the link",
+  corpCode:"The code from the client",
+  corpLoad:"Load from code",
+  nEv:"rounds",
+  nPe:"people",
+  nNow:"now",
+  newEv:"Set up a round",
+  out:"Sign out",
+  back:"← Back",
+  cfgH:"Your round",
+  cName:"Name of the round",
+  cTab:"Table numbers in the room",
+  cTabS:"Write them exactly as they appear on the tables. People are only sent to those tables.",
+  cAdv:"Adjust the details",
+  cSeats:"People per table",
+  cMin:"Minutes per round",
+  cCats:"What people choose when they join",
+  cQs:"Table questions, one per line",
+  cQsS:"Each table gets one, in turn. You can change any of them.",
+  cOf:"What the venue offers, if anything",
+  cOfS:"It shows on their phone once they sit down. Leave empty if there is nothing.",
+  cAutoL:"How rounds start",
+  cPragL:"Start when this many have gathered",
+  cPragS:"The more you wait for, the better the tables come out. Under eight people, the algorithm has nothing to balance.",
+  cPwL:"Password for whoever starts the round",
+  cGo:"Create the round",
+  hostH:"Host",
+  evL:"Round",
+  wait:"waiting",
+  tabs:"tables",
+  left:"left",
+  showQr:"Show the code",
+  startNow:"Start now, without waiting",
+  stopR:"Stop the round",
+  qrH:"The code for people",
+  qrP:"Print it and put it on the tables, or show the code from your phone.",
+  prnt:"Print",
+  send:"Send",
+  noEv:"No rounds yet.",
+  rest:"The rest is already set",
+  open:"open →",
+  hostLink:"For whoever starts the round",
+  noScan:"Nobody has scanned yet.",
+  useLink:"Use the link below.",
+  inRound:"Round in progress",
+  inRoundP:"It stops on its own when the time runs out.",
+  autoH:"Starts on its own",
+  manH:"You start it",
+  manP:"The more you wait for, the better the tables come out.",
+  aMan:"I start it, when the time is right",
+  aAuto:"Starts on its own, at a number of people",
+  min:"minutes",
+  tbl:"table",
+  missed:"missed a round",
+  pW:"Password",
+  hRun:"Round in progress",
+  hRunP:"It stops on its own when the time runs out.",
+  hAuto:"Starts on its own",
+  hAutoA:"When",
+  hAutoB:"people have gathered, the round begins without you doing anything. Right now there are",
+  hMan:"You start it",
+  hManA:"There are",
+  hManB:"people waiting. The more you wait for, the better the tables come out.",
+  hOpen:"Open the table",
+  hNext:"Next round",
+  hGo:"Start the round",
+  lSubP:"Your partner panel.",
+  lSubH:"The password you received for this round.",
+  pcLine:"Scan it. Choose how you want to join.<br>You sit down with people who want to talk.",
+  cLangL:"What language do people here speak",
+  need2:"You need at least two people.",
+  capA:"Waiting:",
+  capB:"You have room for",
+  capC:"would be left out.",
+  capOk:"Tables added:",
+  capO3:"Add tables so everyone fits",
+  capO3s:"The system works out how many are missing.",
+  capO2:"I will add a table",
+  capO2s:"I pick the number, if I know the room.",
+  capO1:"Start with those who fit",
+  capO1s2:"stay for the next round.",
+  mailT:"Your email",
+  rapT:"What happened today",
+  rapP:"people",
+  rapM:"tables",
+  rapTot:"In total:",
+  rapR1:"round",
+  rapRn:"rounds",
+  mailS:"This is where you get the report after each round.",
+  mailB:"Save",
+  mailOk:"Saved.",
+  mailWait:"Saving…",
+  mailErr:"That address does not look right.",
+  evName:"Round"
+ }
+};
+function T(k){ return (L[lang]||L.ro)[k] || (L.ro[k]||'') }
+function setLang(v){ lang=v; try{localStorage.setItem('hh_l',v)}catch(e){} applyLang();
+  try{ if(typeof paintHost==='function' && doc) paintHost() }catch(e){} }
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.title=T('ttl');
+  [].slice.call(document.querySelectorAll('[data-t]')).forEach(function(n){
+    var v=T(n.getAttribute('data-t')); if(v)n.innerHTML=v });
+  [].slice.call(document.querySelectorAll('[data-tp]')).forEach(function(n){
+    var v=T(n.getAttribute('data-tp')); if(v)n.setAttribute('placeholder',v) });
+  var b=document.getElementById('bLang'); if(b)b.textContent=(lang==='ro'?'EN':'RO');
+}
+
+/* ============================================================
+   partener.html — panoul celui care ține runda.
+   Doua intrari: #p=ID pentru partener, #m=ID pentru gazda.
+   ============================================================ */
+var el=HH.el, esc=HH.esc, say=HH.say, go=HH.go, API=HH.API;
+var P=HH.PROFILES;
+var TT={never:'niciodata',now:'chiar acum',min:'acum {n} min',hour:'acum {n} h'};
+var when=function(ts){return HH.fmtWhen(ts,TT)};
+var ECR=['sLog','sPanel','sCfg','sHost','sQR'];
+var mod='', id='', partner=null, pw='', events=[], live={}, timer=null;
+var eid='', cfg={}, doc={}, freeT=[], busy=false;
+
+/* ---------- ce fel de intrare ---------- */
+(function(){
+  var hs=location.hash||'';
+  if(hs.indexOf('#p=')===0){ mod='p'; id=hs.slice(3); el('lSub').textContent=T('lSubP') }
+  else if(hs.indexOf('#m=')===0){ mod='m'; id=hs.slice(3); el('lSub').textContent=T('lSubH') }
+  else { el('lTitle').textContent='Link lipsa'; el('lSub').innerHTML='Deschide linkul primit de la organizator. Daca l-ai pierdut, scrie la <a href="mailto:contact@hellohuman.ro" style="color:var(--gold)">contact@hellohuman.ro</a>.'; el('pw').style.display='none'; el('bLog').style.display='none' }
+})();
+
+el('pw').onkeydown=function(e){ if(e.key==='Enter'){e.preventDefault();el('bLog').click()} };
+el('bLog').onclick=async function(){
+  var v=el('pw').value; if(!v)return say('mLog','Scrie parola.','err');
+  say('mLog','Se verifica...');
+  if(mod==='p'){
+    try{
+      var d=await API.partner(id,v);
+      partner=d.partner; events=d.events||[]; pw=v; HH.keep('hh_pp',v);
+      if(d.formate){ HH.addFormate(d.formate); P=HH.toateFormatele() }
+      if(el('pMail')) el('pMail').value = (partner && partner.email) || '';
+      say('mLog',''); go('sPanel'); paintPanel(); porneste();
+    }catch(e){
+      say('mLog', e.message==='parola gresita'?'Parola gresita.'
+        :(e.message==='dezactivat'?'Accesul a fost oprit. Scrie la contact@hellohuman.ro.'
+        :(e.message==='inexistent'?'Accesul nu mai exista.':e.message)),'err');
+    }
+    return;
+  }
+  // gazda
+  try{
+    eid=id; doc=await API.get(eid); cfg=doc.cfg||{};
+    if(!cfg.pwHost||v!==cfg.pwHost)return say('mLog','Parola gresita.','err');
+    pw=v; HH.keep('hh_hp',v);
+    freeT=(cfg.tables||[]).slice();
+    el('hName').textContent=cfg.ev||'Runda';
+    say('mLog',''); go('sHost'); paintHost(); porneste();
+  }catch(e){ say('mLog',e.message,'err') }
+};
+el('bOut').onclick=function(){ opreste(); HH.drop('hh_pp'); HH.drop('hh_hp'); location.reload() };
+
+/* ---------- panoul partenerului ---------- */
+async function citesteLive(){
+  var l=(mod==='p')?events:[{id:eid}];
+  for(var i=0;i<Math.min(l.length,12);i++){
+    try{
+      var d=await API.get(l[i].id), st=(d&&d.state)||{}, ids={};
+      (st.wait||[]).forEach(function(w){ids[w.id]=1});
+      Object.keys(st.met||{}).forEach(function(k){ids[k]=1});
+      if(st.round)st.round.tables.forEach(function(t){t.people.forEach(function(p){ids[p.id]=1})});
+      live[l[i].id]={wait:(st.wait||[]).length,round:st.round||null,rounds:st.rounds||0,people:Object.keys(ids).length};
+      if(mod==='m'){ doc=d; cfg=d.cfg||cfg }
+    }catch(e){}
+  }
+}
+function porneste(){ opreste(); citesteLive().then(function(){ mod==='p'?paintPanel():paintHost() });
+  timer=setInterval(function(){
+    if(el('sCfg').classList.contains('on'))return;
+    citesteLive().then(function(){ if(el('sPanel').classList.contains('on'))paintPanel();
+      if(el('sHost').classList.contains('on')){ paintHost(); incearcaAuto() } });
+  }, mod==='m'?3000:8000);
+}
+function opreste(){ if(timer){clearInterval(timer);timer=null} }
+
+function paintPanel(){
+  el('pName').textContent=partner.name;
+  var pr=P[partner.profile]||P.bar;
+  el('pKind').textContent=pr.ro+' · stabilit de organizator';
+  el('pCorp').style.display=(partner.profile==='corp')?'block':'none';
+  el('qLink').textContent=HH.base()+'#c';
+  el('kEv').textContent=events.length;
+  el('kPe').textContent=events.reduce(function(a,e){return a+((live[e.id]&&live[e.id].people)||e.people||0)},0);
+  el('kLive').textContent=events.filter(function(e){return live[e.id]&&live[e.id].round}).length;
+  el('lEv').innerHTML=events.length?events.slice().reverse().map(function(e){
+    var s=live[e.id], viu=s&&s.round;
+    var stare=!s?'se verifica...':(viu?('<span style="color:#9BD8A8">●</span> runda in curs · '+s.round.tables.length+' mese')
+      :(s.wait+' in coada · '+s.rounds+' runde'));
+    return '<div class="prow tap" data-ev="'+e.id+'"'+(viu?' style="border-left:2px solid #9BD8A8;padding-left:12px"':'')+'>'
+      +'<div><div class="nm">'+esc(e.name)+'</div><div class="sub">'+when(e.ts)+'</div>'
+      +'<div class="sub" style="margin-top:4px">'+stare+'</div></div>'
+      +'<div><div class="num">'+((s&&s.people)||e.people||0)+'</div><div class="numt">oameni</div>'
+      +'<div class="numt" style="margin-top:6px;color:var(--gold)">deschide →</div></div></div>';
+  }).join(''):'<p class="sub2" style="padding:16px 0">Nicio runda inca.</p>';
+}
+el('lEv').onclick=function(e){
+  var r=e.target.closest('[data-ev]'); if(!r)return;
+  var ev=events.filter(function(x){return x.id===r.dataset.ev})[0]; if(!ev)return;
+  eid=ev.id;
+  API.get(eid).then(function(d){ doc=d; cfg=d.cfg||{}; freeT=(cfg.tables||[]).slice();
+    el('hName').textContent=cfg.ev||ev.name; go('sHost'); paintHost() })
+   .catch(function(err){ say('mPanel',err.message,'err') });
+};
+
+/* ---------- configurarea ---------- */
+
+/* Limba rundei. Se alege la creare si nu se mai schimba —
+   toti de la aceeasi masa trebuie sa citeasca acelasi text. */
+
+/* Cate mese propunem. Sunt spatiu de manevra, nu obligatie:
+   daca vin putini, sistemul ii strange la mai putine mese. */
+function meseProp(cheie){
+  var p=(typeof P!=='undefined'&&P[cheie])||null;
+  if(!p) return '1, 2, 3, 4';
+  if(p.oneTable) return '1';
+  var n=p.mese||4, a=[];
+  for(var i=1;i<=n;i++) a.push(i);
+  return a.join(', ');
+}
+
+
+/* Perechea intrebarilor in cealalta limba.
+   Se salveaza o data, la creare. Fiecare om vede intrebarea in limba lui,
+   dar ramane aceeasi intrebare — doar tradusa. */
+function altaLimba(lista){
+  var p = P[cProf] || P.bar;
+  var a = (cLimba==='en') ? (p.qs.en||[]) : (p.qs.ro||[]);
+  var b = (cLimba==='en') ? (p.qs.ro||[]) : (p.qs.en||[]);
+  var out = lista.map(function(q){
+    var i = a.indexOf(q);
+    return (i>=0 && b[i]) ? b[i] : q;   // daca a fost scrisa de om, ramane cum e
+  });
+  return out.join('\n');
+}
+
+var cLimba='ro';
+function paintCLang(){
+  var b=el('cLang'); if(!b) return;
+  [].slice.call(b.querySelectorAll('.opt')).forEach(function(x){
+    x.classList.toggle('sel', x.dataset.l===cLimba);
+  });
+}
+if(el('cLang')) el('cLang').onclick=function(e){
+  var b=e.target.closest('.opt'); if(!b) return;
+  cLimba=b.dataset.l; paintCLang();
+  if(typeof incarcaProfil==='function') incarcaProfil();
+};
+
+function paintCfg(){
+  var p=P[partner?(partner.profile||'bar'):'bar'];
+  el('cNote').innerHTML='<b>'+T('rest')+'</b>'+esc(p.note.ro);
+  el('cS').value=p.seats; el('cM').value=p.minutes;
+  if(el('cT')) el('cT').value=meseProp(cProf);
+  var LL=(cLimba==='en'&&p.cats.en)?p.cats.en:p.cats.ro;
+  for(var i=0;i<4;i++)el('cC'+i).value=LL[i]||'';
+  el('cQ').value=((cLimba==='en'&&p.qs.en)?p.qs.en:p.qs.ro).join('\n'); if(el('cOfera'))el('cOfera').value='';
+}
+el('bNew').onclick=function(){
+  el('cEv').value=''; el('cT').value=meseProp(cProf);
+  el('cPw').value=String(Math.floor(1000+Math.random()*9000));
+  paintCfg(); cAutoMod='manual'; el('cPrag').value='8'; paintAuto(); say('mCfg',''); go('sCfg');
+};
+
+function paintDurate(cheie){
+  var p=P[cheie]||P.bar, d=p.durate||[];
+  if(!d.length){ el('cMOpt').innerHTML=''; return }
+  el('cMOpt').innerHTML=d.map(function(x){
+    return '<button class="opt'+(String(x)===el('cM').value?' sel':'')+'" data-m="'+x+'">'+x+' minute</button>' }).join('');
+}
+el('cMOpt').onclick=function(e){
+  var b=e.target.closest('[data-m]'); if(!b)return;
+  el('cM').value=b.dataset.m;
+  [].slice.call(el('cMOpt').children).forEach(function(x){x.classList.toggle('sel',x.dataset.m===b.dataset.m)});
+};
+
+/* ---------- cum pornesc rundele ---------- */
+var cAutoMod='manual';
+function paintAuto(){
+  var v=[['manual','Pornesc eu, când e momentul'],['auto','Pornește singur, la un număr de oameni']];
+  el('cAuto').innerHTML=v.map(function(x){
+    return '<button class="opt'+(x[0]===cAutoMod?' sel':'')+'" data-a="'+x[0]+'">'+x[1]+'</button>' }).join('');
+  el('cPragBox').style.display = cAutoMod==='auto' ? '' : 'none';
+}
+el('cAuto').onclick=function(e){
+  var b=e.target.closest('[data-a]'); if(!b)return;
+  cAutoMod=b.dataset.a;
+  if(cAutoMod==='auto' && !el('cPrag').value) el('cPrag').value='8';
+  paintAuto();
+};
+
+el('bCB').onclick=function(e){ e.preventDefault(); HH.back() };
+el('bAdv').onclick=function(){
+  var d=el('cAdv').style.display!=='none';
+  el('cAdv').style.display=d?'none':''; el('bAdv').textContent=d?'Ajusteaza detaliile':'Ascunde detaliile';
+};
+el('bCode').onclick=async function(){
+  var v=el('pCode').value.trim(); if(!v)return say('mPanel','Lipeste codul primit.','err');
+  say('mPanel','Se citeste...');
+  try{
+    var d=await API.get(v);
+    if(!d||!d.quiz)throw new Error('Codul nu contine un chestionar.');
+    var o=d.quiz;
+    el('cEv').value=o.ev||''; el('cT').value=(o.tables||[]).join(', ');
+    el('cPw').value=String(Math.floor(1000+Math.random()*9000));
+    paintCfg();
+    el('cS').value=o.seats||3; el('cM').value=o.minutes||10;
+    for(var i=0;i<4;i++)el('cC'+i).value=(o.cats||[])[i]||'';
+    el('cQ').value=o.qs||'';
+    say('mPanel',''); go('sCfg');
+    say('mCfg','Raspunsurile clientului au fost incarcate. Verifica si creeaza runda.','ok');
+  }catch(e){ say('mPanel','Codul nu a fost gasit. '+e.message,'err') }
+};
+el('bCGo').onclick=async function(){
+  if(busy)return; var b=el('bCGo');
+  var t=el('cT').value.split(',').map(function(x){return parseInt(x.trim(),10)}).filter(function(x){return !isNaN(x)&&x>0});
+  if(!t.length)return say('mCfg','Scrie cel putin un numar de masa.','err');
+  var q=el('cQ').value.split('\n').map(function(x){return x.trim()}).filter(Boolean);
+  if(!q.length)return say('mCfg','Ai nevoie de cel putin o intrebare.','err');
+  var c=[];for(var i=0;i<4;i++){var v=el('cC'+i).value.trim();if(v)c.push(v)}
+  var p=P[partner.profile||'bar'], nume=el('cEv').value.trim()||partner.name;
+  var hpw=el('cPw').value.trim()||String(Math.floor(1000+Math.random()*9000));
+  busy=true; b.disabled=true; b.textContent='...'; say('mCfg','');
+  var conf={ev:nume,client:partner.name,profile:partner.profile,tables:t,
+    seats:parseInt(el('cS').value,10)||p.seats, minutes:parseInt(el('cM').value,10)||p.minutes,
+    cats:c.length?c:p.cats.ro, ofera:(el('cOfera')?el('cOfera').value.trim():''), qs:q.join('\n'), qs2:altaLimba(q), pwHost:hpw, auto:(cAutoMod==='auto'), prag:parseInt(el('cPrag').value,10)||8, dep:!!p.dep, quiet:((cLimba==='en'&&p.quiet.en)?p.quiet.en:p.quiet.ro)||'',lang:cLimba,
+    oneTable:!!p.oneTable, noTimer:!!p.noTimer, autoStart:!!p.autoStart,
+    threshold:p.threshold||0, needsFlight:!!p.needsFlight, edition:!!p.edition};
+  try{
+    var nid=await API.create({cfg:conf,state:{wait:[],round:null,rounds:0,votes:{},met:{}}});
+    await API.addEvent(partner.id,pw,{id:nid,name:nume,profile:partner.profile,pw:hpw,ts:Date.now(),people:0});
+    events.push({id:nid,name:nume,pw:hpw,ts:Date.now(),people:0});
+    eid=nid; cfg=conf; freeT=t.slice(); el('hName').textContent=nume;
+    aratQR(nume, HH.base()+'?e='+nid, hpw, nid);
+  }catch(e){ say('mCfg',e.message,'err') }
+  busy=false; b.disabled=false; b.textContent='Creeaza runda';
+};
+
+
+/* ---------- pornire automată ----------
+   Nimeni nu apasă nimic. Când se adună destui, runda începe.
+   Butonul rămâne doar pentru cazul în care gazda vrea mai devreme. */
+var autoBusy=false;
+async function incearcaAuto(){
+  if(autoBusy || busy || !eid) return;
+  if(!cfg.auto) return;                                 // partenerul a ales să pornească el
+  var s=(doc&&doc.state)||{};
+  if(s.round) return;                                   // deja rulează
+  if(cfg.oneTable) return;                              // librăria are gazdă, nu prag
+  var q=(s.wait||[]).slice().sort(HH.ordq);
+  if(!q.length) return;
+
+  // Pragul e cel ales de partener. Cu prag mic se formează o singură masă mereu,
+  // iar algoritmul nu are ce echilibra.
+  var prag = cfg.prag || 8;
+
+  // Dacă TOȚI cei care așteaptă au bifat că merge și mai puțini, coborâm la 2.
+  // Bifa spune "merge și în doi" — dacă pragul rămâne 3, bifa minte.
+  var totiAccepta = q.every(function(w){ return w.accept });
+  if (totiAccepta) prag = 2;
+
+  // Iar dacă cineva așteaptă de peste 12 minute și sunt cel puțin 3, pornim oricum.
+  // Mai bine o masă de trei decât trei oameni care pleacă.
+  var acum = Date.now();
+  var celMaiVechi = Math.min.apply(null, q.map(function(w){ return w.ts || acum }));
+  if (q.length >= 3 && (acum - celMaiVechi) > 12*60000) prag = 3;
+
+  if(q.length < prag) return;
+  autoBusy=true;
+  try{ await porneste(q) }catch(e){}
+  autoBusy=false;
+}
+
+
+/* ---------- emailul partenerului ---------- */
+el('bMailSave').onclick=async function(){
+  var v=el('pMail').value.trim();
+  if(v && v.indexOf('@')<0) return say('mMail', T('mailErr'), 'err');
+  say('mMail', T('mailWait'));
+  try{
+    await API.partnerSave(pw, {email:v});
+    if(partner) partner.email=v;
+    say('mMail', T('mailOk'), 'ok');
+  }catch(e){ say('mMail', e.message, 'err') }
+};
+
+/* ---------- panoul gazdei ---------- */
+function paintHost(){
+  var s=(doc&&doc.state)||{}, r=s.round;
+  el('hWait').textContent=(s.wait||[]).length;
+  el('hTab').textContent=r?r.tables.length:0;
+  el('hLeft').textContent=(r&&r.dur)?HH.fmtLeft(r.start+r.dur-Date.now()):'—';
+  var q0=(s.wait||[]).length, prag=cfg.seats||4;
+  el('hAuto').innerHTML = r
+    ? '<b>'+T('hRun')+'</b>'+T('hRunP')
+    : (cfg.auto
+        ? '<b>'+T('hAuto')+'</b>'+T('hAutoA')+' '+(cfg.prag||8)+' '+T('hAutoB')+' '+q0+'.'
+        : '<b>'+T('hMan')+'</b>'+T('hManA')+' '+q0+' '+T('hManB'));
+
+  // raportul rundelor de azi — ce s-a intamplat, cu ora
+  var azi=(s&&s.istoric)||[];
+  if(azi.length){
+    var tot=azi.reduce(function(a,x){return a+(x.oameni||0)},0);
+    el('hRap').style.display='';
+    el('hRap').innerHTML='<b>'+T('rapT')+'</b>'+
+      azi.slice().reverse().map(function(x){
+        var d=new Date(x.ts||Date.now());
+        var ora=('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2);
+        return ora+' — '+x.oameni+' '+T('rapP')+', '+x.mese+' '+T('rapM');
+      }).join('<br>')+
+      '<br><br>'+T('rapTot')+' '+tot+' '+T('rapP')+' in '+azi.length+' '+(azi.length===1?T('rapR1'):T('rapRn'));
+  } else el('hRap').style.display='none';
+
+  el('bStop').style.display=r?'':'none';
+  el('bStart').textContent=cfg.oneTable?T('hOpen'):(r?T('hNext'):T('hGo'));
+  var q=(s.wait||[]).slice().sort(HH.ordq);
+  el('hList').innerHTML=r
+    ? r.tables.map(function(t){return '<div class="li"><span>masa '+t.n+'</span><b>'+esc(t.people.map(function(p){return p.name}).join(', '))+'</b></div>'}).join('')
+    : (q.length?q.map(function(w){return '<div class="li"><span>'+esc(w.name)+(w.dep?(' · '+esc(w.dep)):'')+'</span><b>'+(w.miss?'a ratat o runda':'')+'</b></div>'}).join('')
+       :'<p class="sub2" style="padding:14px 0">Inca nimeni nu a scanat.</p>');
+}
+
+el('bHB').onclick=function(e){ e.preventDefault(); if(mod==='p')HH.back(); };
+el('bHQr').onclick=function(){ aratQR(cfg.ev||'Runda', HH.base()+'?e='+eid, cfg.pwHost, eid) };
+el('bStop').onclick=async function(){
+  if(busy)return; busy=true;
+  try{ await API.op(eid,'stop'); doc=await API.get(eid); paintHost(); say('mHost','') }
+  catch(e){ say('mHost',e.message,'err') }
+  busy=false;
+};
+
+/* Cand nu incap toti. Gazda alege o data, iar daca vrea, nu o mai intrebam.
+   Psihologia: un om ocupat nu vrea o decizie, vrea sa mearga treaba. */
+var capMod = '';
+try{ capMod = localStorage.getItem('hh_cap') || '' }catch(e){}
+
+function capIntreaba(cati, locuri){
+  var raman = cati - locuri;
+  el('capT').textContent = T('capA')+' '+cati+'. '+T('capB')+' '+locuri+'.';
+  el('capS').textContent = raman+' '+T('capC');
+  el('capO1s').textContent = raman+' '+T('capO1s2');
+  el('capBox').style.display='';
+  el('capBox').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+function capTine(mod){
+  // Tinem minte alegerea. Un om ocupat nu vrea sa raspunda de doua ori.
+  try{ localStorage.setItem('hh_cap', mod) }catch(e){}
+  capMod = mod;
+  el('capBox').style.display='none';
+}
+
+async function capAdauga(cati, locuri){
+  // adaugam exact cate mese lipsesc, numerotate dupa ultima
+  var lista = (cfg.tables||[1]).map(String);
+  var nr = lista.map(Number).filter(function(x){ return !isNaN(x) });
+  var urm = nr.length ? Math.max.apply(null, nr) : lista.length;
+  var pePerMasa = (cfg.seats||4)+1;
+  var nevoie = Math.ceil((cati - locuri) / pePerMasa);
+  for(var i=0;i<nevoie;i++) lista.push(String(urm + 1 + i));
+  cfg.tables = lista;
+  try{ await API.op(eid,'cfg',{cfg:cfg}); say('mHost', T('capOk')+' '+nevoie, 'ok') }
+  catch(e){ say('mHost', e.message, 'err') }
+}
+
+if(el('capGo')) el('capGo').onclick=async function(){
+  capTine('go'); el('bStart').click();
+};
+if(el('capAdd')) el('capAdd').onclick=async function(){
+  capTine('add');
+  var s=(doc&&doc.state)||{}, q=(s.wait||[]).length;
+  var mese=(cfg.tables||[1]).length, locuri=mese*((cfg.seats||4)+1);
+  await capAdauga(q, locuri);
+  el('bStart').click();
+};
+if(el('capAuto')) el('capAuto').onclick=async function(){
+  capTine('auto');
+  var s=(doc&&doc.state)||{}, q=(s.wait||[]).length;
+  var mese=(cfg.tables||[1]).length, locuri=mese*((cfg.seats||4)+1);
+  await capAdauga(q, locuri);
+  el('bStart').click();
+};
+
+el('bStart').onclick=async function(){
+  if(busy)return;
+  try{ doc=await API.get(eid); cfg=doc.cfg||cfg }catch(e){ return say('mHost',e.message,'err') }
+  var q=(doc.state.wait||[]).slice().sort(HH.ordq);
+  if(q.length<2)return say('mHost',T('need2'),'err');
+
+  // Daca nu incap toti, gazda alege. Ea vede sala, noi nu.
+  // Iar daca nu are timp, sistemul decide in locul ei.
+  var mese=(cfg.tables||[1]).length, locuri=mese*((cfg.seats||4)+1);
+  if(q.length>locuri && !cfg.oneTable && capMod!=='go'){
+    if(capMod==='auto'){ await capAdauga(q.length, locuri); }
+    else if(capMod==='add'){ await capAdauga(q.length, locuri); }
+    else { return capIntreaba(q.length, locuri) }
+  }
+
+  busy=true; say('mHost','');
+  try{ await porneste(q) }catch(e){ say('mHost',e.message,'err') }
+  busy=false;
+};
+
+async function porneste(q){
+  var st=doc.state;
+  var qq=(cfg.qs||'').split('\n').map(function(x){return x.trim()}).filter(Boolean);
+  var qq2=(cfg.qs2||'').split('\n').map(function(x){return x.trim()}).filter(Boolean);
+  if(cfg.oneTable){
+    var ed=Math.max(1,(st.rounds||0)+1);
+    await API.op(eid,'round',{round:{id:'r'+Date.now(),start:Date.now(),dur:0,tables:[
+      {n:(cfg.tables||[1])[0], q:qq[Math.min(ed-1,qq.length-1)], q2:(qq2[Math.min(ed-1,qq2.length-1)]||''),
+       people:q.map(function(p){return{id:p.id,name:p.name,dep:p.dep}})}]},
+      seated:q.map(function(p){return p.id}), left:[], met:{}});
+  } else {
+    var mese=(cfg.tables||[]).slice();
+    var keep={},rest=[];
+    q.forEach(function(p){ if(p.stay){(keep[p.stay]=keep[p.stay]||[]).push(p)} else rest.push(p) });
+    var kept=[],used=[];
+    Object.keys(keep).forEach(function(k){
+      if(keep[k].length>=2){ var n=parseInt(k.slice(1),10);
+        if(mese.indexOf(n)>=0){kept.push({n:n,people:keep[k]});used.push(n)}
+        else kept.push({n:mese.filter(function(x){return used.indexOf(x)<0})[0]||n,people:keep[k]});
+      } else keep[k].forEach(function(p){rest.push(p)});
+    });
+    var fl=mese.filter(function(x){return used.indexOf(x)<0});
+    var b=HH.makeGroups(rest, HH.sizes(rest.length,fl.length,cfg.seats||4), st.met||{}, cfg.quiet||'');
+    if(!b.groups.length && !kept.length) throw new Error('Nu se poate forma nicio masă.');
+    var off=(st.rounds||0)*mese.length;
+    var tables=kept.map(function(t,i){return{n:t.n,q:qq[(off+i)%qq.length], q2:(qq2.length?qq2[(off+i)%qq2.length]:'')||qq[0],
+      people:t.people.map(function(p){return{id:p.id,name:p.name,dep:p.dep}})}});
+    b.groups.forEach(function(g,i){ tables.push({n:fl[i],q:qq[(off+kept.length+i)%qq.length], q2:(qq2.length?qq2[(off+kept.length+i)%qq2.length]:'')||qq[0],
+      people:g.map(function(p){return{id:p.id,name:p.name,dep:p.dep}})}) });
+    var metAdd={};
+    tables.forEach(function(t){t.people.forEach(function(a){t.people.forEach(function(x){
+      if(a.id!==x.id){ metAdd[a.id]=metAdd[a.id]||((st.met||{})[a.id]||[]).slice();
+        if(metAdd[a.id].indexOf(x.id)<0)metAdd[a.id].push(x.id) }})})});
+    var seated=[]; tables.forEach(function(t){t.people.forEach(function(p){seated.push(p.id)})});
+    var left=b.left.map(function(p){return{id:p.id,name:p.name,dep:p.dep,cat:p.cat,ts:p.ts,miss:(p.miss||0)+1,pair:p.pair||'',stay:''}});
+    await API.op(eid,'round',{round:{id:'r'+Date.now(),start:Date.now(),dur:(cfg.minutes||20)*60000,tables:tables},
+      seated:seated, left:left, met:metAdd});
+  }
+  doc=await API.get(eid); paintHost(); HH.vibrate([40,60,40]);
+}
+
+/* ---------- codul QR ---------- */
+var qu='';
+function aratQR(nume,url,hpw,evid){
+  qu=url; el('qName').textContent=nume; el('qUrl').textContent=url; el('qBox').innerHTML='';
+  try{ new QRCode(el('qBox'),{text:url,width:230,height:230,correctLevel:QRCode.CorrectLevel.M}) }
+  catch(e){ el('qBox').innerHTML='<p style="color:#333;padding:20px">'+T('useLink')+'</p>' }
+  el('qHost').innerHTML='<b>'+T('hostLink')+'</b>'+esc(HH.base()+'partener.html#m='+evid)+'<br>Parola: '+esc(hpw||'');
+  go('sQR');
+}
+el('bQB').onclick=function(e){ e.preventDefault(); HH.back() };
+el('bQCp').onclick=function(){ HH.copy(qu, el('bQCp')) };
+el('bQSh').onclick=function(){ HH.shareLink(qu, 'Scanează codul de pe masă') };
+/* Tiparul se face intr-o fereastra proprie, cu HTML curat.
+   Asa nu se amesteca cu stilurile panoului, care au propriile reguli de tipar. */
+function tiparesteCod(adresa){
+  var tmp=document.createElement('div'); tmp.style.display='none';
+  document.body.appendChild(tmp);
+  var src='';
+  try{
+    new QRCode(tmp,{text:adresa,width:700,height:700,correctLevel:QRCode.CorrectLevel.M});
+  }catch(e){}
+  setTimeout(function(){
+    var cv=tmp.querySelector('canvas'), im=tmp.querySelector('img');
+    try{ if(cv) src=cv.toDataURL('image/png') }catch(e){}
+    if(!src && im) src=im.src;
+    tmp.remove();
+    if(!src){ alert('Codul nu s-a putut desena. Încearcă din alt browser.'); return }
+
+    var adr=adresa.replace(/^https?:\/\//,'');
+    var w=window.open('', '_blank');
+    if(!w){ alert('Browserul a blocat fereastra de tipar. Permite ferestrele și încearcă din nou.'); return }
+    w.document.open();
+    w.document.write(
+      '<!doctype html><html><head><meta charset="utf-8"><title>HelloHuman</title><style>'+
+      '*{margin:0;padding:0;box-sizing:border-box}'+
+      'body{background:#fff;color:#111;font-family:Georgia,"Times New Roman",serif;padding:10mm}'+
+      '.pc{width:88mm;height:125mm;margin:0 auto;padding:12mm 9mm;border:1px dashed #ccc;'+
+      'display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center}'+
+      '.t{font-size:15pt;font-weight:700;letter-spacing:.02em}'+
+      '.q img{width:48mm;height:48mm;display:block}'+
+      '.p{font-size:10pt;line-height:1.55}'+
+      '.u{font-size:8.5pt;color:#555;word-break:break-all;line-height:1.3}'+
+      '@page{margin:8mm}@media print{body{padding:0}.pc{border:0}}'+
+      '</style></head><body><div class="pc">'+
+      '<div class="t">HelloHuman</div>'+
+      '<div class="q"><img src="'+src+'"></div>'+
+      '<div class="p">'+(lang==='en'
+  ? 'Scan the code.<br>Choose how you want to join.<br>You sit down with people who want to talk.'
+  : 'Scanează codul.<br>Alegi cum vrei să participi.<br>Te așezi cu oameni care vor să discute.')+'</div>'+
+      '<div class="u">'+adr+'</div>'+
+      '</div></body></html>');
+    w.document.close();
+    setTimeout(function(){ try{ w.focus(); w.print() }catch(e){} }, 600);
+  }, 400);
+}
+el('bQPrint').onclick=function(){ tiparesteCod(qu) };
+el('bQSend').onclick=function(){ HH.shareLink(el('qLink').textContent) };
+el('bQCopy').onclick=function(){ HH.copy(el('qLink').textContent, el('bQCopy')) };
+
+/* ---------- pornire ---------- */
+HH.initNav(ECR,'sLog',function(){ HH.go(mod==='p'&&partner?'sPanel':(mod==='m'&&pw?'sHost':'sLog'),true) });
+(function(){
+  if(mod==='p'){ var k=HH.recall('hh_pp'); if(k){ el('pw').value=k; el('bLog').click() } }
+  if(mod==='m'){ var k2=HH.recall('hh_hp'); if(k2){ el('pw').value=k2; el('bLog').click() } }
+})();
+(function(){
+  try{ var s=localStorage.getItem('hh_l'); if(s)lang=s;
+    else if((navigator.language||'').toLowerCase().indexOf('ro')!==0)lang='en' }catch(e){}
+  applyLang();
+  var b=document.getElementById('bLang');
+  if(b)b.onclick=function(){ setLang(lang==='ro'?'en':'ro') };
+})();
+</script>
+
+</body>
+</html>
