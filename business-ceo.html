@@ -60,7 +60,8 @@ textarea{resize:vertical;min-height:62px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 #lang{position:fixed;top:clamp(14px,3vw,22px);right:clamp(14px,3vw,22px);z-index:30;background:var(--os);border:1px solid var(--linie);color:var(--gri);font-family:var(--sans);font-size:11px;letter-spacing:.2em;padding:8px 14px;cursor:pointer;transition:.3s;border-radius:2px;-webkit-tap-highlight-color:transparent}
 #lang:hover{border-color:var(--ocru);color:var(--ocru)}
-.logo{display:inline-flex;align-items:center;gap:9px}
+.logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:inherit;transition:opacity .25s}
+.logo:hover{opacity:.72}
 .logo img{width:30px;height:30px;flex:none;opacity:.95}
 </style>
 <link rel="icon" type="image/svg+xml" href="/marca.svg">
@@ -69,7 +70,7 @@ textarea{resize:vertical;min-height:62px;line-height:1.6}
 <body>
 <button id="lang" type="button" aria-label="English">EN</button>
 <div class="wrap">
-  <p class="logo"><img src="/marca.svg" alt="" width="28" height="28" aria-hidden="true">HelloHuman</p>
+  <a class="logo" href="/business"><img src="/marca.svg" alt="" width="28" height="28" aria-hidden="true">HelloHuman</a>
 
   <section class="sc on" id="s0">
     <h1 data-k="h0">Sunt Bogdan, fondatorul HelloHuman.</h1>
