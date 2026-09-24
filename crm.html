@@ -761,7 +761,11 @@ function bizMarcheaza(mail){
   try{ localStorage.setItem('hh_trm', JSON.stringify(l)) }catch(e){}
 }
 
-/* Mesajul de însoțire, compus din profil. Se copiază, se lipește în email. */
+/* Mesajul de însoțire.
+   Tema vine din profil. Structura de limbaj vine din același profil —
+   un om care cere dovadă nu se convinge cum se convinge unul care decide singur.
+   Iar cuvintele lui, din răspunsurile deschise, se întorc neschimbate. */
+
 var PRIMA={
   SILO:'Din răspunsurile dumneavoastră reiese că distanța dintre echipe este ceea ce vă apasă cel mai mult.',
   VIZIBILITATE:'Din răspunsurile dumneavoastră reiese că vă lipsește vizibilitatea asupra a ceea ce se întâmplă între oameni.',
@@ -770,8 +774,33 @@ var PRIMA={
   EFICIENTA:'Din răspunsurile dumneavoastră reiese că vă interesează efectul asupra rezultatelor, nu procesul.',
   STATUSQUO:'Din răspunsurile dumneavoastră reiese că preferați să vedeți dovada înainte de orice angajament.'
 };
+
+/* Structura de limbaj, după profil. */
+var STRUCT={
+  SILO:{      /* traversare — accent pe ce se leagă */
+    mij:'Prezentarea arată ce se poate măsura între echipe și cât de repede.',
+    inch:'Decizia rămâne a dumneavoastră. Vă răspund la orice întrebare, fără să insist.'},
+  VIZIBILITATE:{
+    mij:'Prezentarea arată exact ce vedeți la final și ce nu ajunge niciodată în raport.',
+    inch:'Dacă vreți să vedeți cum arată un raport real, vi-l trimit.'},
+  DOVADA:{    /* extern — dovezi, referințe, metodologie */
+    mij:'Prezentarea are cifrele și sursele lor: anchete europene pe zeci de mii de respondenți, iar metodologia completă în anexă.',
+    inch:'Dacă departamentul dumneavoastră juridic vrea documentația de prelucrare a datelor, o trimit înainte de orice discuție.'},
+  FRICTIUNE:{ /* dinspre — accent pe ce evită */
+    mij:'Nu cerem acces la niciun sistem, nu instalăm nimic și nu ocupăm timpul nimănui din echipă.',
+    inch:'Dacă la jumătate vă răzgândiți, se oprește dintr-un buton. Nu rămâne nimic instalat.'},
+  EFICIENTA:{ /* către — accent pe ce obține */
+    mij:'Prezentarea arată ce obțineți în paisprezece zile și ce decizie puteți lua pe baza acelor cifre.',
+    inch:'Dacă vreți, calculăm împreună ce ar însemna asta pentru organizația dumneavoastră.'},
+  STATUSQUO:{ /* proceduri — pași, ordine, fără angajament */
+    mij:'Prezentarea are cei trei pași, în ordine, cu ce se întâmplă la fiecare.',
+    inch:'Nu e nevoie de nicio decizie acum. Citiți, iar dacă are sens, vorbim.'}
+};
+
 function bizMesaj(x){
   var p=profil(x.raspuns);
+  var s=STRUCT[p.dom]||STRUCT.SILO;
+  var fin=(x.finale||[]);
   var L=[];
   L.push('Bună ziua,');
   L.push('');
@@ -780,13 +809,25 @@ function bizMesaj(x){
   if(PRIMA[p.dom]) L.push(PRIMA[p.dom]);
   L.push('');
   L.push('Găsiți prezentarea aici — cinci pagini, un minut de citit:');
-  L.push('https://hellohuman.ro/prezentare-business');
+  L.push('https://hellohuman.ro/masuram');
   L.push('');
-  L.push('S-ar putea să descoperiți că restul informațiilor sunt la fel de relevante — de cele mai multe ori, companiile găsesc soluții și la probleme pe care nu știau că le caută.');
+  L.push(s.mij);
   L.push('');
-  if(x.reducere) L.push('Pentru răspunsurile suplimentare, primul ciclu beneficiază de o reducere de '+x.reducere+'%.');
-  if(x.reducere) L.push('');
-  L.push('Dacă doriți să aprofundăm, îmi răspundeți direct la acest email.');
+  /* cuvintele lui, întoarse neschimbate */
+  if(fin[2]){
+    L.push('La întrebarea despre ce ar însemna că a meritat, ați răspuns: „' + fin[2].replace(/^[„"]|[”"]$/g,'') + '”.');
+    L.push('Exact asta se vede în cifrele de la final.');
+    L.push('');
+  } else if(fin[1]){
+    L.push('Ați scris că v-ar folosi să știți: „' + fin[1].replace(/^[„"]|[”"]$/g,'') + '”.');
+    L.push('Aceea este una dintre cifrele pe care le livrăm.');
+    L.push('');
+  }
+  if(x.reducere){
+    L.push('Pentru răspunsurile suplimentare, primul ciclu beneficiază de o reducere de '+x.reducere+'%.');
+    L.push('');
+  }
+  L.push(s.inch);
   L.push('');
   L.push('Toate cele bune,');
   L.push('Bogdan');
