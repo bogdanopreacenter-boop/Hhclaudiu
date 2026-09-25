@@ -60,6 +60,12 @@ body{background:#16302B;margin:0}
 .footlogo:hover img{opacity:1}
 .src2{font-size:12.5px;color:var(--dim);margin-top:14px;font-style:italic}
 #recloc .btn{margin-top:22px;text-decoration:none;display:inline-block}
+.lb2{display:block;font-size:11px;letter-spacing:.16em;color:var(--dim);margin:18px 0 5px}
+#fRec input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--lined);color:inherit;font:inherit;font-size:16px;padding:10px 2px;border-radius:0}
+#fRec input:focus{outline:none;border-bottom-color:var(--gold)}
+#fRec .btn{margin-top:24px}
+.msg3{font-size:13px;margin-top:12px;min-height:1.2em;color:var(--dim)}
+.msg3.err{color:var(--rust)}
 </style>
 <script type="application/ld+json">
 {
@@ -238,7 +244,7 @@ body{background:#16302B;margin:0}
       <p class="eyebrow" data-t="nEye">Unde se organizează?</p>
       <h2 data-t="nH">În locurile pe care<br>deja le frecventezi.</h2>
       
-      <p class="lead" style="margin-top:14px" data-t="nP">Spune-ne unde ai vrea. Iar când apare un loc în orașul tău, îți scriem. Spune-ne orașul tău și te anunțăm când organizăm ceva acolo.</p>
+      <p class="lead" style="margin-top:14px" data-t="nP">Spune-ne orașul tău. Când apare un loc acolo, îți scriem.</p>
       <div class="sig">
         <div class="sigrow">
           <input type="email" id="pubMail" placeholder="tu@email.com" autocomplete="email" enterkeyhint="done" data-tp="phMail">
@@ -272,7 +278,19 @@ body{background:#16302B;margin:0}
     <p class="eyebrow" data-t="rE">Un loc anume</p>
     <h2 data-t="rH2">Ai un loc unde ți-ar plăcea?</h2>
     <p class="lead" data-t="rP2">Spune-ne care e. Scriem noi mai departe.</p>
-    <a class="btn ghost" href="/parteneri.html#stiu" data-t="rB2">SPUNE-NE CARE</a>
+    <form id="fRec" novalidate style="max-width:420px;margin-top:26px">
+      <label class="lb2" for="r1" data-t="rL1">CE LOC</label>
+      <input type="text" id="r1" placeholder="Cafeneaua din colț" data-tp="rP1">
+      <label class="lb2" for="r2" data-t="rL2">ÎN CE ORAȘ</label>
+      <input type="text" id="r2" placeholder="București" data-tp="rP2b">
+      <label class="lb2" for="r3" data-t="rL3">DE CE ACELA</label>
+      <input type="text" id="r3" placeholder="o propoziție" data-tp="rP3">
+      <label class="lb2" for="r4" data-t="rL4">EMAILUL TĂU</label>
+      <input type="email" id="r4" placeholder="tu@email.com" data-tp="rP4" autocomplete="email">
+      <button class="btn ghost" id="bRec" type="submit" data-t="rB">TRIMITE</button>
+      <p class="msg3" id="mRec"></p>
+    </form>
+    <p class="src2" data-t="rN">Îți scriem dacă locul devine partener. Atât. Nu-ți cerem nimic altceva.</p>
   </div>
 </section>
 
@@ -586,12 +604,12 @@ en:{cOf:'On the house',dp1:'You scan the card on the table.',dp2:'You sit down w
  cdWa:'Send on WhatsApp',cdMail:'Send by email',cdCopy:'Copy the code'}
 };
 var SITE={
- ro:{dE:"De ce nu se întâmplă singur",dH:"Fiecare crede că celălalt nu vrea",dP:"Oamenii subestimează cât de mult s-ar bucura un străin să vorbească cu ei. După o conversație scurtă, îl plac mult mai mult decât se așteptau.",dS:"Sandstrom și Dunn, psihologie socială.",rE:"Un loc anume",rH2:"Ai un loc unde ți-ar plăcea?",rP2:"Spune-ne care e. Scriem noi mai departe.",rB2:"SPUNE-NE CARE", hP:'Un cod pe masă. Câteva minute. Atât.',hP2:'Scanezi codul, spui în ce fel vrei să participi, iar telefonul îți arată la ce masă. Nu trebuie să abordezi pe nimeni.',
+ ro:{rL1:"CE LOC",rL2:"ÎN CE ORAȘ",rL3:"DE CE ACELA",rL4:"EMAILUL TĂU",rP1:"Cafeneaua din colț",rP2b:"București",rP3:"o propoziție",rP4:"tu@email.com",rB:"TRIMITE",rN:"Îți scriem dacă locul devine partener. Atât. Nu-ți cerem nimic altceva.",dE:"De ce nu se întâmplă singur",dH:"Fiecare crede că celălalt nu vrea",dP:"Oamenii subestimează cât de mult s-ar bucura un străin să vorbească cu ei. După o conversație scurtă, îl plac mult mai mult decât se așteptau.",dS:"Sandstrom și Dunn, psihologie socială.",rE:"Un loc anume",rH2:"Ai un loc unde ți-ar plăcea?",rP2:"Spune-ne care e. Scriem noi mai departe.",rB2:"SPUNE-NE CARE", hP:'Un cod pe masă. Câteva minute. Atât.',hP2:'Scanezi codul, spui în ce fel vrei să participi, iar telefonul îți arată la ce masă. Nu trebuie să abordezi pe nimeni.',
  sP:'Codul decide unde stai. Tu doar te așezi.',
  s1h:'Scanezi codul',s1p:'Un cartonaș pe masă. Îl scanezi, scrii un prenume — sau orice altceva. Nimeni nu verifică.',
  s2h:'Spui cum ești azi',s2p:'Vrei să vorbești, preferi să asculți, cauți idei. O apăsare. Nimeni de la masă nu vede ce ai ales.',
  s3h:'Vorbiți. Apoi te ridici.',s3p:'Primești o întrebare de pornire. Când se termină timpul, te ridici. Nimeni nu întreabă de ce.',
- nP:'Spune-ne unde ai vrea. Iar când apare un loc în orașul tău, îți scriem. Spune-ne orașul tău și te anunțăm când organizăm ceva acolo.',
+ nP:'Spune-ne orașul tău. Când apare un loc acolo, îți scriem.',
  cons:'Sunt de acord să primesc notificări despre evenimentele din orașul meu.',
  gdpr:'Folosim emailul tău doar pentru a te anunța despre evenimente din orașul tău. Nu îl vindem sau distribuim. Te poți dezabona oricând. Operator: HelloHuman, România.',
  f1q:'Ce este HelloHuman?',f1a:'Este un mod simplu de a cunoaște oameni noi, chiar acolo unde ești deja. Găsești un cod QR pe masă, îl scanezi, alegi cum vrei să participi, iar noi te așezăm la o masă cu alți doi sau trei oameni care vor să discute.',
@@ -611,7 +629,7 @@ var SITE={
  fEye:'Întrebări frecvente',fH:'Ai întrebări?<br>Iată răspunsurile.',
  wEye:'De ce funcționează',wH:'Știința din spatele<br>conexiunilor umane.',
  ftS:'Pe scurt',ftT:'Oameni care nu se cunosc ajung la aceeași masă pentru câteva minute, chiar acolo unde se aflau oricum.'},
- en:{dE:"Why it does not happen on its own",dH:"Each one assumes the other would not",dP:"People underestimate how much a stranger would enjoy talking to them. After a brief conversation, they like them far more than they expected.",dS:"Sandstrom and Dunn, social psychology.",rE:"A place in mind",rH2:"Is there a place you would love this in?",rP2:"Tell us which one. We take it from there.",rB2:"TELL US WHICH", hP:'A code on the table. A few minutes. That is all.',hP2:'Scan the code on the table, choose how you want to join, and we\'ll seat you at a table with people who want to talk.</b>',
+ en:{rL1:"WHICH PLACE",rL2:"WHICH CITY",rL3:"WHY THAT ONE",rL4:"YOUR EMAIL",rP1:"The café on the corner",rP2b:"Bucharest",rP3:"one sentence",rP4:"you@email.com",rB:"SEND",rN:"We write to you if the place becomes a partner. That is all. We ask nothing else.",dE:"Why it does not happen on its own",dH:"Each one assumes the other would not",dP:"People underestimate how much a stranger would enjoy talking to them. After a brief conversation, they like them far more than they expected.",dS:"Sandstrom and Dunn, social psychology.",rE:"A place in mind",rH2:"Is there a place you would love this in?",rP2:"Tell us which one. We take it from there.",rB2:"TELL US WHICH", hP:'A code on the table. A few minutes. That is all.',hP2:'Scan the code on the table, choose how you want to join, and we\'ll seat you at a table with people who want to talk.</b>',
  sP:'The code decides where you sit. You just sit down.',
  s1h:'You scan the code',s1p:'There is a code on the table. Scan it with your phone camera and write your first name.',
  s2h:'You choose how to join',s2p:'Want to talk? Rather listen? Looking for new ideas? Pick one, and we tell you straight away which table to sit at.',
@@ -1225,6 +1243,26 @@ el('bQMail').onclick=function(){
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape') inchide();
   });
+})();
+
+(function(){
+  var f=document.getElementById('fRec'); if(!f) return;
+  var msg=document.getElementById('mRec');
+  f.onsubmit=async function(e){
+    e.preventDefault();
+    var loc=document.getElementById('r1').value.trim();
+    var ora=document.getElementById('r2').value.trim();
+    var dec=document.getElementById('r3').value.trim();
+    var mail=document.getElementById('r4').value.trim();
+    if(!loc || !mail || mail.indexOf('@')<1){ msg.textContent='—'; msg.className='msg3 err'; return }
+    document.getElementById('bRec').disabled=true;
+    try{
+      await fetch('/api/store?lead=1&id=recomandari',{method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({src:'recomandare',loc:loc,oras:ora,dece:dec,mail:mail,ts:Date.now()})});
+    }catch(err){}
+    f.innerHTML='<p class="lead">'+(T[lang]&&T[lang].rN?T[lang].rN:'Mulțumim.')+'</p>';
+  };
 })();
 </script>
 </body>
